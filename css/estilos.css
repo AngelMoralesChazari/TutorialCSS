@@ -232,7 +232,36 @@ Tarjetas dinámicas
   animation: fadeUp 0.8s ease forwards;
 }
 
+@keyframes pulseBox {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1); /* el cuadro crece ligeramente */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 
+
+/*No se si me gusta o no 
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 16px rgba(56,189,248,0.25);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 35px rgba(56,189,248,0.7);
+    filter: brightness(1.15);
+  }
+}*/
+
+.preview-box {
+  animation: pulseGlow 2.8s ease-in-out infinite;
+}
 
 
 /* ==========================================================
@@ -321,9 +350,16 @@ Tarjetas dinámicas
 
 /* Efectos visuales (previews completos) */
 .gradient-demo {
-  background: linear-gradient(120deg, #ff512f, #dd2476);
-  background-size: 250% 250%;
+  background: linear-gradient(120deg, #ff512f, #ff0080, #38bdf8, #00ffff);
+  background-size: 400% 400%;
   animation: gradientShift 6s ease-in-out infinite;
+}
+
+/* Anima el desplazamiento del gradiente */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .gradient-radial-demo {
@@ -332,23 +368,34 @@ Tarjetas dinámicas
 }
 
 .rgba-demo {
-  background: rgba(0,0,0,0.6);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 99, 132, 0.35),
+    rgba(54, 162, 235, 0.35)
+  );
   position: relative;
-  border: 3px solid rgba(255,255,255,0.25);
+  border: 3px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(4px);
 }
+
 .rgba-demo::before {
   content: "";
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
     45deg,
-    rgba(255,99,132,0.3) 0,
-    rgba(255,99,132,0.3) 10px,
-    rgba(36,162,255,0.3) 10px,
-    rgba(36,162,255,0.3) 20px
+    rgba(255,255,255,0.15) 0,
+    rgba(255,255,255,0.15) 10px,
+    rgba(255,255,255,0.05) 10px,
+    rgba(255,255,255,0.05) 20px
   );
   mix-blend-mode: overlay;
   animation: patternSlide 6s linear infinite;
+}
+
+@keyframes patternSlide {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
 }
 
 .outline-demo {
@@ -387,6 +434,7 @@ Tarjetas dinámicas
   box-shadow: 0 0 20px rgba(0,0,0,0.35);
   border: 1px solid rgba(255,255,255,0.1);
   transition: transform .3s ease, box-shadow .3s ease;
+  animation: pulseBox 2.8s ease-in-out infinite;
 }
 
 .preview-box:hover {
