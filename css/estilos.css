@@ -434,13 +434,219 @@ body::before{
   }
 }*/
 
+
+/* ==========================================================
+   LAYOUT DE CURSO (GRADIENTE LINEAL)
+   ========================================================== */
+
+/* Estructura general: panel lateral + contenido */
+.linear-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* === Menú lateral === */
+.side-menu {
+    background: rgba(17, 24, 39, 0.9);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 10px 25px var(--shadow);
+    height: fit-content;
+    position: sticky;
+    top: 24px;
+}
+
+.side-menu h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    color: var(--accent);
+    text-align: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.lesson-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.lesson-list li {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-weight: 500;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+.lesson-list li:hover {
+    background: rgba(56,189,248,0.15);
+    border-color: var(--accent);
+}
+
+.lesson-list li.active {
+    background: rgba(56,189,248,0.25);
+    color: #dbeafe;
+    border-color: var(--accent);
+    font-weight: 600;
+}
+
+/* === Contenido principal === */
+.lesson-content {
+    flex: 1;
+}
+
+/* Código dentro de teoría */
+.lesson-content pre {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 12px 0;
+    overflow-x: auto;
+    color: #93c5fd;
+    font-family: Consolas, monospace;
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .linear-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .side-menu {
+        position: relative;
+        top: 0;
+        width: 100%;
+    }
+}
+
+
+/* ==========================================================
+   PLAYGROUND MEJORADO (Diseño más estético)
+   ========================================================== */
+
+/* Contenedor principal */
+.Playground-section {
+  width: 100%;
+  max-width: 780px; /* 🔹 igual o un poco menor que tu bloque de teoría */
+  margin: 40px 465px; /* 🔹 auto garantiza el centrado horizontal */
+  padding: 32px 40px;
+  background: rgba(17,24,39,0.95);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.45);
+
+  /* 🔹 centramos internamente todo el contenido */
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  text-align: center;
+}
+
+/* Texto del encabezado */
+.Playground-section h2 {
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.Playground-section p {
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+/* Controles */
+.Playground-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 18px;
+}
+
+.btn-play, .btn-reset {
+  background: rgba(56,189,248,0.08);
+  border: 1px solid var(--accent);
+  color: var(--text);
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.92rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-play:hover, .btn-reset:hover {
+  background: rgba(56,189,248,0.25);
+  transform: translateY(-2px);
+}
+
+.Playground-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  align-items: stretch;
+  margin-top: 20px;
+}
+
+#css-editor {
+  width: 100%;
+  min-height: 240px;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 14px;
+  border-radius: 10px;
+  resize: vertical;
+  font-family: Consolas, monospace;
+  font-size: 0.96rem;
+  outline: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#css-editor:focus {
+  box-shadow: 0 0 18px rgba(56,189,248,0.6);
+  transform: scale(1.01);
+}
+
+#preview-box {
+  background: linear-gradient(to right, #ff6a00, #ffaa00);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#preview-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.55);
+}
+
+/* Pequeña animación de realce */
+#preview-box.highlight {
+  animation: previewPop 0.5s ease;
+}
+
+@media (max-width: 900px) {
+  .Playground-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
-.site-footer {
-    text-align: center;
-    align-self: center;
-}
+
 
 /* ==========================================================
    RESPONSIVE
@@ -466,6 +672,123 @@ body::before{
     z-index: -2;
     overflow: hidden;
     background: url("../recursosVisuales/background.jpg") center/cover no-repeat;
+}
+
+
+/* ==========================================================
+   APLICACIONES DEL GRADIENTE LINEAL
+   ========================================================== */
+.aplicaciones-section {
+  margin-top: 70px;
+}
+
+.aplicaciones-section h2 {
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.aplicaciones-section p {
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.aplicaciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 26px;
+  margin-top: 20px;
+}
+
+.demo-card {
+  background: rgba(17,24,39,0.9);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.demo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.55);
+}
+
+.demo-card h3 {
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.demo-box {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 12px;
+  height: 160px;
+  border: 1px solid var(--border);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+
+/* Fondo dinámico */
+#demo-fondo {
+  background: linear-gradient(120deg, #ff512f, #ff0080, #38bdf8, #00ffff);
+  background-size: 400% 400%;
+  animation: gradientShift 6s ease-in-out infinite;
+}
+
+/* Imagen con overlay */
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-wrapper .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(56,189,248,0.2));
+  transition: all 0.4s ease;
+}
+
+.image-wrapper:hover .overlay {
+  background: linear-gradient(to top, rgba(56,189,248,0.5), rgba(0,0,0,0.2));
+}
+
+/* Botón interactivo */
+#btn-gradiente {
+  background: linear-gradient(90deg, #ff6a00, #ffaa00);
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(255,147,23,0.4);
+  transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+#btn-gradiente:hover {
+  background: linear-gradient(90deg, #ffaa00, #ff6a00);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,147,23,0.6);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.site-footer {
+    text-align: center;
+    align-self: center;
 }
 
 /* === Fin del archivo === */

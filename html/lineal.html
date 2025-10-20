@@ -1,41 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <title>Gradiente Lineal</title>
-    
-    <link rel="stylesheet" href="../css/estilos.css" />
-    <script defer src="../js/nav.js"></script>
-</head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<body>
+        <title>Gradiente Lineal</title>
 
-    <header class="site-header">
-        <h1>Gradiente Lineal</h1>
+        <link rel="stylesheet" href="../css/estilos.css" />
+        <script defer src="../js/nav.js"></script>
+        <script defer src="../js/Lineal/lineal.js"></script>
+        <script defer src="../js/Lineal/playgroundLineal.js"></script>
+    </head>
 
-        <p>Permite crear transiciones suaves entre dos o más colores a lo largo de una línea recta. Ideal para fondos que van de un color a otro de forma elegante.</p>
-    </header>
+    <body>
+        <header class="site-header">
+            <h1>Gradiente Lineal</h1>
 
-    <nav class="site-nav">
-        <a href="index.html">Inicio</a>
-        <a href="radial.html">Gradiente Radial</a>
-        <a href="colores.html">RGBA y HSLA</a>
-        <a href="outline.html">Outline</a>
-    </nav>
+        </header>
 
-    <main class="content">
-        <section class="card">
-        <h2>Contenido principal</h2>
+        <nav class="site-nav">
+            <a href="index.html">Inicio</a>
+            <a href="radial.html">Gradiente Radial</a>
+            <a href="colores.html">RGBA y HSLA</a>
+            <a href="outline.html">Outline</a>
+        </nav>
 
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nostrum rerum neque provident incidunt voluptas alias quasi quae qui similique! Nobis sint repudiandae nostrum excepturi sed error illum sunt voluptas?</p>
+        <main class="content linear-layout">
+
+            <!-- 🔹 PANEL LATERAL -->
+            <aside class="side-menu">
+                <h3>Temario</h3>
+                <ul class="lesson-list">
+                    <li class="active" data-lesson="1">1️⃣ ¿Qué es un Gradiente Lineal?</li>
+                    <li data-lesson="2">2️⃣ Direcciones y Ángulos</li>
+                    <li data-lesson="3">3️⃣ Múltiples Colores</li>
+                    <li data-lesson="4">4️⃣ Uso Creativo</li>
+                </ul>
+            </aside>
+
+            <!-- Panel del Tutorial -->
+            <section class="lesson-content card" id="lesson-content">
+                <h2>1️⃣ ¿Qué es un Gradiente Lineal?</h2>
+                <div class="dual-layout">
+                    <div class="text-content">
+                        <p>
+                            Un <strong>gradiente lineal</strong> crea una transición suave entre dos o más colores dispuestos
+                            a lo largo de una línea recta. Es muy útil para diseñar fondos con efecto visual de profundidad
+                            o destacar secciones con un toque moderno.
+                        </p>
+
+                        <p>Su sintaxis básica es:</p>
+                        <pre><code>background: linear-gradient(to right, red, blue);</code></pre>
+
+                        <p>
+                            En este ejemplo el color <b>rojo</b> comienza a la izquierda y se difumina hasta convertirse en 
+                            <b>azul</b> hacia la derecha.
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+
+
+        <section class="card Playground-section">
+            <h2>🧪 Practica tu propio gradiente</h2>
+            <p>Puedes escribir tu propio código CSS o probar algunos ejemplos predefinidos 👇</p>
+
+            <div class="Playground-controls">
+                <button class="btn-play" data-example="to right, #ff6a00, #ffaa00">Horizontal</button>
+                <button class="btn-play" data-example="45deg, #38bdf8, #818cf8">Diagonal</button>
+                <button class="btn-play" data-example="to right, #ff512f, #ff9966, #38bdf8">Multicolor</button>
+                <button class="btn-reset">Reiniciar</button>
+            </div>
+
+            <div class="Playground-grid">
+                <textarea id="css-editor" spellcheck="false">
+background: linear-gradient(to right, #ff6a00, #ffaa00);
+                </textarea>
+                <div id="preview-box"></div>
+            </div>
         </section>
-    </main>
+        
 
-    <footer class="site-footer">
-        <small> 💻 Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript 💻 </small>
-    </footer>
 
-</body>
+
+
+        <footer class="site-footer">
+            <small>💻 Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript 💻</small>
+        </footer>
+
+    </body>
 </html>
