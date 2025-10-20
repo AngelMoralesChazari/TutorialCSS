@@ -1,4 +1,7 @@
-:root{
+/* ==========================================================
+   VARIABLES GLOBALES
+   ========================================================== */
+:root {
   --bg: #0f172a;          /* fondo general (slate-900) */
   --panel: #111827;       /* paneles/cards (gray-900) */
   --text: #e5e7eb;        /* texto principal (gray-200) */
@@ -10,9 +13,16 @@
   --sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
 }
 
-*{ box-sizing: border-box; }
-html, body{ height: 100%; }
-body{
+/* ==========================================================
+   RESET BÁSICO
+   ========================================================== */
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+}
+body {
   margin: 0;
   font-family: var(--sans);
   color: var(--text);
@@ -23,44 +33,41 @@ body{
   line-height: 1.55;
 }
 
-/*
-Cabecera
-*/
-
-.site-header{
+/* ==========================================================
+   CABECERA
+   ========================================================== */
+.site-header {
   padding: 28px 16px;
   text-align: center;
   background: rgba(56,189,248,0.08);
   border-bottom: 1px solid rgba(56,189,248,0.25);
 }
 
-.site-header h1{
+.site-header h1 {
   margin: 0 0 8px;
   font-size: clamp(1.4rem, 2.3vw, 2rem);
   font-weight: 800;
   letter-spacing: .2px;
-  
-  /* degradado en el texto del título */
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
-.site-header p{
+.site-header p {
   margin: 0;
   color: var(--muted);
   font-size: clamp(.95rem, 1.6vw, 1.05rem);
 }
 
 /* ===============================================
-   Logo CSS en encabezado
+   LOGO Y SUBTÍTULO EN CABECERA
    =============================================== */
 .header-subtitle {
-  display: inline-flex;           /* texto e imagen en línea */
-  align-items: center;            /* centrado vertical perfecto */
-  gap: 8px;                       /* espacio entre texto e imagen */
-  justify-content: center;        /* centrado horizontal */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   font-size: 1.05rem;
   color: var(--muted);
   margin-top: 6px;
@@ -72,11 +79,10 @@ Cabecera
   font-size: 1.1rem;
 }
 
-/* Ajuste del logo */
 .logo-css {
   width: 35px;
   height: auto;
-  filter: drop-shadow(0 0 6px rgba(56,189,248,0.5)); /* suave brillo celeste */
+  filter: drop-shadow(0 0 6px rgba(56,189,248,0.5));
   transition: transform 0.3s ease;
 }
 
@@ -85,10 +91,10 @@ Cabecera
   filter: drop-shadow(0 0 16px rgba(56,189,248,0.8));
 }
 
-/*
-Navegacion
-*/
-.site-nav{
+/* ==========================================================
+   NAVEGACIÓN
+   ========================================================== */
+.site-nav {
   display: flex;
   gap: 10px;
   justify-content: center;
@@ -98,7 +104,7 @@ Navegacion
   border-bottom: 1px solid var(--border);
 }
 
-.site-nav a{
+.site-nav a {
   color: var(--text);
   text-decoration: none;
   padding: 8px 12px;
@@ -109,21 +115,23 @@ Navegacion
   font-size: .98rem;
 }
 
-.site-nav a:hover{
+.site-nav a:hover {
   transform: translateY(-1px);
   background: rgba(56,189,248,0.12);
   border-color: var(--accent);
 }
 
-/* clase que nav.js añadirá para el enlace activo */
-.site-nav a.badge{
+/* Clase activa en navegación */
+.site-nav a.badge {
   border-color: var(--accent);
   background: rgba(56,189,248,0.16);
   color: #dbeafe;
 }
 
-
-.content{
+/* ==========================================================
+   CONTENIDO PRINCIPAL
+   ========================================================== */
+.content {
   width: 100%;
   max-width: 1100px;
   margin: 24px auto;
@@ -131,7 +139,10 @@ Navegacion
   flex: 1;
 }
 
-.card{
+/* ==========================================================
+   TARJETAS / CARDS
+   ========================================================== */
+.card {
   background: rgba(17,24,39,0.92);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -139,34 +150,24 @@ Navegacion
   box-shadow: 0 12px 34px var(--shadow);
 }
 
-.card h2{
+.card h2 {
   margin: 0 0 10px;
   font-size: clamp(1.2rem, 2vw, 1.6rem);
   color: var(--accent);
 }
 
-.card p{
+.card p {
   margin: 8px 0;
   color: #d1d5db;
 }
 
-.card strong{ color: #ffffff; }
-
-/* 
-Footer
-*/
-
-.background-wrapper {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  overflow: hidden;
-  background: url("../recursosVisuales/background.jpg") center/cover no-repeat;
+.card strong {
+  color: #ffffff;
 }
 
-/*
-Botón 
- */
+/* ==========================================================
+   BOTÓN CTA
+   ========================================================== */
 .cta-btn {
   display: inline-block;
   background: linear-gradient(90deg, #ff6a00, #ffaa00);
@@ -176,20 +177,19 @@ Botón
   font-weight: bold;
   text-decoration: none;
   font-size: 1.1rem;
-  box-shadow: 0 5px 20px rgba(255, 147, 23, 0.4);
+  box-shadow: 0 5px 20px rgba(255,147,23,0.4);
   transition: all 0.4s ease;
 }
 
 .cta-btn:hover {
   transform: translateY(-3px);
   background: linear-gradient(90deg, #ffaa00, #ff6a00);
-  box-shadow: 0 6px 18px rgba(255, 147, 23, 0.6);
+  box-shadow: 0 6px 18px rgba(255,147,23,0.6);
 }
 
-/*
-Tarjetas dinámicas
-*/
-
+/* ==========================================================
+   TARJETAS DINÁMICAS
+   ========================================================== */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -199,7 +199,7 @@ Tarjetas dinámicas
 
 .topic-card {
   display: block;
-  background: rgba(15, 17, 25, 0.7);
+  background: rgba(15,17,25,0.7);
   padding: 1.3rem;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 12px;
@@ -220,58 +220,14 @@ Tarjetas dinámicas
   margin-bottom: 0.5rem;
 }
 
-/* ===========================
-   Animaciones al scroll (fade-in)
-   =========================== */
-@keyframes fadeUp {
-  0% { opacity: 0; transform: translateY(50px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.card, .hero-text, .topic-card {
-  animation: fadeUp 0.8s ease forwards;
-}
-
-@keyframes pulseBox {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1); /* el cuadro crece ligeramente */
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-
-/*No se si me gusta o no 
-@keyframes pulseGlow {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 0 16px rgba(56,189,248,0.25);
-    filter: brightness(1);
-  }
-  50% {
-    transform: scale(1);
-    box-shadow: 0 0 35px rgba(56,189,248,0.7);
-    filter: brightness(1.15);
-  }
-}*/
-
-.preview-box {
-  animation: pulseGlow 2.8s ease-in-out infinite;
-}
-
-
 /* ==========================================================
-   SECCIÓN: Temas del Tutorial (cuatro tarjetas en una fila)
+   SECCIÓN DE INFORMACIÓN / TEMAS DEL TUTORIAL
    ========================================================== */
 .info-section {
   text-align: center;
-  max-width: 1250px; 
+  max-width: 1250px;
   margin: 20px auto;
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(15,23,42,0.85);
   border-radius: 16px;
   padding: 15px 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.45);
@@ -290,13 +246,13 @@ Tarjetas dinámicas
   margin-bottom: 2.5rem;
 }
 
-/* Grid reforzado: 4 columnas siempre que el ancho lo permita */
 .learn-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 22px;
-  justify-items: stretch;  
+  justify-items: stretch;
   align-items: stretch;
+  margin-top: 2rem;
 }
 
 .learn-item {
@@ -304,7 +260,6 @@ Tarjetas dinámicas
   border-radius: 14px;
   text-decoration: none;
   color: #fff;
-  
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 6px 25px rgba(0,0,0,0.4);
   transition: all 0.35s ease;
@@ -312,18 +267,21 @@ Tarjetas dinámicas
   flex-direction: column;
   justify-content: space-between;
   align-items: stretch;
-  min-height: 360px; 
+  min-height: 360px;
   padding: 10px 10px;
+  opacity: 0.30;
+  filter: brightness(0.9) contrast(0.9);
 }
 
-/* Hover */
+/* Hover: se resalta */
 .learn-item:hover {
-  transform: translateY(-8px) scale(1.03);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.6);
-  
+  opacity: 1;
+  filter: brightness(1.08) contrast(1.1);
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 18px 35px rgba(56,189,248,0.4);
+  border-color: var(--accent);
 }
 
-/* Contenido */
 .learn-content {
   position: relative;
   z-index: 2;
@@ -346,19 +304,18 @@ Tarjetas dinámicas
   line-height: 1.4;
 }
 
-
-
-/* Efectos visuales (previews completos) */
+/* ==========================================================
+   EFECTOS VISUALES DE PREVIEW
+   ========================================================== */
 .gradient-demo {
   background: linear-gradient(120deg, #ff512f, #ff0080, #38bdf8, #00ffff);
   background-size: 400% 400%;
   animation: gradientShift 6s ease-in-out infinite;
 }
 
-/* Anima el desplazamiento del gradiente */
 @keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
@@ -368,11 +325,7 @@ Tarjetas dinámicas
 }
 
 .rgba-demo {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 99, 132, 0.35),
-    rgba(54, 162, 235, 0.35)
-  );
+  background: linear-gradient(135deg, rgba(255,99,132,0.35), rgba(54,162,235,0.35));
   position: relative;
   border: 3px solid rgba(255,255,255,0.4);
   backdrop-filter: blur(4px);
@@ -406,28 +359,25 @@ Tarjetas dinámicas
   animation: outlinePulse 3.5s ease-in-out infinite;
 }
 
-/* Soporte responsive (pantallas medianas/bajas) */
-@media (max-width: 1100px) {
-  .learn-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 700px) {
-  .learn-grid {
-    grid-template-columns: 1fr;
-  }
+/* ==========================================================
+   ANIMACIONES GENERALES
+   ========================================================== */
+@keyframes fadeUp {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-
-/* Estilo opcional del small */
-.site-footer {
-  text-align: center;
-  align-self: center;
+.card, .hero-text, .topic-card {
+  animation: fadeUp 0.8s ease forwards;
 }
 
-/* Cuadro de ejemplo grande y sin texto */
+@keyframes pulseBox {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
 .preview-box {
-  height: 180px; /* más alto */
+  height: 180px;
   border-radius: 12px;
   margin-top: 16px;
   overflow: hidden;
@@ -442,4 +392,52 @@ Tarjetas dinámicas
   box-shadow: 0 8px 28px rgba(0,0,0,0.55);
 }
 
-/*Este es la version buena */
+/* No se si me gusta o no 
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 16px rgba(56,189,248,0.25);
+    filter: brightness(1);
+  }
+  50% {
+    transform: scale(1);
+    box-shadow: 0 0 35px rgba(56,189,248,0.7);
+    filter: brightness(1.15);
+  }
+}*/
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.site-footer {
+  text-align: center;
+  align-self: center;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+@media (max-width: 1100px) {
+  .learn-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .learn-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================
+   FONDO FIJO
+   ========================================================== */
+.background-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+  background: url("../recursosVisuales/background.jpg") center/cover no-repeat;
+}
+
+/* === Fin del archivo === */
