@@ -53,6 +53,38 @@ Cabecera
   font-size: clamp(.95rem, 1.6vw, 1.05rem);
 }
 
+/* ===============================================
+   Logo CSS en encabezado
+   =============================================== */
+.header-subtitle {
+  display: inline-flex;           /* texto e imagen en línea */
+  align-items: center;            /* centrado vertical perfecto */
+  gap: 8px;                       /* espacio entre texto e imagen */
+  justify-content: center;        /* centrado horizontal */
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+.header-subtitle b {
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Ajuste del logo */
+.logo-css {
+  width: 35px;
+  height: auto;
+  filter: drop-shadow(0 0 6px rgba(56,189,248,0.5)); /* suave brillo celeste */
+  transition: transform 0.3s ease;
+}
+
+.logo-css:hover {
+  transform: scale(1.15) rotate(3deg);
+  filter: drop-shadow(0 0 16px rgba(56,189,248,0.8));
+}
+
 /*
 Navegacion
 */
@@ -122,17 +154,6 @@ Navegacion
 
 /* 
 Footer
-*/
-
-
-/* Asegura que los <p> del emoji no metan saltos ni márgenes extra */
-.site-footer > p{
-  margin: 0;
-  line-height: 1;
-}
-
-/*
-Fondo 
 */
 
 .background-wrapper {
@@ -353,15 +374,8 @@ Tarjetas dinámicas
 
 /* Estilo opcional del small */
 .site-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  color: var(--muted);
-  border-top: none;           /* elimina borde */
-  background: transparent;    /* quita panel */
-  padding: 20px;
-  margin-top: 40px;
+  align-self: center;
 }
 
 /* Cuadro de ejemplo grande y sin texto */
