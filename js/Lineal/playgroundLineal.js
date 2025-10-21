@@ -29,4 +29,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   aplicarEstilo();
+  document.addEventListener("DOMContentLoaded", () => {
+    const dynamicBgEditor = document.getElementById('dynamic-bg-editor');
+    const applyDynamicBgBtn = document.getElementById('apply-dynamic-bg');
+    const dynamicBgPreview = document.getElementById('dynamic-bg-preview');
+
+    if (dynamicBgEditor && applyDynamicBgBtn && dynamicBgPreview) {
+        applyDynamicBgBtn.addEventListener('click', () => {
+            const cssCode = dynamicBgEditor.value;
+            dynamicBgPreview.style = cssCode; // Aplica el CSS directamente
+        });
+    }
+});
 });

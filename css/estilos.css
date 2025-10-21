@@ -1,6 +1,6 @@
-/* ==========================================================
+/* 
    VARIABLES GLOBALES
-   ========================================================== */
+ */
 :root {
     --bg: #0f172a;          /* fondo general (slate-900) */
     --panel: #111827;       /* paneles/cards (gray-900) */
@@ -13,9 +13,9 @@
     --sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial;
 }
 
-/* ==========================================================
+/*
    RESET BÁSICO
-   ========================================================== */
+*/
 * {
     box-sizing: border-box;
 }
@@ -41,9 +41,9 @@ body::before{
     z-index: -1;
 }
 
-/* ==========================================================
+/* 
    CABECERA
-   ========================================================== */
+*/
 .site-header {
     padding: 28px 16px;
     text-align: center;
@@ -68,9 +68,9 @@ body::before{
     font-size: clamp(.95rem, 1.6vw, 1.05rem);
 }
 
-/* ===============================================
-   LOGO Y SUBTÍTULO EN CABECERA
-   =============================================== */
+/*
+LOGO Y SUBTÍTULO EN CABECERA
+*/
 .header-subtitle {
     display: inline-flex;
     align-items: center;
@@ -99,9 +99,9 @@ body::before{
     filter: drop-shadow(0 0 16px rgba(56,189,248,0.8));
 }
 
-/* ==========================================================
-   NAVEGACIÓN
-   ========================================================== */
+/*
+NAVEGACIÓN
+*/
 .site-nav {
     display: flex;
     gap: 10px;
@@ -136,20 +136,20 @@ body::before{
     color: #dbeafe;
 }
 
-/* ==========================================================
-   CONTENIDO PRINCIPAL
-   ========================================================== */
+/*
+CONTENIDO PRINCIPAL
+*/
 .content {
     width: 100%;
-    max-width: 1100px;
+    max-width: 1280px;
     margin: 24px auto;
-    padding: 0 16px 32px;
+    padding: 0 24px 25px;
     flex: 1;
 }
 
-/* ==========================================================
-   TARJETAS / CARDS
-   ========================================================== */
+/*
+TARJETAS / CARDS
+*/
 .card {
     background: rgba(17,24,39,0.92);
     border: 1px solid var(--border);
@@ -173,9 +173,9 @@ body::before{
     color: #ffffff;
 }
 
-/* ==========================================================
-   BOTÓN CTA
-   ========================================================== */
+/* 
+BOTÓN CTA
+*/
 .cta-btn {
     display: inline-block;
     background: linear-gradient(90deg, #ff6a00, #ffaa00);
@@ -195,9 +195,9 @@ body::before{
     box-shadow: 0 6px 18px rgba(255,147,23,0.6);
 }
 
-/* ==========================================================
-   TARJETAS DINÁMICAS
-   ========================================================== */
+/* 
+TARJETAS DINÁMICAS
+*/
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -228,9 +228,9 @@ body::before{
     margin-bottom: 0.5rem;
 }
 
-/* ==========================================================
-   SECCIÓN DE INFORMACIÓN / TEMAS DEL TUTORIAL
-   ========================================================== */
+/*
+SECCIÓN DE INFORMACIÓN / TEMAS DEL TUTORIAL
+*/
 .info-section {
     text-align: center;
     max-width: 1250px;
@@ -312,9 +312,9 @@ body::before{
     line-height: 1.4;
 }
 
-/* ==========================================================
-   EFECTOS VISUALES DE PREVIEW
-   ========================================================== */
+/* 
+EFECTOS VISUALES DE PREVIEW
+*/
 .gradient-demo {
     background: linear-gradient(120deg, #ff512f, #ff0080, #38bdf8, #00ffff);
     background-size: 400% 400%;
@@ -377,9 +377,9 @@ body::before{
     animation: outlinePulse 3.5s ease-in-out infinite;
 }
 
-/* ==========================================================
-   ANIMACIONES GENERALES
-   ========================================================== */
+/*
+ANIMACIONES GENERALES
+*/
 @keyframes fadeUp {
     0% {
         opacity: 0;
@@ -391,7 +391,7 @@ body::before{
     }
 }
 
-.card, .hero-text, .topic-card {
+.card, .hero-text, .topic-card .side-menu {
     animation: fadeUp 0.8s ease forwards;
 }
 
@@ -435,16 +435,113 @@ body::before{
 }*/
 
 
-/* ==========================================================
-   LAYOUT DE CURSO (GRADIENTE LINEAL)
-   ========================================================== */
+/* 
+LAYOUT DE CURSO (GRADIENTE LINEAL)
+*/
 
 /* Estructura general: panel lateral + contenido */
 .linear-layout {
     display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 24px;
-    align-items: start;
+    grid-template-columns: 260px 1fr 1fr;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+#main-lesson-container {
+    grid-column: span 2;  /*Ocupa las dos últimas columnas */
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Dos columnas internas para teoría y ejemplo */
+    gap: 20px; /* Espacio entre el panel de teoría y el panel de ejemplo */
+    align-items: flex-start;
+}
+
+.lesson-theory {
+    background: rgba(17,24,39,0.92); /* Fondo de tarjeta */
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 12px 34px var(--shadow);
+    animation: fadeUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+.lesson-theory h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.2rem, 2vw, 1.6rem);
+    color: var(--accent);
+}
+
+.lesson-theory p {
+    margin: 8px 0;
+    color: #d1d5db;
+}
+
+.lesson-theory strong {
+    color: #ffffff;
+}
+
+/* Código dentro de teoría */
+.lesson-theory pre {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 12px 0;
+    overflow-x: auto;
+    color: #93c5fd;
+    font-family: Consolas, monospace;
+}
+
+/* === Contenido del Ejemplo (ahora es .lesson-example) === */
+.lesson-example {
+    background: rgba(17,24,39,0.92); /* Fondo de tarjeta */
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px; /* Padding interno */
+    box-shadow: 0 12px 34px var(--shadow);
+    display: flex;
+    flex-direction: column; /* Para centrar el demo-box verticalmente */
+    justify-content: center;
+    align-items: center;
+    min-height: 250px; /* Altura mínima para el ejemplo visual */
+    animation: fadeUp 0.8s ease forwards; /* Animación de entrada */
+}
+
+/* Estilos para los demos dentro de lesson-example */
+.lesson-example .demo-box {
+    width: 100%;
+    height: 180px; /* Altura consistente para los demos */
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+/* Responsivo para el nuevo layout */
+@media (max-width: 1200px) { /* Ajusta este breakpoint si es necesario */
+    .linear-layout {
+        /* En pantallas medianas, volvemos a 2 columnas: Menú | Contenido (teoría y ejemplo apilados) */
+        grid-template-columns: 260px 1fr; 
+    }
+    .main-lesson-container {
+        grid-column: span 1; /* Ahora solo ocupa una columna */
+        grid-template-columns: 1fr; /* Teoría y ejemplo se apilan */
+        gap: 20px;
+    }
+    .lesson-example {
+        min-height: 150px; /* Ajusta la altura en pantallas más pequeñas */
+    }
+}
+
+@media (max-width: 900px) {
+    .linear-layout {
+        grid-template-columns: 1fr; /* Una sola columna para todo */
+    }
+    .side-menu {
+        position: relative;
+        top: 0;
+        width: 100%;
+    }
+    .main-lesson-container {
+        grid-template-columns: 1fr; /* Teoría y ejemplo se apilan */
+    }
 }
 
 /* === Menú lateral === */
@@ -457,6 +554,8 @@ body::before{
     height: fit-content;
     position: sticky;
     top: 24px;
+    /* 🔹 Aseguramos que el side-menu también tenga la animación */
+    animation: fadeUp 0.8s ease forwards; 
 }
 
 .side-menu h3 {
@@ -469,7 +568,7 @@ body::before{
 }
 
 .lesson-list {
-    list-style: none;
+    list-style: none; /* Esto es crucial para quitar las viñetas por defecto */
     padding: 0;
     margin: 0;
     display: flex;
@@ -486,6 +585,10 @@ body::before{
     font-weight: 500;
     color: var(--text);
     border: 1px solid rgba(255,255,255,0.08);
+    /* Asegúrate de que los emojis se muestren correctamente */
+    display: flex; /* Para alinear el texto y el emoji si fuera necesario */
+    align-items: center;
+    gap: 8px; /* Espacio entre el emoji y el texto */
 }
 
 .lesson-list li:hover {
@@ -530,9 +633,9 @@ body::before{
 }
 
 
-/* ==========================================================
-   PLAYGROUND MEJORADO (Diseño más estético)
-   ========================================================== */
+/* 
+PLAYGROUND MEJORADO (Diseño más estético)
+*/
 
 /* Contenedor principal */
 .Playground-section {
@@ -643,14 +746,10 @@ body::before{
   }
 }
 
-/* ==========================================================
-   FOOTER
-   ========================================================== */
 
-
-/* ==========================================================
-   RESPONSIVE
-   ========================================================== */
+/* 
+RESPONSIVE
+*/
 @media (max-width: 1100px) {
     .learn-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -663,9 +762,9 @@ body::before{
     }
 }
 
-/* ==========================================================
-   FONDO FIJO
-   ========================================================== */
+/* 
+FONDO FIJO
+*/
 .background-wrapper {
     position: fixed;
     inset: 0;
@@ -675,9 +774,9 @@ body::before{
 }
 
 
-/* ==========================================================
-   APLICACIONES DEL GRADIENTE LINEAL
-   ========================================================== */
+/* 
+APLICACIONES DEL GRADIENTE LINEAL
+*/
 .aplicaciones-section {
   margin-top: 70px;
 }
@@ -786,9 +885,13 @@ body::before{
   100% { background-position: 0% 50%; }
 }
 
+
+
+/*
+FOOTER
+*/
+
 .site-footer {
     text-align: center;
     align-self: center;
 }
-
-/* === Fin del archivo === */

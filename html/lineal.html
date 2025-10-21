@@ -9,13 +9,12 @@
         <link rel="stylesheet" href="../css/estilos.css" />
         <script defer src="../js/nav.js"></script>
         <script defer src="../js/Lineal/lineal.js"></script>
-        <script defer src="../js/Lineal/playgroundLineal.js"></script>
+        <!-- <script defer src="../js/Lineal/PlaygroundLineal.js"></script> -->
     </head>
 
     <body>
         <header class="site-header">
             <h1>Gradiente Lineal</h1>
-
         </header>
 
         <nav class="site-nav">
@@ -26,8 +25,7 @@
         </nav>
 
         <main class="content linear-layout">
-
-            <!-- 🔹 PANEL LATERAL -->
+            <!-- PANEL LATERAL -->
             <aside class="side-menu">
                 <h3>Temario</h3>
                 <ul class="lesson-list">
@@ -38,57 +36,15 @@
                 </ul>
             </aside>
 
-            <!-- Panel del Tutorial -->
-            <section class="lesson-content card" id="lesson-content">
-                <h2>1️⃣ ¿Qué es un Gradiente Lineal?</h2>
-                <div class="dual-layout">
-                    <div class="text-content">
-                        <p>
-                            Un <strong>gradiente lineal</strong> crea una transición suave entre dos o más colores dispuestos
-                            a lo largo de una línea recta. Es muy útil para diseñar fondos con efecto visual de profundidad
-                            o destacar secciones con un toque moderno.
-                        </p>
-
-                        <p>Su sintaxis básica es:</p>
-                        <pre><code>background: linear-gradient(to right, red, blue);</code></pre>
-
-                        <p>
-                            En este ejemplo el color <b>rojo</b> comienza a la izquierda y se difumina hasta convertirse en 
-                            <b>azul</b> hacia la derecha.
-                        </p>
-                    </div>
-                </div>
-            </section>
+            <!-- Panel del Tutorial (Teoría y Ejemplo) -->
+            <!-- Este será el contenedor principal que albergará la teoría y el ejemplo -->
+            <div id="main-lesson-container" class="main-lesson-container">
+                <!-- Aquí se inyectarán los paneles de teoría y ejemplo por JavaScript -->
+            </div>
         </main>
-
-
-
-        <section class="card Playground-section">
-            <h2>🧪 Practica tu propio gradiente</h2>
-            <p>Puedes escribir tu propio código CSS o probar algunos ejemplos predefinidos 👇</p>
-
-            <div class="Playground-controls">
-                <button class="btn-play" data-example="to right, #ff6a00, #ffaa00">Horizontal</button>
-                <button class="btn-play" data-example="45deg, #38bdf8, #818cf8">Diagonal</button>
-                <button class="btn-play" data-example="to right, #ff512f, #ff9966, #38bdf8">Multicolor</button>
-                <button class="btn-reset">Reiniciar</button>
-            </div>
-
-            <div class="Playground-grid">
-                <textarea id="css-editor" spellcheck="false">
-background: linear-gradient(to right, #ff6a00, #ffaa00);
-                </textarea>
-                <div id="preview-box"></div>
-            </div>
-        </section>
-        
-
-
-
 
         <footer class="site-footer">
             <small>💻 Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript 💻</small>
         </footer>
-
     </body>
 </html>
