@@ -93,6 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Cargar primer tema por defecto
-    loadLesson(1);
+    // Cargar primer tema por defecto loadLesson(1);
+    
 });
