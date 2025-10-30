@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Gradiente Lineal</title>
+
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" href="../css/lineal.css" />
+    <script defer src="../js/nav.js"></script>
+    <script defer src="../js/Lineal/lineal.js"></script>
+    <script defer src="../js/Lineal/PlaygroundLineal.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Gradiente Lineal</h1>
+    </header>
+
+    <nav class="site-nav">
+        <a href="index.html">Inicio</a>
+        <a href="radial.html">Gradiente Radial</a>
+        <a href="colores.html">RGBA y HSLA</a>
+        <a href="outline.html">Outline</a>
+    </nav>
+
+    <main class="content linear-layout">
+        <aside class="side-menu">
+            <h3>Temario</h3>
+            <ul class="lesson-list">
+                <li class="active" data-lesson="1">1️⃣ ¿Qué es un Gradiente Lineal?</li>
+                <li data-lesson="2">2️⃣ Direcciones y Ángulos</li>
+                <li data-lesson="3">3️⃣ Múltiples Colores</li>
+                <li data-lesson="4">4️⃣ Practica</li>
+            </ul>
+        </aside>
+
+        <div id="main-lesson-container" class="main-lesson-container">
+            <section id="lesson-content-1" class="lesson-content card">
+
+                <h2>1️⃣ ¿Qué es un Gradiente Lineal?</h2>
+
+                <div class="theory-block">
+                    <h3>🎯 ¿Qué es exactamente un "gradiente"?</h3>
+                    <p>Imagina que tienes <strong style="color:red;">color rojo</strong> en un extremo y <strong
+                            style="color:blue;">color azul</strong> en el otro.
+                        Un gradiente es la <strong>transición suave</strong> que mezcla estos dos colores gradualmente.
+                    </p>
+                </div>
+
+                <div class="example-block">
+                    <h4>🔍 Visualiza el Concepto</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box solid-demo" style="background:red;"></div>
+                            <p>Color SOLIDO<br>Rojo puro</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:linear-gradient(to right, red, blue);"></div>
+                            <p>GRADIENTE<br>Rojo → Azul</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box solid-demo" style="background:blue;"></div>
+                            <p>Color SOLIDO<br>Azul puro</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎨 Ejemplo de Sintaxis en Acción</h4>
+                    <div class="syntax-demo">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">styles.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre
+                                class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-color">red</span>, <span class="css-color">blue</span>);</code></pre>
+                        </div>
+
+                        <div class="demo-result">
+                            <div class="demo-box" style="background:linear-gradient(to right, red, blue);"></div>
+                            <p class="demo-explanation">
+                                <strong>Resultado:</strong> Gradiente que va de
+                                <span style="color:red;">🔴 rojo (izquierda)</span> a
+                                <span style="color:blue;">🔵 azul (derecha)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🚀 Tu Primer Gradiente Paso a Paso</h3>
+
+                    <div class="journey-intro">
+                        <div class="journey-icon">🎨</div>
+                        <p>Sigue estos <strong>4 pasos simples</strong> para crear tu primer gradiente. Cada paso agrega
+                            una pieza esencial:</p>
+                    </div>
+
+                    <div class="step-by-step-enhanced">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">1</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Escribe la Función Base</h4>
+                                    <span class="step-tag">Fundamento</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">linear-gradient</span>()</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p>Esto le dice al navegador: <strong>"voy a crear un gradiente"</strong>. Los
+                                        paréntesis vacíos indican que falta información.</p>
+                                    <div class="step-tip">
+                                        <span class="tip-icon">💡</span>
+                                        <span>Piensa en esto como preparar la pintura antes de empezar a mezclar
+                                            colores.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">2</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Define la Dirección</h4>
+                                    <span class="step-tag">Orientación</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>)</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p><code>"to right"</code> significa <strong>"hacia la derecha"</strong>. El
+                                        gradiente fluirá de izquierda a derecha.</p>
+                                    <div class="direction-options">
+                                        <div class="direction-option">
+                                            <div class="mini-demo"
+                                                style="background:linear-gradient(to right, #ff6b6b, #4ecdc4);"></div>
+                                            <span><code>to right</code></span>
+                                        </div>
+                                        <div class="direction-option">
+                                            <div class="mini-demo"
+                                                style="background:linear-gradient(to bottom, #ff6b6b, #4ecdc4);"></div>
+                                            <span><code>to bottom</code></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">3</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Agrega los Colores</h4>
+                                    <span class="step-tag">Personalización</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-color">red</span>, <span class="css-color">blue</span>)</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p><strong>Rojo empieza a la izquierda, Azul termina a la derecha</strong>. La
+                                        transición ocurre automáticamente.</p>
+
+                                    <div class="color-formats-mini">
+                                        <h5>🎨 Formatos de Color Disponibles:</h5>
+                                        <div class="formats-grid">
+                                            <div class="format-option">
+                                                <div class="format-color" style="background:red;"></div>
+                                                <code>red</code>
+                                                <span>Nombres</span>
+                                            </div>
+                                            <div class="format-option">
+                                                <div class="format-color" style="background:#ff0000;"></div>
+                                                <code>#ff0000</code>
+                                                <span>Hex</span>
+                                            </div>
+                                            <div class="format-option">
+                                                <div class="format-color" style="background:rgb(255, 0, 0);"></div>
+                                                <code>rgb(255,0,0)</code>
+                                                <span>RGB</span>
+                                            </div>
+                                            <div class="format-option">
+                                                <div class="format-color" style="background:hsl(0, 100%, 50%);"></div>
+                                                <code>hsl(0,100%,50%)</code>
+                                                <span>HSL</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card final-step">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">4</span>
+                                    <div class="step-line final"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Aplica al Background</h4>
+                                    <span class="step-tag">Implementación</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-color">red</span>, <span class="css-color">blue</span>);</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p>Le decimos al navegador que esto es para el <strong>fondo de un
+                                            elemento</strong>. El punto y coma (;) indica el final de la declaración.
+                                    </p>
+
+                                    <div class="final-result">
+                                        <h5>🎉 ¡Resultado Final!</h5>
+                                        <div class="demo-box-final"
+                                            style="background:linear-gradient(to right, red, blue);"></div>
+                                        <p class="success-message">¡Felicidades! Has creado tu primer gradiente lineal.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🧭 Explora Diferentes Direcciones</h4>
+                    <div class="direction-grid">
+                        <div class="direction-item">
+                            <div class="demo-box" style="background:linear-gradient(to right, red, blue);"></div>
+                            <p><code>to right</code><br>Horizontal →</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box" style="background:linear-gradient(to bottom, red, blue);"></div>
+                            <p><code>to bottom</code><br>Vertical ↓</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box" style="background:linear-gradient(45deg, red, blue);"></div>
+                            <p><code>45deg</code><br>Diagonal ↗</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box" style="background:linear-gradient(to bottom right, red, blue);"></div>
+                            <p><code>to bottom right</code><br>Esquina ↘</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <div class="rules-box">
+                        <h4>📋 Reglas Importantes para Escribir Gradientes</h4>
+                        <ul>
+                            <li>✅ <strong>Siempre</strong> usa <code>linear-gradient()</code> con paréntesis</li>
+                            <li>✅ Los colores se separan con <strong>coma</strong> (,)</li>
+                            <li>✅ La dirección va <strong>primero</strong>, antes de los colores</li>
+                            <li>✅ Termina <strong>siempre</strong> con punto y coma (;)</li>
+                            <li>❌ No olvides los paréntesis de apertura y cierre</li>
+                            <li>❌ No uses "y" entre colores, usa coma</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🔧 ¿Dónde y Cómo Aplicar Gradientes?</h3>
+
+                    <div class="application-intro">
+                        <div class="app-icon">🎯</div>
+                        <p>Los gradientes pueden aplicarse en <strong>casi cualquier elemento HTML</strong> usando
+                            diferentes propiedades CSS. Aquí te mostramos las opciones más comunes:</p>
+                    </div>
+
+                    <div class="application-grid">
+                        <div class="app-column">
+                            <div class="app-header">
+                                <h4>📍 Etiquetas HTML Comunes</h4>
+                                <p>Elementos que frecuentemente usan gradientes:</p>
+                            </div>
+
+                            <div class="tags-grid-enhanced">
+                                <div class="tag-card">
+                                    <div class="tag-icon">📦</div>
+                                    <div class="tag-content">
+                                        <code>&lt;div&gt;</code>
+                                        <span>Contenedores generales y cajas</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:linear-gradient(135deg, #667eea, #764ba2);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">🔄</div>
+                                    <div class="tag-content">
+                                        <code>&lt;button&gt;</code>
+                                        <span>Botones interactivos</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:linear-gradient(135deg, #ff6b6b, #ee5a24);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">🧭</div>
+                                    <div class="tag-content">
+                                        <code>&lt;nav&gt;</code>
+                                        <span>Barras de navegación</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:linear-gradient(90deg, #2c3e50, #3498db);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">📄</div>
+                                    <div class="tag-content">
+                                        <code>&lt;section&gt;</code>
+                                        <span>Secciones de contenido</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:linear-gradient(135deg, #00b4db, #0083b0);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">🏷️</div>
+                                    <div class="tag-content">
+                                        <code>&lt;header&gt;</code>
+                                        <span>Encabezados de página</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:linear-gradient(90deg, #ff9a9e, #fecfef);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">🌐</div>
+                                    <div class="tag-content">
+                                        <code>&lt;body&gt;</code>
+                                        <span>Fondo completo de página</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="app-column">
+                            <div class="app-header">
+                                <h4>🎨 Propiedades CSS que Aceptan Gradientes</h4>
+                                <p>Diferentes formas de aplicar el efecto:</p>
+                            </div>
+
+                            <div class="properties-grid">
+                                <div class="property-card primary">
+                                    <div class="property-header">
+                                        <h5>background</h5>
+                                        <span class="property-badge">Más Usada</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>La propiedad más común para aplicar gradientes como fondo de elementos.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-hex">#ff6b6b</span>, <span class="css-hex">#4ecdc4</span>);</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>background-image</h5>
+                                        <span class="property-badge">Explícita</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Forma específica para definir imágenes de fondo, incluyendo gradientes.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">background-image</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">45deg</span>, <span class="css-hex">#667eea</span>, <span class="css-hex">#764ba2</span>);</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>border-image</h5>
+                                        <span class="property-badge">Avanzado</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Crea bordes con efectos de gradiente en lugar de colores sólidos.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">border-image</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">45deg</span>, <span class="css-hex">#f093fb</span>, <span class="css-hex">#f5576c</span>) <span class="css-number">1</span>;</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>mask-image</h5>
+                                        <span class="property-badge">Efectos</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Para crear efectos de máscara y transparencias complejas.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">mask-image</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to bottom</span>, <span class="css-value">black</span>, <span class="css-value">transparent</span>);</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="usage-tip">
+                        <div class="tip-header">
+                            <span class="tip-icon">💡</span>
+                            <h5>Consejo de Uso Práctico</h5>
+                        </div>
+                        <p>Comienza con la propiedad <code>background</code> para la mayoría de casos. Usa
+                            <code>background-image</code> cuando necesites combinar el gradiente con otras imágenes de
+                            fondo, y explora las propiedades avanzadas para efectos más creativos.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>💻 Ejemplo Real: Botón con Gradiente</h4>
+
+                    <div class="real-code-example">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">estilos.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre class="code-content"><code><span class="css-comment">/* Estilo para botón moderno con gradiente */</span>
+<span class="css-selector">.boton-moderno</span> {
+    <span class="css-comment">/* Propiedades de tamaño y texto */</span>
+    <span class="css-property">padding</span>: <span class="css-number">12px</span> <span class="css-number">24px</span>;
+    <span class="css-property">font-size</span>: <span class="css-number">16px</span>;
+    <span class="css-property">font-weight</span>: <span class="css-value">bold</span>;
+    <span class="css-property">color</span>: <span class="css-value">white</span>;
+    <span class="css-property">text-decoration</span>: <span class="css-value">none</span>;
+    <span class="css-property">border</span>: <span class="css-value">none</span>;
+    <span class="css-property">border-radius</span>: <span class="css-number">8px</span>;
+    <span class="css-property">cursor</span>: <span class="css-value">pointer</span>;
+    
+    <span class="css-comment">/* ¡Aquí aplicamos el gradiente! */</span>
+    <span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-number">135deg</span>, <span class="css-hex">#667eea</span> <span class="css-number">0%</span>, <span class="css-hex">#764ba2</span> <span class="css-number">100%</span>);
+    
+    <span class="css-comment">/* Efectos adicionales */</span>
+    <span class="css-property">box-shadow</span>: <span class="css-number">0</span> <span class="css-number">4px</span> <span class="css-number">15px</span> <span class="css-function">rgba</span>(<span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.2</span>);
+    <span class="css-property">transition</span>: <span class="css-value">transform</span> <span class="css-number">0.3s</span> <span class="css-value">ease</span>;
+}
+
+<span class="css-selector">.boton-moderno:hover</span> {
+    <span class="css-property">transform</span>: <span class="css-function">translateY</span>(<span class="css-number">-2px</span>);
+    <span class="css-property">box-shadow</span>: <span class="css-number">0</span> <span class="css-number">6px</span> <span class="css-number">20px</span> <span class="css-function">rgba</span>(<span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.3</span>);
+}</code></pre>
+                        </div>
+
+                        <div class="demo-result-real">
+                            <h5>🎯 Resultado en Vivo:</h5>
+                            <button class="boton-moderno-demo">✨ Botón con Gradiente</button>
+                            <p class="demo-notes">Pasa el mouse sobre el botón para ver los efectos de hover</p>
+
+                            <div class="code-breakdown-mini">
+                                <h6>🔍 Partes clave del código:</h6>
+                                <ul>
+                                    <li><span class="code-highlight">linear-gradient()</span> - Función que crea el
+                                        gradiente</li>
+                                    <li><span class="code-highlight">135deg</span> - Dirección diagonal del gradiente
+                                    </li>
+                                    <li><span class="code-highlight">#667eea → #764ba2</span> - Colores del gradiente
+                                        (azul → morado)</li>
+                                    <li><span class="code-highlight">:hover</span> - Efectos al pasar el mouse</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎨 Formatos de Color que Puedes Usar</h3>
+
+                    <div class="formats-intro">
+                        <div class="formats-icon">🌈</div>
+                        <p>CSS acepta <strong>múltiples formatos</strong> para definir colores en gradientes. Cada
+                            formato tiene sus ventajas y casos de uso específicos.</p>
+                    </div>
+
+                    <div class="color-formats-vertical">
+                        <div class="format-item-vertical">
+                            <div class="format-header">
+                                <div class="format-icon">🔤</div>
+                                <div class="format-title">
+                                    <h4>Nombres Predefinidos</h4>
+                                    <span class="format-subtitle">Colores básicos por nombre</span>
+                                </div>
+                                <span class="format-badge beginner">Fácil</span>
+                            </div>
+                            <div class="format-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-color">red</span>, <span class="css-color">blue</span>);</code></pre>
+                                </div>
+                                <div class="format-details">
+                                    <p><strong>Nombres en inglés</strong> como <code>red</code>, <code>blue</code>,
+                                        <code>green</code>, <code>purple</code>, etc.
+                                    </p>
+                                    <div class="color-samples">
+                                        <div class="color-sample" style="background:red;" title="red"></div>
+                                        <div class="color-sample" style="background:blue;" title="blue"></div>
+                                        <div class="color-sample" style="background:green;" title="green"></div>
+                                        <div class="color-sample" style="background:purple;" title="purple"></div>
+                                        <div class="color-sample" style="background:orange;" title="orange"></div>
+                                        <div class="color-sample-more">+140</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="format-item-vertical">
+                            <div class="format-header">
+                                <div class="format-icon">🎯</div>
+                                <div class="format-title">
+                                    <h4>Hexadecimal</h4>
+                                    <span class="format-subtitle">Códigos de 6 dígitos</span>
+                                </div>
+                                <span class="format-badge popular">Popular</span>
+                            </div>
+                            <div class="format-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-hex">#ff0000</span>, <span class="css-hex">#0000ff</span>);</code></pre>
+                                </div>
+                                <div class="format-details">
+                                    <p><strong>Códigos de 6 dígitos</strong> en formato <code>#RRGGBB</code> donde:</p>
+                                    <ul class="hex-breakdown">
+                                        <li><code>RR</code> = Rojo (00 a FF)</li>
+                                        <li><code>GG</code> = Verde (00 a FF)</li>
+                                        <li><code>BB</code> = Azul (00 a FF)</li>
+                                    </ul>
+                                    <div class="format-demo">
+                                        <div class="demo-box"
+                                            style="background:linear-gradient(to right, #ff0000, #0000ff);"></div>
+                                        <span class="demo-label">#ff0000 → #0000ff</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="format-item-vertical">
+                            <div class="format-header">
+                                <div class="format-icon">🎨</div>
+                                <div class="format-title">
+                                    <h4>RGB</h4>
+                                    <span class="format-subtitle">Valores numéricos</span>
+                                </div>
+                                <span class="format-badge versatile">Versátil</span>
+                            </div>
+                            <div class="format-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-rgb">rgb(255, 0, 0)</span>, <span class="css-rgb">rgb(0, 0, 255)</span>);</code></pre>
+                                </div>
+                                <div class="format-details">
+                                    <p><strong>Valores de 0-255</strong> para cada canal:
+                                        <code>rgb(rojo, verde, azul)</code>
+                                    </p>
+                                    <ul class="rgb-breakdown">
+                                        <li><code>255, 0, 0</code> = Rojo máximo</li>
+                                        <li><code>0, 255, 0</code> = Verde máximo</li>
+                                        <li><code>0, 0, 255</code> = Azul máximo</li>
+                                    </ul>
+                                    <div class="format-demo">
+                                        <div class="demo-box"
+                                            style="background:linear-gradient(to right, rgb(255, 0, 0), rgb(0, 0, 255));">
+                                        </div>
+                                        <span class="demo-label">rgb(255,0,0) → rgb(0,0,255)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="format-item-vertical">
+                            <div class="format-header">
+                                <div class="format-icon">💧</div>
+                                <div class="format-title">
+                                    <h4>HSL</h4>
+                                    <span class="format-subtitle">Modelo intuitivo</span>
+                                </div>
+                                <span class="format-badge modern">Moderno</span>
+                            </div>
+                            <div class="format-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-hsl">hsl(0, 100%, 50%)</span>, <span class="css-hsl">hsl(240, 100%, 50%)</span>);</code></pre>
+                                </div>
+                                <div class="format-details">
+                                    <p><strong>Matiz, Saturación, Luminosidad</strong>: <code>hsl(grados, %, %)</code>
+                                    </p>
+                                    <ul class="hsl-breakdown">
+                                        <li><code>0°</code> = Rojo, <code>120°</code> = Verde, <code>240°</code> = Azul
+                                        </li>
+                                        <li><code>100%</code> saturación = Color puro</li>
+                                        <li><code>50%</code> luminosidad = Color brillante</li>
+                                    </ul>
+                                    <div class="format-demo">
+                                        <div class="demo-box"
+                                            style="background:linear-gradient(to right, hsl(0, 100%, 50%), hsl(240, 100%, 50%));">
+                                        </div>
+                                        <span class="demo-label">hsl(0,100%,50%) → hsl(240,100%,50%)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="format-recommendations">
+                        <div class="recommendation-header">
+                            <span class="rec-icon">💡</span>
+                            <h4>¿Cuál Formato Elegir?</h4>
+                        </div>
+                        <div class="recommendation-grid">
+                            <div class="rec-card">
+                                <h5>🔤 Nombres</h5>
+                                <p><strong>Para prototipos rápidos</strong> y aprendizaje. Limitado a colores básicos.
+                                </p>
+                            </div>
+                            <div class="rec-card">
+                                <h5>🎯 Hexadecimal</h5>
+                                <p><strong>Más usado en producción</strong>. Compacto y ampliamente soportado.</p>
+                            </div>
+                            <div class="rec-card">
+                                <h5>🎨 RGB/HSL</h5>
+                                <p><strong>Cuando necesitas transparencias</strong> (RGBA/HSLA) o ajustes dinámicos.</p>
+                            </div>
+                            <div class="rec-card">
+                                <h5>💧 HSL</h5>
+                                <p><strong>Para ajustes intuitivos</strong> de matiz y brillo. Favorito de diseñadores.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lesson-content-2" class="lesson-content card hidden-lesson">
+                <h2>2️⃣ Direcciones y Ángulos</h2>
+
+                <div class="theory-block">
+                    <div class="journey-intro">
+                        <div class="journey-icon">🧭</div>
+                        <p>Descubre cómo <strong>controlar la dirección y orientación</strong> de tus gradientes
+                            lineales. Desde direcciones básicas hasta ángulos precisos, domina el flujo de tus
+                            transiciones de color.</p>
+                    </div>
+
+                    <h3>🧭 Direcciones Básicas con Palabras Clave</h3>
+                    <p>La forma más sencilla de definir la dirección de un gradiente es usando las palabras clave
+                        <code>to</code> seguido de una dirección o esquina.
+                    </p>
+
+                    <div class="rules-box">
+                        <h4>📋 Sintaxis de Direcciones:</h4>
+                        <div class="code-panel small">
+                            <pre
+                                class="code-content"><code><span class="css-function">linear-gradient</span>(<span class="css-value">&lt;dirección&gt;</span>, <span class="css-color">color1</span>, <span class="css-color">color2</span>)</code></pre>
+                        </div>
+
+                        <div class="direction-options-grid">
+                            <div class="direction-option-card">
+                                <div class="mini-demo" style="background:linear-gradient(to right, #4ecdc4, #764ba2);">
+                                </div>
+                                <div class="direction-info">
+                                    <code>to right</code>
+                                    <span>Izquierda → Derecha</span>
+                                </div>
+                            </div>
+                            <div class="direction-option-card">
+                                <div class="mini-demo" style="background:linear-gradient(to left, #4ecdc4, #764ba2);">
+                                </div>
+                                <div class="direction-info">
+                                    <code>to left</code>
+                                    <span>Derecha → Izquierda</span>
+                                </div>
+                            </div>
+                            <div class="direction-option-card">
+                                <div class="mini-demo" style="background:linear-gradient(to bottom, #4ecdc4, #764ba2);">
+                                </div>
+                                <div class="direction-info">
+                                    <code>to bottom</code>
+                                    <span>Arriba → Abajo</span>
+                                </div>
+                            </div>
+                            <div class="direction-option-card">
+                                <div class="mini-demo" style="background:linear-gradient(to top, #4ecdc4, #764ba2);">
+                                </div>
+                                <div class="direction-info">
+                                    <code>to top</code>
+                                    <span>Abajo → Arriba</span>
+                                </div>
+                            </div>
+                            <div class="direction-option-card">
+                                <div class="mini-demo"
+                                    style="background:linear-gradient(to bottom right, #4ecdc4, #764ba2);"></div>
+                                <div class="direction-info">
+                                    <code>to bottom right</code>
+                                    <span>Esquina superior izquierda → inferior derecha</span>
+                                </div>
+                            </div>
+                            <div class="direction-option-card">
+                                <div class="mini-demo"
+                                    style="background:linear-gradient(to top left, #4ecdc4, #764ba2);"></div>
+                                <div class="direction-info">
+                                    <code>to top left</code>
+                                    <span>Esquina inferior derecha → superior izquierda</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🕹️ Demo Interactivo de Dirección</h4>
+                    <p>Haz clic en los botones para ver cómo la dirección afecta el flujo del gradiente. El color
+                        <strong style="color:#4ecdc4;">verde azulado</strong> siempre es el color de inicio y <strong
+                            style="color:#764ba2;">morado</strong> el de fin.
+                    </p>
+
+                    <div class="demo-controls">
+                        <button class="btn-direction active" data-direction="to right">
+                            <span class="btn-icon">➡️</span>
+                            <span>to right</span>
+                        </button>
+                        <button class="btn-direction" data-direction="to bottom">
+                            <span class="btn-icon">⬇️</span>
+                            <span>to bottom</span>
+                        </button>
+                        <button class="btn-direction" data-direction="to left">
+                            <span class="btn-icon">⬅️</span>
+                            <span>to left</span>
+                        </button>
+                        <button class="btn-direction" data-direction="to top">
+                            <span class="btn-icon">⬆️</span>
+                            <span>to top</span>
+                        </button>
+                        <button class="btn-direction" data-direction="to bottom right">
+                            <span class="btn-icon">↘️</span>
+                            <span>to bottom right</span>
+                        </button>
+                        <button class="btn-direction" data-direction="to top left">
+                            <span class="btn-icon">↖️</span>
+                            <span>to top left</span>
+                        </button>
+                    </div>
+
+                    <div class="demo-result-enhanced">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">demo.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre
+                                class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value" id="direction-code">to right</span>, <span class="css-hex">#4ecdc4</span>, <span class="css-hex">#764ba2</span>);</code></pre>
+                        </div>
+
+                        <div class="demo-visual">
+                            <div id="direction-demo-box" class="demo-box-large"
+                                style="background:linear-gradient(to right, #4ecdc4, #764ba2);"></div>
+                            <p class="demo-explanation">Dirección actual: <code id="current-direction">to right</code>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>📐 Control Preciso con Ángulos (<code>deg</code>)</h3>
+                    <p>Para un control más preciso o para crear diagonales específicas, puedes usar <strong>ángulos en
+                            grados (<code>deg</code>)</strong>. El sistema angular en CSS funciona de manera particular:
+                    </p>
+
+                    <div class="angle-explanation-enhanced">
+                        <div class="angle-system-card">
+                            <div class="system-header">
+                                <h5>🎯 Sistema Angular CSS</h5>
+                                <span class="system-badge">0° = to top</span>
+                            </div>
+                            <div class="system-content">
+                                <p>El ángulo se mide en el sentido de las <strong>manecillas del reloj</strong>, donde:
+                                </p>
+                                <ul>
+                                    <li><code>0deg</code> = De abajo hacia arriba (igual que <code>to top</code>)</li>
+                                    <li><code>90deg</code> = De izquierda a derecha (igual que <code>to right</code>)
+                                    </li>
+                                    <li><code>180deg</code> = De arriba hacia abajo (igual que <code>to bottom</code>)
+                                    </li>
+                                    <li><code>270deg</code> = De derecha a izquierda (igual que <code>to left</code>)
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="angle-visualization">
+                            <h5>🎨 Visualización de Ángulos Comunes</h5>
+                            <div class="degrees-demo-enhanced">
+                                <div class="degree-example-card">
+                                    <div class="degree-demo"
+                                        style="background:linear-gradient(0deg, #ff6b6b, #4ecdc4);"></div>
+                                    <div class="degree-info">
+                                        <code>0deg</code>
+                                        <span>Bottom → Top</span>
+                                    </div>
+                                </div>
+                                <div class="degree-example-card">
+                                    <div class="degree-demo"
+                                        style="background:linear-gradient(45deg, #ff6b6b, #4ecdc4);"></div>
+                                    <div class="degree-info">
+                                        <code>45deg</code>
+                                        <span>Bottom-Left → Top-Right</span>
+                                    </div>
+                                </div>
+                                <div class="degree-example-card">
+                                    <div class="degree-demo"
+                                        style="background:linear-gradient(90deg, #ff6b6b, #4ecdc4);"></div>
+                                    <div class="degree-info">
+                                        <code>90deg</code>
+                                        <span>Left → Right</span>
+                                    </div>
+                                </div>
+                                <div class="degree-example-card">
+                                    <div class="degree-demo"
+                                        style="background:linear-gradient(135deg, #ff6b6b, #4ecdc4);"></div>
+                                    <div class="degree-info">
+                                        <code>135deg</code>
+                                        <span>Top-Left → Bottom-Right</span>
+                                    </div>
+                                </div>
+                                <div class="degree-example-card">
+                                    <div class="degree-demo"
+                                        style="background:linear-gradient(180deg, #ff6b6b, #4ecdc4);"></div>
+                                    <div class="degree-info">
+                                        <code>180deg</code>
+                                        <span>Top → Bottom</span>
+                                    </div>
+                                </div>
+                                <div class="degree-example-card">
+                                    <div class="degree-demo"
+                                        style="background:linear-gradient(270deg, #ff6b6b, #4ecdc4);"></div>
+                                    <div class="degree-info">
+                                        <code>270deg</code>
+                                        <span>Right → Left</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <div class="tip-header">
+                            <span class="tip-icon">💡</span>
+                            <h5>Consejo Práctico</h5>
+                        </div>
+                        <p><strong>Si usas un ángulo, no uses las palabras clave de dirección.</strong> Solo puedes usar
+                            uno de los dos formatos. Los ángulos ofrecen mayor precisión mientras que las palabras clave
+                            son más intuitivas para direcciones básicas.</p>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🔄 Comparación: Direcciones vs Ángulos</h4>
+                    <p>Entiende la relación entre las palabras clave y sus equivalentes en grados:</p>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>🗣️ Palabra Clave</h5>
+                                <span class="comparison-badge">Intuitivo</span>
+                            </div>
+                            <div class="code-panel small">
+                                <pre
+                                    class="code-content"><code><span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-hex">#667eea</span>, <span class="css-hex">#764ba2</span>)</code></pre>
+                            </div>
+                            <div class="comparison-demo">
+                                <div class="demo-box" style="background:linear-gradient(to right, #667eea, #764ba2);">
+                                </div>
+                            </div>
+                            <div class="comparison-desc">
+                                <p><strong>Ventajas:</strong> Fácil de recordar, código más legible</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>📐 Equivalente en Grados</h5>
+                                <span class="comparison-badge">Preciso</span>
+                            </div>
+                            <div class="code-panel small">
+                                <pre
+                                    class="code-content"><code><span class="css-function">linear-gradient</span>(<span class="css-number">90deg</span>, <span class="css-hex">#667eea</span>, <span class="css-hex">#764ba2</span>)</code></pre>
+                            </div>
+                            <div class="comparison-demo">
+                                <div class="demo-box" style="background:linear-gradient(90deg, #667eea, #764ba2);">
+                                </div>
+                            </div>
+                            <div class="comparison-desc">
+                                <p><strong>Ventajas:</strong> Control exacto, cualquier ángulo posible</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎪 Animación de Rotación con JavaScript</h4>
+                    <p>Podemos usar JavaScript y el método <code>setInterval</code> para cambiar el ángulo del gradiente
+                        repetidamente, creando un efecto de animación continua. <strong>¡Observa cómo el código se
+                            actualiza en tiempo real!</strong></p>
+
+                    <div class="animation-controls">
+                        <button id="start-rotation-btn" class="btn-play">
+                            <span class="btn-icon">▶️</span>
+                            <span>Iniciar Rotación</span>
+                        </button>
+                        <button id="stop-rotation-btn" class="btn-reset">
+                            <span class="btn-icon">⏸️</span>
+                            <span>Detener Animación</span>
+                        </button>
+                        <button id="reset-rotation-btn" class="btn-reset secondary">
+                            <span class="btn-icon">🔄</span>
+                            <span>Reiniciar</span>
+                        </button>
+                    </div>
+
+                    <div class="animation-demo">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">animacion.js</span>
+                                <span class="code-language">JavaScript</span>
+                            </div>
+                            <pre class="code-content" id="rotation-code"><code><span class="css-comment">// Animación continua del ángulo</span>
+<span class="css-property">let</span> angle = <span class="css-number" id="code-angle">0</span>;
+<span class="css-property">const</span> interval = <span class="css-function">setInterval</span>(() => {
+    angle = (angle + <span class="css-number">2</span>) % <span class="css-number">360</span>;
+    <span class="css-property">element</span>.<span class="css-property">style</span>.<span class="css-property">background</span> = 
+        <span class="css-string">`linear-gradient(</span><span class="css-number" id="code-gradient-angle">0</span><span class="css-string">deg, #93c5fd, #38bdf8)`</span>;
+}, <span class="css-number">50</span>);</code></pre>
+                        </div>
+
+                        <div class="demo-visual">
+                            <div id="rotation-demo-box" class="demo-box-large"
+                                style="background:linear-gradient(0deg, #93c5fd, #38bdf8);">
+                                <div class="angle-indicator">0°</div>
+                            </div>
+                            <p class="demo-explanation">Ángulo actual: <code id="current-angle">0deg</code></p>
+                        </div>
+                    </div>
+
+                    <div class="code-breakdown-mini">
+                        <h6>🔍 ¿Cómo funciona la animación?</h6>
+                        <ul>
+                            <li><span class="code-highlight">setInterval()</span> - Ejecuta código repetidamente cada
+                                50ms</li>
+                            <li><span class="code-highlight">angle = (angle + 2) % 360</span> - Incrementa el ángulo y
+                                lo mantiene entre 0-359</li>
+                            <li><span class="code-highlight">element.style.background</span> - Actualiza el gradiente en
+                                tiempo real</li>
+                            <li><span class="code-highlight">clearInterval()</span> - Detiene la animación cuando se
+                                presiona "Detener"</li>
+                            <li><span class="code-highlight">¡El código se actualiza en vivo!</span> - Ve los cambios
+                                reflejados en el ejemplo</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="lesson-content-3" class="lesson-content card hidden-lesson">
+                <h2>3️⃣ Múltiples Colores</h2>
+            </section>
+
+            <section id="lesson-content-4" class="lesson-content card hidden-lesson">
+                <h2>4️⃣ Practica</h2>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <small>💻 Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript 💻</small>
+    </footer>
+</body>
+
+</html>
