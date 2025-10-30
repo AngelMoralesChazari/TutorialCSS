@@ -930,8 +930,22 @@
                 <div class="example-block">
                     <h4>🎪 Animación de Rotación con JavaScript</h4>
                     <p>Podemos usar JavaScript y el método <code>setInterval</code> para cambiar el ángulo del gradiente
-                        repetidamente, creando un efecto de animación continua. <strong>¡Observa cómo el código se
-                            actualiza en tiempo real!</strong></p>
+                        repetidamente. <strong>¡Personaliza los colores y observa el código actualizarse en tiempo
+                            real!</strong></p>
+
+                    <!-- SELECTORES DE COLOR - ESTOS FALTABAN -->
+                    <div class="color-picker-controls">
+                        <div class="color-picker-group">
+                            <label for="color-picker-1">🎨 Color 1 (Inicio):</label>
+                            <input type="color" id="color-picker-1" value="#93c5fd" class="color-input">
+                            <span class="color-value" id="color-value-1">#93c5fd</span>
+                        </div>
+                        <div class="color-picker-group">
+                            <label for="color-picker-2">🎨 Color 2 (Fin):</label>
+                            <input type="color" id="color-picker-2" value="#38bdf8" class="color-input">
+                            <span class="color-value" id="color-value-2">#38bdf8</span>
+                        </div>
+                    </div>
 
                     <div class="animation-controls">
                         <button id="start-rotation-btn" class="btn-play">
@@ -946,6 +960,11 @@
                             <span class="btn-icon">🔄</span>
                             <span>Reiniciar</span>
                         </button>
+                        <div class="animation-speed-control">
+                            <label for="speed-range">🎚️ Velocidad:</label>
+                            <input type="range" id="speed-range" min="10" max="200" value="50" step="10">
+                            <span id="speed-value">50ms</span>
+                        </div>
                     </div>
 
                     <div class="animation-demo">
@@ -953,39 +972,27 @@
                             <div class="code-header">
                                 <span class="code-filename">animacion.js</span>
                                 <span class="code-language">JavaScript</span>
+                                <span class="animation-status" id="animation-status">⏸️ Pausado</span>
                             </div>
                             <pre class="code-content" id="rotation-code"><code><span class="css-comment">// Animación continua del ángulo</span>
 <span class="css-property">let</span> angle = <span class="css-number" id="code-angle">0</span>;
 <span class="css-property">const</span> interval = <span class="css-function">setInterval</span>(() => {
     angle = (angle + <span class="css-number">2</span>) % <span class="css-number">360</span>;
     <span class="css-property">element</span>.<span class="css-property">style</span>.<span class="css-property">background</span> = 
-        <span class="css-string">`linear-gradient(</span><span class="css-number" id="code-gradient-angle">0</span><span class="css-string">deg, #93c5fd, #38bdf8)`</span>;
-}, <span class="css-number">50</span>);</code></pre>
+        <span class="css-string">`linear-gradient(</span><span class="css-number" id="code-gradient-angle">0</span><span class="css-string">deg, </span><span class="css-hex" id="code-color-1">#93c5fd</span><span class="css-string">, </span><span class="css-hex" id="code-color-2">#38bdf8</span><span class="css-string">)`</span>;
+}, <span class="css-number" id="code-interval">50</span>);</code></pre>
                         </div>
 
                         <div class="demo-visual">
                             <div id="rotation-demo-box" class="demo-box-large"
                                 style="background:linear-gradient(0deg, #93c5fd, #38bdf8);">
                                 <div class="angle-indicator">0°</div>
+                                <div class="rotation-direction">↻</div>
                             </div>
                             <p class="demo-explanation">Ángulo actual: <code id="current-angle">0deg</code></p>
+                            <p class="demo-notes"><strong>Tip:</strong> Presiona la barra espaciadora para
+                                pausar/reanudar</p>
                         </div>
-                    </div>
-
-                    <div class="code-breakdown-mini">
-                        <h6>🔍 ¿Cómo funciona la animación?</h6>
-                        <ul>
-                            <li><span class="code-highlight">setInterval()</span> - Ejecuta código repetidamente cada
-                                50ms</li>
-                            <li><span class="code-highlight">angle = (angle + 2) % 360</span> - Incrementa el ángulo y
-                                lo mantiene entre 0-359</li>
-                            <li><span class="code-highlight">element.style.background</span> - Actualiza el gradiente en
-                                tiempo real</li>
-                            <li><span class="code-highlight">clearInterval()</span> - Detiene la animación cuando se
-                                presiona "Detener"</li>
-                            <li><span class="code-highlight">¡El código se actualiza en vivo!</span> - Ve los cambios
-                                reflejados en el ejemplo</li>
-                        </ul>
                     </div>
                 </div>
             </section>
