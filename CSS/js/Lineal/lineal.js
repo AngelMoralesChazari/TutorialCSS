@@ -18,14 +18,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const directionCode = document.getElementById('direction-code');
 
         directionButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const direction = this.dataset.direction;
-                
+
                 // Remover activo de todos los botones
                 directionButtons.forEach(btn => btn.classList.remove('active'));
                 // Activar botón clickeado
                 this.classList.add('active');
-                
+
                 // Actualizar demo y código
                 demoBox.style.background = `linear-gradient(${direction}, #4ecdc4, #764ba2)`;
                 directionDisplay.textContent = direction;
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Función para el demo de rotación MEJORADA
     function initializeRotationDemo() {
         console.log('🔧 Inicializando demo de rotación...');
-        
+
         // Limpiar intervalo anterior
         if (rotationInterval) {
             clearInterval(rotationInterval);
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const stopBtn = document.getElementById('stop-rotation-btn');
         const resetBtn = document.getElementById('reset-rotation-btn');
         const currentAngleDisplay = document.getElementById('current-angle');
-        
+
         // Elementos de control
         const speedRange = document.getElementById('speed-range');
         const speedValue = document.getElementById('speed-value');
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const colorValue1 = document.getElementById('color-value-1');
         const colorValue2 = document.getElementById('color-value-2');
         const animationStatus = document.getElementById('animation-status');
-        
+
         // Elementos del código en el panel
         const codeAngle = document.getElementById('code-angle');
         const codeGradientAngle = document.getElementById('code-gradient-angle');
@@ -94,10 +94,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // ✅ FUNCIÓN MEJORADA: Actualizar todo el display
         function updateAllDisplays() {
             console.log('🔄 Actualizando displays - Ángulo:', angle, 'Colores:', color1, color2);
-            
+
             // 1. Actualizar el gradiente visual
             rotationBox.style.background = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
-            
+
             // 2. Actualizar indicadores de ángulo
             if (currentAngleDisplay) currentAngleDisplay.textContent = `${angle}deg`;
             const angleIndicator = rotationBox.querySelector('.angle-indicator');
@@ -115,13 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (codeAngle && codeGradientAngle) {
                 codeAngle.classList.remove('code-update-highlight');
                 codeGradientAngle.classList.remove('code-update-highlight');
-                
+
                 // Forzar reflow
                 void codeAngle.offsetWidth;
-                
+
                 codeAngle.classList.add('code-update-highlight');
                 codeGradientAngle.classList.add('code-update-highlight');
-                
+
                 setTimeout(() => {
                     codeAngle.classList.remove('code-update-highlight');
                     codeGradientAngle.classList.remove('code-update-highlight');
@@ -133,12 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (codeColor1 && codeColor2) {
                 codeColor1.classList.remove('code-update-highlight');
                 codeColor2.classList.remove('code-update-highlight');
-                
+
                 void codeColor1.offsetWidth;
-                
+
                 codeColor1.classList.add('code-update-highlight');
                 codeColor2.classList.add('code-update-highlight');
-                
+
                 setTimeout(() => {
                     codeColor1.classList.remove('code-update-highlight');
                     codeColor2.classList.remove('code-update-highlight');
@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ✅ FUNCIÓN CORREGIDA: Iniciar rotación
         function startRotation() {
             console.log('▶️ Iniciando rotación con velocidad:', speed);
-            
+
             if (rotationInterval) {
                 clearInterval(rotationInterval);
                 rotationInterval = null;
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ✅ FUNCIÓN CORREGIDA: Detener rotación
         function stopRotation() {
             console.log('⏸️ Deteniendo rotación');
-            
+
             isRunning = false;
             if (rotationInterval) {
                 clearInterval(rotationInterval);
@@ -199,19 +199,19 @@ document.addEventListener('DOMContentLoaded', () => {
             if (speedRange && speedValue) {
                 speed = parseInt(speedRange.value);
                 speedValue.textContent = `${speed}ms`;
-                
+
                 console.log('🎚️ Velocidad actualizada:', speed);
-                
+
                 // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeInterval) {
                     codeInterval.textContent = speed;
                 }
-                
+
                 // Si está corriendo, reiniciar con nueva velocidad
                 if (isRunning) {
                     startRotation();
                 }
-                
+
                 highlightCodeUpdate();
             }
         }
@@ -221,14 +221,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (colorPicker1 && colorValue1) {
                 color1 = colorPicker1.value.toUpperCase();
                 colorValue1.textContent = color1;
-                
+
                 console.log('🎨 Color 1 actualizado:', color1);
-                
+
                 // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeColor1) {
                     codeColor1.textContent = color1;
                 }
-                
+
                 updateAllDisplays();
                 highlightColorUpdate();
             }
@@ -239,14 +239,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (colorPicker2 && colorValue2) {
                 color2 = colorPicker2.value.toUpperCase();
                 colorValue2.textContent = color2;
-                
+
                 console.log('🎨 Color 2 actualizado:', color2);
-                
+
                 // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeColor2) {
                     codeColor2.textContent = color2;
                 }
-                
+
                 updateAllDisplays();
                 highlightColorUpdate();
             }
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // ✅ CONFIGURACIÓN DE EVENT LISTENERS
         function setupEventListeners() {
             console.log('🔌 Configurando event listeners...');
-            
+
             // Configurar eventos
             if (startBtn) {
                 startBtn.addEventListener('click', startRotation);
@@ -298,9 +298,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // ✅ INICIALIZACIÓN COMPLETA
         function initialize() {
             console.log('🚀 Inicializando demo...');
-            
+
             setupEventListeners();
-            
+
             // Configurar valores iniciales
             if (speedRange) speedRange.value = speed;
             if (speedValue) speedValue.textContent = `${speed}ms`;
@@ -308,13 +308,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (colorPicker2) colorPicker2.value = color2.toLowerCase();
             if (colorValue1) colorValue1.textContent = color1;
             if (colorValue2) colorValue2.textContent = color2;
-            
+
             // Actualizar displays iniciales
             updateAllDisplays();
-            
+
             // Configurar evento de teclado
             document.addEventListener('keydown', handleSpaceKey);
-            
+
             console.log('🎉 Demo inicializado correctamente');
         }
 
@@ -346,7 +346,310 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =======================================================
-    // LÓGICA DE CARGA DINÁMICA DE LECCIONES
+    // FUNCIONALIDAD PARA MÚLTIPLES COLORES (LECCIÓN 3)
+    // =======================================================
+
+    function initializeMultiColorDemo() {
+        console.log('🎨 Inicializando demo de múltiples colores...');
+
+        // Elementos del DOM
+        const colorStopsContainer = document.getElementById('color-stops-container');
+        const multiColorDemoBox = document.getElementById('multi-color-demo-box');
+        const multiColorCode = document.getElementById('multi-color-code');
+        const multiColorExplanation = document.getElementById('multi-color-explanation');
+        const colorStopsOverlay = document.getElementById('color-stops-overlay');
+
+        // Botones de control
+        const addColorBtn = document.getElementById('add-color-btn');
+        const removeColorBtn = document.getElementById('remove-color-btn');
+        const resetColorsBtn = document.getElementById('reset-colors-btn');
+        const presetButtons = document.querySelectorAll('.preset-btn');
+
+        // Estado inicial
+        let colorStops = [
+            { color: '#ff6b6b', position: 0 },
+            { color: '#ffe66d', position: 50 },
+            { color: '#4ecdc4', position: 100 }
+        ];
+
+        // Gradientes predefinidos
+        const presets = {
+            sunset: [
+                { color: '#ff6b6b', position: 0 },
+                { color: '#ff8e6b', position: 25 },
+                { color: '#ffe66d', position: 50 },
+                { color: '#4ecdc4', position: 75 },
+                { color: '#1a535c', position: 100 }
+            ],
+            ocean: [
+                { color: '#667eea', position: 0 },
+                { color: '#764ba2', position: 33 },
+                { color: '#f093fb', position: 66 },
+                { color: '#f5576c', position: 100 }
+            ],
+            forest: [
+                { color: '#0fa36b', position: 0 },
+                { color: '#1eb2a6', position: 33 },
+                { color: '#4ecdc4', position: 66 },
+                { color: '#96ceb4', position: 100 }
+            ],
+            rainbow: [
+                { color: '#ff6b6b', position: 0 },
+                { color: '#ffe66d', position: 20 },
+                { color: '#4ecdc4', position: 40 },
+                { color: '#45b7d1', position: 60 },
+                { color: '#96ceb4', position: 80 },
+                { color: '#764ba2', position: 100 }
+            ],
+            neon: [
+                { color: '#ff6b6b', position: 0 },
+                { color: '#ffe66d', position: 25 },
+                { color: '#4ecdc4', position: 50 },
+                { color: '#45b7d1', position: 75 },
+                { color: '#f093fb', position: 100 }
+            ]
+        };
+
+        // Función para renderizar los controles de color
+        function renderColorStops() {
+            colorStopsContainer.innerHTML = '';
+
+            colorStops.forEach((stop, index) => {
+                const colorStopElement = document.createElement('div');
+                colorStopElement.className = 'color-stop';
+                colorStopElement.innerHTML = `
+                <input type="color" class="color-preview" value="${stop.color}" data-index="${index}">
+                <div class="color-stop-controls">
+                    <div class="stop-position">
+                        <input type="number" class="position-input" value="${stop.position}" 
+                               min="0" max="100" data-index="${index}">
+                        <span>%</span>
+                    </div>
+                    <span class="color-value-display">${stop.color.toUpperCase()}</span>
+                    ${index > 0 && index < colorStops.length - 1 ?
+                        `<button class="remove-stop" data-index="${index}">🗑️ Eliminar</button>` : ''}
+                </div>
+            `;
+                colorStopsContainer.appendChild(colorStopElement);
+            });
+
+            // Agregar event listeners a los nuevos elementos
+            attachColorStopEvents();
+            updateDemo();
+        }
+
+        // Función para agregar event listeners
+        function attachColorStopEvents() {
+            // Eventos para selectores de color
+            document.querySelectorAll('.color-preview').forEach(input => {
+                input.addEventListener('input', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    colorStops[index].color = e.target.value;
+                    updateColorValueDisplay(index);
+                    updateDemo();
+                });
+            });
+
+            // Eventos para inputs de posición
+            document.querySelectorAll('.position-input').forEach(input => {
+                input.addEventListener('input', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    let position = parseInt(e.target.value);
+
+                    // Validar límites
+                    if (position < 0) position = 0;
+                    if (position > 100) position = 100;
+
+                    // Asegurar orden correcto
+                    if (index > 0 && position <= colorStops[index - 1].position) {
+                        position = colorStops[index - 1].position + 1;
+                    }
+                    if (index < colorStops.length - 1 && position >= colorStops[index + 1].position) {
+                        position = colorStops[index + 1].position - 1;
+                    }
+
+                    colorStops[index].position = position;
+                    e.target.value = position;
+                    updateDemo();
+                });
+            });
+
+            // Eventos para botones de eliminar
+            document.querySelectorAll('.remove-stop').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const index = parseInt(e.target.dataset.index);
+                    if (colorStops.length > 2) {
+                        colorStops.splice(index, 1);
+                        renderColorStops();
+                    }
+                });
+            });
+        }
+
+        // Función para actualizar la visualización del valor del color
+        function updateColorValueDisplay(index) {
+            const display = document.querySelector(`.color-value-display:nth-child(${index + 1})`);
+            if (display) {
+                display.textContent = colorStops[index].color.toUpperCase();
+            }
+        }
+
+        // Función para actualizar el demo
+        function updateDemo() {
+            // Ordenar stops por posición (por si acaso)
+            colorStops.sort((a, b) => a.position - b.position);
+
+            // Generar cadena de gradiente
+            const gradientStops = colorStops.map(stop =>
+                `${stop.color} ${stop.position}%`
+            ).join(', ');
+
+            const gradientString = `linear-gradient(to right, ${gradientStops})`;
+
+            // Aplicar al demo box
+            multiColorDemoBox.style.background = gradientString;
+
+            // Actualizar código
+            updateCodeDisplay(gradientStops);
+
+            // Actualizar explicación
+            updateExplanation();
+
+            // Actualizar marcadores de posición
+            updatePositionMarkers();
+        }
+
+        // Función para actualizar el código mostrado
+        function updateCodeDisplay(gradientStops) {
+            const codeLines = gradientStops.split(', ')
+                .map(stop => `    ${stop}`)
+                .join(',\n');
+
+            multiColorCode.innerHTML =
+                `<code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>,
+${codeLines});</code>`;
+        }
+
+        // Función para actualizar la explicación
+        function updateExplanation() {
+            const explanation = colorStops.map((stop, index) => {
+                const colorName = getColorName(stop.color);
+                return `${colorName} (${stop.position}%)`;
+            }).join(' → ');
+
+            multiColorExplanation.textContent =
+                `${colorStops.length} colores: ${explanation}`;
+        }
+
+        // Función para obtener nombre aproximado del color
+        function getColorName(hexColor) {
+            const colorMap = {
+                '#ff6b6b': 'Rojo',
+                '#ffe66d': 'Amarillo',
+                '#4ecdc4': 'Verde azulado',
+                '#1a535c': 'Azul oscuro',
+                '#667eea': 'Azul',
+                '#764ba2': 'Morado',
+                '#f093fb': 'Rosa',
+                '#f5576c': 'Rojo coral',
+                '#0fa36b': 'Verde',
+                '#1eb2a6': 'Verde azulado',
+                '#96ceb4': 'Verde menta',
+                '#45b7d1': 'Azul claro'
+            };
+
+            return colorMap[hexColor.toLowerCase()] || hexColor.toUpperCase();
+        }
+
+        // Función para actualizar marcadores de posición
+        function updatePositionMarkers() {
+            colorStopsOverlay.innerHTML = '';
+
+            colorStops.forEach(stop => {
+                const marker = document.createElement('div');
+                marker.className = 'stop-marker';
+                marker.style.left = `${stop.position}%`;
+                marker.style.position = 'absolute';
+                marker.style.transform = 'translateX(-50%)';
+
+                marker.innerHTML = `
+                <div class="marker-dot" style="color: ${stop.color}"></div>
+                <div class="marker-label">${stop.position}%</div>
+            `;
+
+                colorStopsOverlay.appendChild(marker);
+            });
+        }
+
+        // Función para agregar un nuevo color
+        function addColorStop() {
+            if (colorStops.length >= 6) {
+                alert('Máximo 6 colores permitidos');
+                return;
+            }
+
+            // Encontrar la posición más grande para insertar
+            const lastPosition = colorStops[colorStops.length - 2].position;
+            const newPosition = Math.min(lastPosition + 10, 90);
+
+            // Color intermedio (mezcla de los colores adyacentes)
+            const newColor = '#45b7d1'; // Color por defecto
+
+            // Insertar nuevo stop
+            colorStops.splice(colorStops.length - 1, 0, {
+                color: newColor,
+                position: newPosition
+            });
+
+            renderColorStops();
+        }
+
+        // Función para quitar un color
+        function removeColorStop() {
+            if (colorStops.length > 2) {
+                colorStops.splice(colorStops.length - 2, 1);
+                renderColorStops();
+            }
+        }
+
+        // Función para reiniciar
+        function resetColorStops() {
+            colorStops = [
+                { color: '#ff6b6b', position: 0 },
+                { color: '#ffe66d', position: 50 },
+                { color: '#4ecdc4', position: 100 }
+            ];
+            renderColorStops();
+        }
+
+        // Función para aplicar preset
+        function applyPreset(presetName) {
+            if (presets[presetName]) {
+                colorStops = JSON.parse(JSON.stringify(presets[presetName]));
+                renderColorStops();
+            }
+        }
+
+        // Configurar event listeners
+        addColorBtn.addEventListener('click', addColorStop);
+        removeColorBtn.addEventListener('click', removeColorStop);
+        resetColorsBtn.addEventListener('click', resetColorStops);
+
+        presetButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                const presetName = e.target.dataset.preset;
+                applyPreset(presetName);
+            });
+        });
+
+        // Inicializar
+        renderColorStops();
+
+        console.log('🎉 Demo de múltiples colores inicializado');
+    }
+
+    // =======================================================
+    // LÓGICA DE CARGA DINÁMICA DE LECCIONES (FUNCIÓN ÚNICA)
     // =======================================================
 
     function loadLesson(lessonNum) {
@@ -366,14 +669,16 @@ document.addEventListener('DOMContentLoaded', () => {
             activeLesson.classList.remove('hidden-lesson');
 
             // 3. Inicializa la interactividad de la lección cargada
-            if (lessonNum === '2') {
-                console.log('🚀 Inicializando lección 2...');
-                // Pequeño delay para asegurar que el DOM esté listo
-                setTimeout(() => {
+            setTimeout(() => {
+                if (lessonNum === '2') {
+                    console.log('🚀 Inicializando lección 2...');
                     initializeDirectionDemo();
                     initializeRotationDemo();
-                }, 100);
-            }
+                } else if (lessonNum === '3') {
+                    console.log('🚀 Inicializando lección 3...');
+                    initializeMultiColorDemo();
+                }
+            }, 100);
         }
     }
 

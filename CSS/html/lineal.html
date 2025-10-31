@@ -1000,6 +1000,281 @@
 
             <section id="lesson-content-3" class="lesson-content card hidden-lesson">
                 <h2>3️⃣ Múltiples Colores</h2>
+
+                <div class="theory-block">
+                    <div class="journey-intro">
+                        <div class="journey-icon">🌈</div>
+                        <p>Descubre cómo crear <strong>gradientes complejos y espectaculares</strong> usando más de dos
+                            colores. Aprende a controlar puntos de parada, crear bandas de color y diseñar transiciones
+                            más ricas y dinámicas.</p>
+                    </div>
+
+                    <h3>🎨 Más Allá de Dos Colores</h3>
+                    <p>Hasta ahora hemos usado solo dos colores, pero los gradientes lineales pueden incluir
+                        <strong>tantos colores como quieras</strong>. Cada color adicional crea un nuevo punto en la
+                        transición.</p>
+
+                    <div class="example-block">
+                        <h4>🔍 Comparación: 2 vs 3 vs 4 Colores</h4>
+                        <div class="demo-comparison">
+                            <div class="demo-item">
+                                <div class="demo-box" style="background:linear-gradient(to right, #ff6b6b, #4ecdc4);">
+                                </div>
+                                <p><strong>2 Colores</strong><br>Transición simple</p>
+                            </div>
+                            <div class="demo-item">
+                                <div class="demo-box"
+                                    style="background:linear-gradient(to right, #ff6b6b, #ffe66d, #4ecdc4);"></div>
+                                <p><strong>3 Colores</strong><br>Punto intermedio</p>
+                            </div>
+                            <div class="demo-item">
+                                <div class="demo-box"
+                                    style="background:linear-gradient(to right, #ff6b6b, #ffe66d, #4ecdc4, #1a535c);">
+                                </div>
+                                <p><strong>4 Colores</strong><br>Transición compleja</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>📐 Puntos de Parada (Color Stops)</h3>
+                    <p>Los <strong>puntos de parada</strong> te permiten controlar <strong>exactamente dónde</strong>
+                        comienza y termina cada color en el gradiente.</p>
+
+                    <div class="example-block">
+                        <h4>🎯 Sintaxis de Puntos de Parada</h4>
+                        <div class="syntax-demo">
+                            <div class="code-panel">
+                                <div class="code-header">
+                                    <span class="code-filename">styles.css</span>
+                                    <span class="code-language">CSS</span>
+                                </div>
+                                <pre class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, 
+    <span class="css-color">red</span> <span class="css-number">0%</span>, 
+    <span class="css-color">yellow</span> <span class="css-number">50%</span>, 
+    <span class="css-color">blue</span> <span class="css-number">100%</span>);</code></pre>
+                            </div>
+
+                            <div class="demo-result">
+                                <div class="demo-box"
+                                    style="background:linear-gradient(to right, red 0%, yellow 50%, blue 100%);"></div>
+                                <p class="demo-explanation">
+                                    <strong>Resultado:</strong> Rojo en 0%, Amarillo en 50%, Azul en 100%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="rules-box">
+                        <h4>📋 Reglas de Puntos de Parada:</h4>
+                        <ul>
+                            <li>✅ Usa porcentajes (<code>0%</code> a <code>100%</code>) o píxeles</li>
+                            <li>✅ El primer color empieza en <code>0%</code> (implícito si no se especifica)</li>
+                            <li>✅ El último color termina en <code>100%</code> (implícito si no se especifica)</li>
+                            <li>✅ Los colores intermedios se distribuyen automáticamente</li>
+                            <li>❌ No uses porcentajes menores que 0% o mayores que 100%</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎪 Demo Interactivo: Múltiples Colores</h3>
+                    <p>Experimenta con diferentes combinaciones de colores y puntos de parada. <strong>¡Haz clic en los
+                            ejemplos predefinidos o crea tu propio gradiente!</strong></p>
+
+                    <!-- Controles de colores múltiples -->
+                    <div class="multi-color-controls">
+                        <div class="color-stops-container" id="color-stops-container">
+                            <!-- Los stops de color se generarán aquí dinámicamente -->
+                        </div>
+
+                        <div class="color-controls-actions">
+                            <button id="add-color-btn" class="btn-play">
+                                <span class="btn-icon">➕</span>
+                                <span>Agregar Color</span>
+                            </button>
+                            <button id="remove-color-btn" class="btn-reset secondary">
+                                <span class="btn-icon">➖</span>
+                                <span>Quitar Color</span>
+                            </button>
+                            <button id="reset-colors-btn" class="btn-reset">
+                                <span class="btn-icon">🔄</span>
+                                <span>Reiniciar</span>
+                            </button>
+                        </div>
+
+                        <div class="preset-gradients">
+                            <h5>🎨 Gradientes Predefinidos:</h5>
+                            <div class="preset-buttons">
+                                <button class="preset-btn" data-preset="sunset">Atardecer</button>
+                                <button class="preset-btn" data-preset="ocean">Océano</button>
+                                <button class="preset-btn" data-preset="forest">Bosque</button>
+                                <button class="preset-btn" data-preset="rainbow">Arcoíris</button>
+                                <button class="preset-btn" data-preset="neon">Neón</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="multi-color-demo">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">demo.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre class="code-content" id="multi-color-code"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>,
+    <span class="css-hex">#ff6b6b</span> <span class="css-number">0%</span>,
+    <span class="css-hex">#ffe66d</span> <span class="css-number">50%</span>,
+    <span class="css-hex">#4ecdc4</span> <span class="css-number">100%</span>);</code></pre>
+                        </div>
+
+                        <div class="demo-visual">
+                            <div id="multi-color-demo-box" class="demo-box-large"
+                                style="background:linear-gradient(to right, #ff6b6b 0%, #ffe66d 50%, #4ecdc4 100%);">
+                                <div class="color-stops-overlay" id="color-stops-overlay">
+                                    <!-- Marcadores de posición se generarán aquí -->
+                                </div>
+                            </div>
+                            <p class="demo-explanation" id="multi-color-explanation">
+                                3 colores: Rojo (0%) → Amarillo (50%) → Verde azulado (100%)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎭 Efectos Especiales con Múltiples Colores</h3>
+
+                    <div class="example-block">
+                        <h4>🎪 Bandas de Color Sólidas</h4>
+                        <p>Usando el mismo color en puntos consecutivos, puedes crear <strong>bandas sólidas</strong>
+                            sin transición:</p>
+
+                        <div class="syntax-demo">
+                            <div class="code-panel small">
+                                <pre
+                                    class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>,
+    <span class="css-hex">#ff6b6b</span> <span class="css-number">0%</span>, <span class="css-hex">#ff6b6b</span> <span class="css-number">33%</span>,
+    <span class="css-hex">#4ecdc4</span> <span class="css-number">33%</span>, <span class="css-hex">#4ecdc4</span> <span class="css-number">66%</span>,
+    <span class="css-hex">#45b7d1</span> <span class="css-number">66%</span>, <span class="css-hex">#45b7d1</span> <span class="css-number">100%</span>);</code></pre>
+                            </div>
+
+                            <div class="demo-result">
+                                <div class="demo-box"
+                                    style="background:linear-gradient(to right, #ff6b6b 0%, #ff6b6b 33%, #4ecdc4 33%, #4ecdc4 66%, #45b7d1 66%, #45b7d1 100%);">
+                                </div>
+                                <p class="demo-explanation">Tres bandas sólidas sin transición entre ellas</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-block">
+                        <h4>🌈 Degradados con Transparencia</h4>
+                        <p>Combina colores sólidos con transparencias para crear efectos de desvanecimiento:</p>
+
+                        <div class="syntax-demo">
+                            <div class="code-panel small">
+                                <pre
+                                    class="code-content"><code><span class="css-property">background</span>: <span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>,
+    <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">107</span>, <span class="css-number">107</span>, <span class="css-number">1</span>),
+    <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">107</span>, <span class="css-number">107</span>, <span class="css-number">0</span>));</code></pre>
+                            </div>
+
+                            <div class="demo-result">
+                                <div class="demo-box"
+                                    style="background:linear-gradient(to right, rgba(255,107,107,1), rgba(255,107,107,0));">
+                                </div>
+                                <p class="demo-explanation">Rojo sólido que se desvanece a transparente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>📊 Ejemplos del Mundo Real</h3>
+
+                    <div class="application-grid">
+                        <div class="app-column">
+                            <div class="app-header">
+                                <h4>🎨 Diseño de Botones</h4>
+                                <p>Botones modernos con gradientes complejos</p>
+                            </div>
+
+                            <div class="real-examples">
+                                <div class="example-card">
+                                    <button class="modern-btn"
+                                        style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        ✨ Botón Premium
+                                    </button>
+                                    <p>Gradiente de dos colores</p>
+                                </div>
+
+                                <div class="example-card">
+                                    <button class="modern-btn"
+                                        style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4ecdc4 100%);">
+                                        🌈 Botón Pro
+                                    </button>
+                                    <p>Gradiente de tres colores</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="app-column">
+                            <div class="app-header">
+                                <h4>📱 Fondos de Aplicación</h4>
+                                <p>Fondos atractivos para apps y webs</p>
+                            </div>
+
+                            <div class="real-examples">
+                                <div class="example-card">
+                                    <div class="app-background"
+                                        style="background:linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);">
+                                    </div>
+                                    <p>Fondo de app moderna</p>
+                                </div>
+
+                                <div class="example-card">
+                                    <div class="app-background"
+                                        style="background:linear-gradient(45deg, #ff9a9e 0%, #fad0c4 50%, #fad0c4 75%, #a18cd1 100%);">
+                                    </div>
+                                    <p>Fondo suave y profesional</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>💡 Mejores Prácticas</h3>
+
+                    <div class="best-practices">
+                        <div class="practice-card good">
+                            <div class="practice-header">
+                                <span class="practice-icon">✅</span>
+                                <h5>Lo que SÍ debes hacer</h5>
+                            </div>
+                            <ul>
+                                <li>Usa 2-4 colores para la mayoría de casos</li>
+                                <li>Mantén colores dentro de la misma paleta</li>
+                                <li>Usa puntos de parada para control preciso</li>
+                                <li>Prueba en diferentes dispositivos</li>
+                            </ul>
+                        </div>
+
+                        <div class="practice-card bad">
+                            <div class="practice-header">
+                                <span class="practice-icon">❌</span>
+                                <h5>Lo que NO debes hacer</h5>
+                            </div>
+                            <ul>
+                                <li>No uses demasiados colores (máximo 5-6)</li>
+                                <li>Evita colores que no contrasten bien</li>
+                                <li>No olvides probar la accesibilidad</li>
+                                <li>No uses gradientes complejos en texto</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="lesson-content-4" class="lesson-content card hidden-lesson">

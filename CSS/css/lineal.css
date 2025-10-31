@@ -2634,6 +2634,311 @@ APLICACIONES DEL GRADIENTE LINEAL
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* === ESTILOS PARA SECCIÓN 3 - MÚLTIPLES COLORES === */
+
+/* Controles de colores múltiples */
+.multi-color-controls {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 25px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.color-stops-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.color-stop {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: rgba(17, 24, 39, 0.8);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.color-stop:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.color-preview {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+.color-stop-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+}
+
+.stop-position {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stop-position input {
+    width: 80px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 8px;
+    color: var(--text);
+    text-align: center;
+}
+
+.stop-position span {
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.color-value-display {
+    font-family: 'Consolas', monospace;
+    color: var(--accent);
+    font-weight: 600;
+    min-width: 100px;
+    text-align: center;
+}
+
+.remove-stop {
+    background: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.remove-stop:hover {
+    background: rgba(239, 68, 68, 0.3);
+    transform: scale(1.05);
+}
+
+.color-controls-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+/* Gradientes predefinidos */
+.preset-gradients {
+    text-align: center;
+}
+
+.preset-gradients h5 {
+    margin: 0 0 15px 0;
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.preset-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.preset-btn {
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: var(--text);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.preset-btn:hover {
+    background: rgba(56, 189, 248, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Demo de múltiples colores */
+.multi-color-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin: 25px 0;
+    align-items: start;
+}
+
+#multi-color-demo-box {
+    position: relative;
+    overflow: hidden;
+}
+
+.color-stops-overlay {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.stop-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.marker-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    background: currentColor;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.marker-label {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+/* Ejemplos del mundo real */
+.real-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.example-card {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modern-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.modern-btn:hover {
+    transform: translateY(-2px);
+}
+
+.app-background {
+    height: 80px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Mejores prácticas */
+.best-practices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.practice-card {
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid;
+}
+
+.practice-card.good {
+    background: rgba(76, 175, 80, 0.1);
+    border-color: rgba(76, 175, 80, 0.3);
+}
+
+.practice-card.bad {
+    background: rgba(239, 68, 68, 0.1);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.practice-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.practice-header h5 {
+    margin: 0;
+    color: var(--text);
+    font-size: 1.1rem;
+}
+
+.practice-icon {
+    font-size: 1.3rem;
+}
+
+.practice-card ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.practice-card li {
+    margin: 8px 0;
+    color: var(--text);
+    font-size: 0.9rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .multi-color-demo {
+        grid-template-columns: 1fr;
+    }
+    
+    .color-stop {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .color-stop-controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .best-practices {
+        grid-template-columns: 1fr;
+    }
+    
+    .preset-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .preset-btn {
+        width: 200px;
+    }
+}
+
 /* Responsive para selectores de color */
 @media (max-width: 768px) {
     .color-picker-controls {
