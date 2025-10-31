@@ -1,3 +1,4 @@
+
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.lesson-list li');
     const lessonContentSections = document.querySelectorAll('.lesson-content');
@@ -654,7 +655,7 @@ ${codeLines});</code>`;
 
     function loadLesson(lessonNum) {
         console.log(`📖 Cargando lección ${lessonNum}`);
-        
+
         // Detiene cualquier demo activa antes de cambiar
         cleanupDemos();
 
@@ -677,6 +678,146 @@ ${codeLines});</code>`;
                 } else if (lessonNum === '3') {
                     console.log('🚀 Inicializando lección 3...');
                     initializeMultiColorDemo();
+                }
+            }, 100);
+        }
+    }
+
+    // =======================================================
+    // FUNCIONALIDAD PARA SECCIÓN 4 - PRÁCTICA
+    // =======================================================
+
+    function initializePracticeSection() {
+        console.log('🚀 Inicializando sección de práctica...');
+
+        // Elementos del DOM
+        const cssEditor = document.getElementById('css-practice-editor');
+        const applyBtn = document.getElementById('apply-css-btn');
+        const resetBtn = document.getElementById('reset-practice-btn');
+        const previewElement = document.querySelector('.mi-gradiente');
+        const exampleButtons = document.querySelectorAll('.example-btn');
+
+        // Código inicial por defecto
+        const defaultCode = `.mi-gradiente {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}`;
+
+        // Función para aplicar el CSS
+        function applyCSS() {
+            const cssCode = cssEditor.value;
+            console.log('🎨 Aplicando CSS:', cssCode);
+
+            try {
+                // Extraer solo las propiedades del selector .mi-gradiente
+                const styleContent = cssCode.replace('.mi-gradiente', '').trim();
+                const cleanStyle = styleContent.replace(/[{}]/g, '').trim();
+
+                // Aplicar estilos directamente al elemento
+                previewElement.style.cssText = cleanStyle;
+
+                // Efecto visual de éxito
+                previewElement.style.transform = 'scale(1.02)';
+                setTimeout(() => {
+                    previewElement.style.transform = 'scale(1)';
+                }, 200);
+
+            } catch (error) {
+                console.error('❌ Error aplicando CSS:', error);
+                // Efecto visual de error
+                previewElement.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.5)';
+                setTimeout(() => {
+                    previewElement.style.boxShadow = '';
+                }, 1000);
+            }
+        }
+
+        // Función para reiniciar
+        function resetPractice() {
+            console.log('🔄 Reiniciando práctica...');
+            cssEditor.value = defaultCode;
+            applyCSS();
+        }
+
+        // Función para cargar ejemplo
+        function loadExample(gradientCode) {
+            console.log('📝 Cargando ejemplo:', gradientCode);
+
+            const newCode = `.mi-gradiente {
+    width: 100%;
+    height: 100%;
+    background: ${gradientCode};
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}`;
+
+            cssEditor.value = newCode;
+            applyCSS();
+
+            // Scroll suave al editor
+            cssEditor.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+
+        // Configurar event listeners
+        applyBtn.addEventListener('click', applyCSS);
+        resetBtn.addEventListener('click', resetPractice);
+
+        // Atajo de teclado: Ctrl+Enter
+        cssEditor.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter') {
+                e.preventDefault();
+                applyCSS();
+            }
+        });
+
+        // Event listeners para botones de ejemplo
+        exampleButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const gradientCode = button.dataset.code;
+                loadExample(gradientCode);
+            });
+        });
+
+        // Aplicar código inicial
+        resetPractice();
+
+        console.log('✅ Sección de práctica inicializada');
+    }
+
+    // En la función loadLesson, agregar la inicialización de la sección 4
+    // Modificar esta parte del código existente:
+
+    function loadLesson(lessonNum) {
+        console.log(`📖 Cargando lección ${lessonNum}`);
+
+        // Detiene cualquier demo activa antes de cambiar
+        cleanupDemos();
+
+        // 1. Oculta TODAS las secciones de contenido
+        lessonContentSections.forEach(section => {
+            section.classList.add('hidden-lesson');
+        });
+
+        // 2. Muestra SOLAMENTE la sección activa
+        const activeLesson = document.getElementById(`lesson-content-${lessonNum}`);
+        if (activeLesson) {
+            activeLesson.classList.remove('hidden-lesson');
+
+            // 3. Inicializa la interactividad de la lección cargada
+            setTimeout(() => {
+                if (lessonNum === '2') {
+                    console.log('🚀 Inicializando lección 2...');
+                    initializeDirectionDemo();
+                    initializeRotationDemo();
+                } else if (lessonNum === '3') {
+                    console.log('🚀 Inicializando lección 3...');
+                    initializeMultiColorDemo();
+                } else if (lessonNum === '4') {
+                    console.log('🚀 Inicializando lección 4...');
+                    initializePracticeSection();
                 }
             }, 100);
         }
