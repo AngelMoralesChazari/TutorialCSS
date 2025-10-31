@@ -3,8 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const lessonContentSections = document.querySelectorAll('.lesson-content');
 
     // Variable global para el intervalo de rotación
-    let rotationInterval;
+    let rotationInterval = null;
     let currentRotationDemo = null;
+    let isRunning = false;
 
     // =======================================================
     // FUNCIONES DE INTERACTIVIDAD MEJORADAS
@@ -39,6 +40,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function initializeRotationDemo() {
         console.log('🔧 Inicializando demo de rotación...');
         
+        // Limpiar intervalo anterior
+        if (rotationInterval) {
+            clearInterval(rotationInterval);
+            rotationInterval = null;
+        }
+
         // Elementos básicos
         const rotationBox = document.getElementById('rotation-demo-box');
         const startBtn = document.getElementById('start-rotation-btn');
@@ -69,11 +76,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         console.log('✅ Elementos encontrados:', {
+            rotationBox: !!rotationBox,
+            startBtn: !!startBtn,
+            stopBtn: !!stopBtn,
             speedRange: !!speedRange,
             colorPicker1: !!colorPicker1,
-            colorPicker2: !!colorPicker2,
-            codeAngle: !!codeAngle,
-            codeColor1: !!codeColor1
+            colorPicker2: !!colorPicker2
         });
 
         // Variables de estado
@@ -81,24 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
         let speed = speedRange ? parseInt(speedRange.value) : 50;
         let color1 = '#93C5FD';
         let color2 = '#38BDF8';
+        isRunning = false;
 
-        // Función para actualizar la rotación
-        function updateRotation() {
-            // Actualizar el gradiente visual
+        // ✅ FUNCIÓN MEJORADA: Actualizar todo el display
+        function updateAllDisplays() {
+            console.log('🔄 Actualizando displays - Ángulo:', angle, 'Colores:', color1, color2);
+            
+            // 1. Actualizar el gradiente visual
             rotationBox.style.background = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
             
-            // Actualizar displays
+            // 2. Actualizar indicadores de ángulo
             if (currentAngleDisplay) currentAngleDisplay.textContent = `${angle}deg`;
             const angleIndicator = rotationBox.querySelector('.angle-indicator');
             if (angleIndicator) angleIndicator.textContent = `${angle}°`;
 
-            // ✅ ACTUALIZAR CÓDIGO EN EL PANEL
+            // 3. ACTUALIZAR CÓDIGO EN EL PANEL
             if (codeAngle) codeAngle.textContent = angle;
             if (codeGradientAngle) codeGradientAngle.textContent = angle;
             if (codeColor1) codeColor1.textContent = color1;
             if (codeColor2) codeColor2.textContent = color2;
-
-            console.log('🔄 Ángulo actualizado:', angle, 'Colores:', color1, color2);
+            if (codeInterval) codeInterval.textContent = speed;
         }
 
         function highlightCodeUpdate() {
@@ -136,16 +146,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // ✅ FUNCIÓN CORREGIDA: Iniciar rotación
         function startRotation() {
-            console.log('▶️ Iniciando rotación, velocidad:', speed);
+            console.log('▶️ Iniciando rotación con velocidad:', speed);
             
             if (rotationInterval) {
                 clearInterval(rotationInterval);
+                rotationInterval = null;
             }
 
+            isRunning = true;
             rotationInterval = setInterval(() => {
                 angle = (angle + 2) % 360;
-                updateRotation();
+                updateAllDisplays();
                 highlightCodeUpdate();
             }, speed);
 
@@ -153,13 +166,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 animationStatus.textContent = '▶️ Ejecutándose';
                 animationStatus.style.background = 'rgba(76, 175, 80, 0.2)';
                 animationStatus.style.color = '#4caf50';
-                animationStatus.classList.add('active');
             }
         }
 
+        // ✅ FUNCIÓN CORREGIDA: Detener rotación
         function stopRotation() {
             console.log('⏸️ Deteniendo rotación');
             
+            isRunning = false;
             if (rotationInterval) {
                 clearInterval(rotationInterval);
                 rotationInterval = null;
@@ -172,14 +186,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // ✅ FUNCIÓN CORREGIDA: Reiniciar
         function resetRotation() {
             console.log('🔄 Reiniciando rotación');
             stopRotation();
             angle = 0;
-            updateRotation();
-            if (animationStatus) {
-                animationStatus.classList.remove('active');
-            }
+            updateAllDisplays();
         }
 
         // ✅ FUNCIÓN CORREGIDA: Actualizar velocidad
@@ -188,17 +200,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 speed = parseInt(speedRange.value);
                 speedValue.textContent = `${speed}ms`;
                 
-                // ✅ ACTUALIZAR CÓDIGO EN EL PANEL
+                console.log('🎚️ Velocidad actualizada:', speed);
+                
+                // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeInterval) {
                     codeInterval.textContent = speed;
                 }
                 
-                console.log('🎚️ Velocidad actualizada:', speed);
-                
-                // Si la animación está corriendo, reiniciar con nueva velocidad
-                if (rotationInterval) {
+                // Si está corriendo, reiniciar con nueva velocidad
+                if (isRunning) {
                     startRotation();
                 }
+                
+                highlightCodeUpdate();
             }
         }
 
@@ -208,14 +222,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 color1 = colorPicker1.value.toUpperCase();
                 colorValue1.textContent = color1;
                 
-                // ✅ ACTUALIZAR CÓDIGO EN EL PANEL
+                console.log('🎨 Color 1 actualizado:', color1);
+                
+                // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeColor1) {
                     codeColor1.textContent = color1;
                 }
                 
-                console.log('🎨 Color 1 actualizado:', color1);
+                updateAllDisplays();
                 highlightColorUpdate();
-                updateRotation();
             }
         }
 
@@ -225,61 +240,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 color2 = colorPicker2.value.toUpperCase();
                 colorValue2.textContent = color2;
                 
-                // ✅ ACTUALIZAR CÓDIGO EN EL PANEL
+                console.log('🎨 Color 2 actualizado:', color2);
+                
+                // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeColor2) {
                     codeColor2.textContent = color2;
                 }
                 
-                console.log('🎨 Color 2 actualizado:', color2);
+                updateAllDisplays();
                 highlightColorUpdate();
-                updateRotation();
             }
         }
 
-        // ✅ CONFIGURAR EVENT LISTENERS CORRECTAMENTE
+        // ✅ CONFIGURACIÓN DE EVENT LISTENERS
         function setupEventListeners() {
-            // Limpiar eventos anteriores
-            startBtn.replaceWith(startBtn.cloneNode(true));
-            stopBtn.replaceWith(stopBtn.cloneNode(true));
-            resetBtn.replaceWith(resetBtn.cloneNode(true));
-            if (speedRange) speedRange.replaceWith(speedRange.cloneNode(true));
-            if (colorPicker1) colorPicker1.replaceWith(colorPicker1.cloneNode(true));
-            if (colorPicker2) colorPicker2.replaceWith(colorPicker2.cloneNode(true));
-
-            // Re-seleccionar elementos frescos
-            const freshStartBtn = document.getElementById('start-rotation-btn');
-            const freshStopBtn = document.getElementById('stop-rotation-btn');
-            const freshResetBtn = document.getElementById('reset-rotation-btn');
-            const freshSpeedRange = document.getElementById('speed-range');
-            const freshColorPicker1 = document.getElementById('color-picker-1');
-            const freshColorPicker2 = document.getElementById('color-picker-2');
-            const freshSpeedValue = document.getElementById('speed-value');
-
-            // Agregar event listeners
-            freshStartBtn.addEventListener('click', startRotation);
-            freshStopBtn.addEventListener('click', stopRotation);
-            freshResetBtn.addEventListener('click', resetRotation);
+            console.log('🔌 Configurando event listeners...');
             
-            if (freshSpeedRange) {
-                freshSpeedRange.addEventListener('input', updateSpeed);
+            // Configurar eventos
+            if (startBtn) {
+                startBtn.addEventListener('click', startRotation);
+                console.log('✅ Listener de start configurado');
             }
-            
-            if (freshColorPicker1) {
-                freshColorPicker1.addEventListener('input', updateColor1);
+            if (stopBtn) {
+                stopBtn.addEventListener('click', stopRotation);
+                console.log('✅ Listener de stop configurado');
             }
-            
-            if (freshColorPicker2) {
-                freshColorPicker2.addEventListener('input', updateColor2);
+            if (resetBtn) {
+                resetBtn.addEventListener('click', resetRotation);
+                console.log('✅ Listener de reset configurado');
             }
-
-            console.log('✅ Event listeners configurados');
+            if (speedRange) {
+                speedRange.addEventListener('input', updateSpeed);
+                console.log('✅ Listener de speed configurado');
+            }
+            if (colorPicker1) {
+                colorPicker1.addEventListener('input', updateColor1);
+                console.log('✅ Listener de color1 configurado');
+            }
+            if (colorPicker2) {
+                colorPicker2.addEventListener('input', updateColor2);
+                console.log('✅ Listener de color2 configurado');
+            }
         }
 
         // Control con barra espaciadora
         function handleSpaceKey(e) {
             if (e.code === 'Space' && e.target === document.body) {
                 e.preventDefault();
-                if (rotationInterval) {
+                if (isRunning) {
                     stopRotation();
                 } else {
                     startRotation();
@@ -287,16 +295,31 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Inicializar
-        setupEventListeners();
-        updateSpeed(); // Configurar velocidad inicial
-        updateColor1(); // Configurar color 1 inicial
-        updateColor2(); // Configurar color 2 inicial
-        updateRotation(); // Actualizar visualización inicial
-        
-        document.addEventListener('keydown', handleSpaceKey);
+        // ✅ INICIALIZACIÓN COMPLETA
+        function initialize() {
+            console.log('🚀 Inicializando demo...');
+            
+            setupEventListeners();
+            
+            // Configurar valores iniciales
+            if (speedRange) speedRange.value = speed;
+            if (speedValue) speedValue.textContent = `${speed}ms`;
+            if (colorPicker1) colorPicker1.value = color1.toLowerCase();
+            if (colorPicker2) colorPicker2.value = color2.toLowerCase();
+            if (colorValue1) colorValue1.textContent = color1;
+            if (colorValue2) colorValue2.textContent = color2;
+            
+            // Actualizar displays iniciales
+            updateAllDisplays();
+            
+            // Configurar evento de teclado
+            document.addEventListener('keydown', handleSpaceKey);
+            
+            console.log('🎉 Demo inicializado correctamente');
+        }
 
-        console.log('🎉 Demo de rotación inicializado correctamente');
+        // Ejecutar inicialización
+        initialize();
 
         // Guardar referencia para limpieza
         currentRotationDemo = {
@@ -319,6 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
             currentRotationDemo.cleanup();
             currentRotationDemo = null;
         }
+        isRunning = false;
     }
 
     // =======================================================
@@ -348,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     initializeDirectionDemo();
                     initializeRotationDemo();
-                }, 50);
+                }, 100);
             }
         }
     }
