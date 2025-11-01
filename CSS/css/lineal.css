@@ -1,7 +1,3 @@
-/* 
-   LAYOUT DE CURSO (GRADIENTE LINEAL)
-*/
-
 /* Estructura general: panel lateral + contenido */
 .linear-layout {
     display: grid;

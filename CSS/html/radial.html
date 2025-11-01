@@ -1,40 +1,673 @@
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>Gradiante Radial</title>
-        
-        <link rel="stylesheet" href="../css/estilos.css" />
-        <script src="../js/nav.js"></script>
-    </head>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Gradiente Radial</title>
+
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" href="../css/radial.css" />
+    <script defer src="../js/nav.js"></script>
+    <script defer src="../js/Radial/radial.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Gradiente Radial</h1>
+    </header>
+
+    <nav class="site-nav">
+        <a href="index.html">Inicio</a>
+        <a href="lineal.html">Gradiente Lineal</a>
+        <a href="colores.html">RGBA y HSLA</a>
+        <a href="outline.html">Outline</a>
+    </nav>
+
+    <main class="content linear-layout">
+        <aside class="side-menu">
+            <h3>Temario</h3>
+            <ul class="lesson-list">
+                <li class="active" data-lesson="1">1️⃣ ¿Qué es un Gradiente Radial?</li>
+                <li data-lesson="2">2️⃣ Formas y Tamaños</li>
+                <li data-lesson="3">3️⃣ Posicionamiento del Centro</li>
+                <li data-lesson="4">4️⃣ Múltiples Colores</li>
+                <li data-lesson="5">5️⃣ Practica</li>
+            </ul>
+        </aside>
+
+        <div id="main-lesson-container" class="main-lesson-container">
+            <section id="lesson-content-1" class="lesson-content card">
+
+                <h2>1️⃣ ¿Qué es un Gradiente Radial?</h2>
+
+                <div class="theory-block">
+                    <h3>🎯 ¿Qué es exactamente un "gradiente radial"?</h3>
+                    <p>Imagina una <strong style="color:#ff6b6b;">fuente de luz</strong> en el centro que ilumina hacia
+                        todos los lados. Un gradiente radial es la <strong>transición circular</strong> que se expande
+                        desde un punto central hacia los bordes.</p>
+                </div>
+
+                <div class="example-block">
+                    <h4>🔍 Visualiza el Concepto</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box solid-demo" style="background:#ff6b6b;"></div>
+                            <p>Color CENTRAL<br>Rojo intenso</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:radial-gradient(circle, #ff6b6b, #4ecdc4);"></div>
+                            <p>GRADIENTE RADIAL<br>Centro → Bordes</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box solid-demo" style="background:#4ecdc4;"></div>
+                            <p>Color EXTERIOR<br>Verde azulado</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎨 Ejemplo de Sintaxis en Acción</h4>
+                    <div class="syntax-demo">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">styles.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre
+                                class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-color">#ff6b6b</span>, <span class="css-color">#4ecdc4</span>);</code></pre>
+                        </div>
+
+                        <div class="demo-result">
+                            <div class="demo-box" style="background:radial-gradient(circle, #ff6b6b, #4ecdc4);"></div>
+                            <p class="demo-explanation">
+                                <strong>Resultado:</strong> Gradiente que se expande del
+                                <span style="color:#ff6b6b;">🔴 rojo (centro)</span> al
+                                <span style="color:#4ecdc4;">🟢 verde azulado (bordes)</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🚀 Tu Primer Gradiente Radial Paso a Paso</h3>
+
+                    <div class="journey-intro">
+                        <div class="journey-icon">🎯</div>
+                        <p>Sigue estos <strong>4 pasos simples</strong> para crear tu primer gradiente radial. Cada paso
+                            agrega una pieza esencial del efecto circular:</p>
+                    </div>
+
+                    <div class="step-by-step-enhanced">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">1</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Escribe la Función Base</h4>
+                                    <span class="step-tag">Fundamento</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">radial-gradient</span>()</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p>Esto le dice al navegador: <strong>"voy a crear un gradiente radial"</strong>.
+                                        Los paréntesis vacíos indican que falta información específica.</p>
+                                    <div class="step-tip">
+                                        <span class="tip-icon">💡</span>
+                                        <span>Piensa en esto como preparar el lienzo circular antes de empezar a
+                                            pintar.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">2</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Define la Forma</h4>
+                                    <span class="step-tag">Geometría</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>)</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p><code>"circle"</code> significa <strong>"forma circular perfecta"</strong>. El
+                                        gradiente se expandirá uniformemente en todas direcciones.</p>
+                                    <div class="direction-options">
+                                        <div class="direction-option">
+                                            <div class="mini-demo"
+                                                style="background:radial-gradient(circle, #ff6b6b, #4ecdc4);"></div>
+                                            <span><code>circle</code></span>
+                                        </div>
+                                        <div class="direction-option">
+                                            <div class="mini-demo"
+                                                style="background:radial-gradient(ellipse, #ff6b6b, #4ecdc4);"></div>
+                                            <span><code>ellipse</code></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">3</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Agrega los Colores</h4>
+                                    <span class="step-tag">Personalización</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-color">#ff6b6b</span>, <span class="css-color">#4ecdc4</span>)</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p><strong>Rojo empieza en el centro, Verde azulado termina en los bordes</strong>.
+                                        La transición ocurre radialmente hacia afuera.</p>
+
+                                    <div class="color-formats-mini">
+                                        <h5>🎨 Formatos de Color Disponibles:</h5>
+                                        <div class="formats-grid">
+                                            <div class="format-option">
+                                                <div class="format-color" style="background:#ff6b6b;"></div>
+                                                <code>#ff6b6b</code>
+                                                <span>Hexadecimal</span>
+                                            </div>
+                                            <div class="format-option">
+                                                <div class="format-color" style="background:rgb(255, 107, 107);"></div>
+                                                <code>rgb(255,107,107)</code>
+                                                <span>RGB</span>
+                                            </div>
+                                            <div class="format-option">
+                                                <div class="format-color" style="background:hsl(0, 100%, 65%);"></div>
+                                                <code>hsl(0,100%,65%)</code>
+                                                <span>HSL</span>
+                                            </div>
+                                            <div class="format-option">
+                                                <div class="format-color" style="background:red;"></div>
+                                                <code>red</code>
+                                                <span>Nombres</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card final-step">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">4</span>
+                                    <div class="step-line final"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Aplica al Background</h4>
+                                    <span class="step-tag">Implementación</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-color">#ff6b6b</span>, <span class="css-color">#4ecdc4</span>);</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p>Le decimos al navegador que esto es para el <strong>fondo de un
+                                            elemento</strong>. El punto y coma (;) indica el final de la declaración.
+                                    </p>
+
+                                    <div class="final-result">
+                                        <h5>🎉 ¡Resultado Final!</h5>
+                                        <div class="demo-box-final"
+                                            style="background:radial-gradient(circle, #ff6b6b, #4ecdc4);"></div>
+                                        <p class="success-message">¡Felicidades! Has creado tu primer gradiente radial.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🔄 Comparación: Lineal vs Radial</h4>
+                    <p>Entiende la diferencia fundamental entre ambos tipos de gradientes:</p>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>📏 Gradiente Lineal</h5>
+                                <span class="comparison-badge">Direccional</span>
+                            </div>
+                            <div class="code-panel small">
+                                <pre
+                                    class="code-content"><code><span class="css-function">linear-gradient</span>(<span class="css-value">to right</span>, <span class="css-hex">#ff6b6b</span>, <span class="css-hex">#4ecdc4</span>)</code></pre>
+                            </div>
+                            <div class="comparison-demo">
+                                <div class="demo-box" style="background:linear-gradient(to right, #ff6b6b, #4ecdc4);">
+                                </div>
+                            </div>
+                            <div class="comparison-desc">
+                                <p><strong>Flujo en una dirección</strong><br>Ideal para barras, botones y separadores
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>🔵 Gradiente Radial</h5>
+                                <span class="comparison-badge">Circular</span>
+                            </div>
+                            <div class="code-panel small">
+                                <pre
+                                    class="code-content"><code><span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-hex">#ff6b6b</span>, <span class="css-hex">#4ecdc4</span>)</code></pre>
+                            </div>
+                            <div class="comparison-demo">
+                                <div class="demo-box" style="background:radial-gradient(circle, #ff6b6b, #4ecdc4);">
+                                </div>
+                            </div>
+                            <div class="comparison-desc">
+                                <p><strong>Expansión desde el centro</strong><br>Perfecto para focos, botones redondos y
+                                    efectos de luz</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <div class="rules-box">
+                        <h4>📋 Reglas Importantes para Escribir Gradientes Radial</h4>
+                        <ul>
+                            <li>✅ <strong>Siempre</strong> usa <code>radial-gradient()</code> con paréntesis</li>
+                            <li>✅ La forma (<code>circle</code>/<code>ellipse</code>) va <strong>primero</strong></li>
+                            <li>✅ Los colores se separan con <strong>coma</strong> (,)</li>
+                            <li>✅ El primer color es el <strong>centro</strong>, el último los <strong>bordes</strong>
+                            </li>
+                            <li>✅ Termina <strong>siempre</strong> con punto y coma (;)</li>
+                            <li>❌ No confundas con <code>linear-gradient()</code></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🔧 ¿Dónde y Cómo Aplicar Gradientes Radial?</h3>
+
+                    <div class="application-intro">
+                        <div class="app-icon">🎯</div>
+                        <p>Los gradientes radiales son perfectos para crear <strong>efectos de profundidad, luz y
+                                enfoque</strong>. Aquí te mostramos los usos más comunes:</p>
+                    </div>
+
+                    <div class="application-grid">
+                        <div class="app-column">
+                            <div class="app-header">
+                                <h4>📍 Casos de Uso Ideales</h4>
+                                <p>Elementos que se benefician del efecto radial:</p>
+                            </div>
+
+                            <div class="tags-grid-enhanced">
+                                <div class="tag-card">
+                                    <div class="tag-icon">🔘</div>
+                                    <div class="tag-content">
+                                        <code>Botones Circulares</code>
+                                        <span>Efectos de botones redondos</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:radial-gradient(circle, #667eea, #764ba2);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">💡</div>
+                                    <div class="tag-content">
+                                        <code>Efectos de Luz</code>
+                                        <span>Simulación de focos y reflejos</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:radial-gradient(circle, #ffff00, transparent);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">🎯</div>
+                                    <div class="tag-content">
+                                        <code>Puntos de Enfoque</code>
+                                        <span>Destacar elementos importantes</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:radial-gradient(circle, #ff6b6b, transparent 70%);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">🌅</div>
+                                    <div class="tag-content">
+                                        <code>Fondos Orgánicos</code>
+                                        <span>Texturas naturales y abstractas</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:radial-gradient(circle, #4ecdc4, #556270);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">👁️</div>
+                                    <div class="tag-content">
+                                        <code>Elementos Visuales</code>
+                                        <span>Ojos, esferas, planetas</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:radial-gradient(circle, #ffffff, #2c3e50);"></div>
+                                </div>
+
+                                <div class="tag-card">
+                                    <div class="tag-icon">🎪</div>
+                                    <div class="tag-content">
+                                        <code>Efectos Especiales</code>
+                                        <span>Explosiones, burbujas, ondas</span>
+                                    </div>
+                                    <div class="tag-demo mini-demo"
+                                        style="background:radial-gradient(circle, #ff9a9e, #fad0c4);"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="app-column">
+                            <div class="app-header">
+                                <h4>🎨 Ejemplos del Mundo Real</h4>
+                                <p>Aplicaciones prácticas y creativas:</p>
+                            </div>
+
+                            <div class="properties-grid">
+                                <div class="property-card primary">
+                                    <div class="property-header">
+                                        <h5>Botón de Llamada a la Acción</h5>
+                                        <span class="property-badge">Destacado</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Botón circular que parece iluminado desde el centro, atrayendo la atención
+                                            del usuario.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-hex">#ff6b6b</span>, <span class="css-hex">#c44569</span>);</code></pre>
+                                        </div>
+                                        <div class="mini-demo"
+                                            style="background:radial-gradient(circle, #ff6b6b, #c44569); height: 40px; border-radius: 20px; margin-top: 10px;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>Foco de Luz</h5>
+                                        <span class="property-badge">Dramático</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Simula un foco que ilumina desde arriba, creando profundidad y dramatismo.
+                                        </p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">ellipse at top</span>, <span class="css-hex">#ffff99</span>, <span class="css-value">transparent</span>);</code></pre>
+                                        </div>
+                                        <div class="mini-demo"
+                                            style="background:radial-gradient(ellipse at top, #ffff99, transparent); height: 40px; margin-top: 10px;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>Esfera Realista</h5>
+                                        <span class="property-badge">3D</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Crea la ilusión de una esfera tridimensional con reflejos de luz.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">circle at 30% 30%</span>, <span class="css-hex">#ffffff</span>, <span class="css-hex">#4ecdc4</span>);</code></pre>
+                                        </div>
+                                        <div class="mini-demo"
+                                            style="background:radial-gradient(circle at 30% 30%, #ffffff, #4ecdc4); height: 40px; border-radius: 20px; margin-top: 10px;">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>Fondo Abstracto</h5>
+                                        <span class="property-badge">Decorativo</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Patrón de múltiples gradientes radiales para fondos modernos.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-hex">#667eea</span>, <span class="css-value">transparent</span>),
+              <span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-hex">#764ba2</span>, <span class="css-value">transparent</span>);</code></pre>
+                                        </div>
+                                        <div class="mini-demo"
+                                            style="background: radial-gradient(circle, #667eea, transparent), radial-gradient(circle, #764ba2, transparent); height: 40px; margin-top: 10px;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="usage-tip">
+                        <div class="tip-header">
+                            <span class="tip-icon">💡</span>
+                            <h5>Consejo de Uso Práctico</h5>
+                        </div>
+                        <p>Usa gradientes radiales cuando quieras crear <strong>profundidad, enfoque o efectos
+                                orgánicos</strong>. Son especialmente efectivos en elementos circulares y para simular
+                            fuentes de luz. Combínalos con sombras para resultados más realistas.</p>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>💻 Ejemplo Real: Botón con Efecto de Profundidad</h4>
+
+                    <div class="real-code-example">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">estilos.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre class="code-content"><code><span class="css-comment">/* Botón circular con efecto 3D usando gradiente radial */</span>
+<span class="css-selector">.boton-profundo</span> {
+    <span class="css-comment">/* Propiedades de tamaño y forma */</span>
+    <span class="css-property">width</span>: <span class="css-number">80px</span>;
+    <span class="css-property">height</span>: <span class="css-number">80px</span>;
+    <span class="css-property">border-radius</span>: <span class="css-number">50%</span>;
+    <span class="css-property">border</span>: <span class="css-value">none</span>;
+    <span class="css-property">cursor</span>: <span class="css-value">pointer</span>;
     
-    <body>
-        
-        <header class="site-header">
-            <h1>Gradiente Radial</h1>
-            
-            <p>Similar al lineal, pero las transiciones de color se irradian desde un punto central hacia afuera, creando efectos circulares o elipticos.</p>
-        </header>
-        
-        <nav class = "site-nav">
-            <a href="index.html">Inicio</a>
-            <a href="lineal.html">Gradiente Lineal</a>
-            <a href="colores.html">RGBA y HSLA</a>
-            <a href="outline.html">Outline</a>
-        </nav>
-        
-        <main class="content">
-            <section class="card">
-                <h2>Contenido principal</h2>
+    <span class="css-comment">/* ¡Gradiente radial para efecto 3D! */</span>
+    <span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+        <span class="css-value">circle at 30% 30%</span>,
+        <span class="css-hex">#ffffff</span> <span class="css-number">0%</span>,
+        <span class="css-hex">#ff6b6b</span> <span class="css-number">50%</span>,
+        <span class="css-hex">#c44569</span> <span class="css-number">100%</span>
+    );
+    
+    <span class="css-comment">/* Efectos adicionales para realismo */</span>
+    <span class="css-property">box-shadow</span>: 
+        <span class="css-number">0</span> <span class="css-number">4px</span> <span class="css-number">8px</span> <span class="css-function">rgba</span>(<span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.3</span>),
+        <span class="css-number">inset</span> <span class="css-number">0</span> <span class="css-number">2px</span> <span class="css-number">4px</span> <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">255</span>, <span class="css-number">255</span>, <span class="css-number">0.5</span>);
+    <span class="css-property">transition</span>: <span class="css-value">all</span> <span class="css-number">0.3s</span> <span class="css-value">ease</span>;
+}
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nostrum rerum neque provident incidunt voluptas alias quasi quae qui similique! Nobis sint repudiandae nostrum excepturi sed error illum sunt voluptas?</p>
+<span class="css-selector">.boton-profundo:hover</span> {
+    <span class="css-property">transform</span>: <span class="css-function">scale</span>(<span class="css-number">1.1</span>);
+    <span class="css-property">box-shadow</span>: 
+        <span class="css-number">0</span> <span class="css-number">6px</span> <span class="css-number">12px</span> <span class="css-function">rgba</span>(<span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.4</span>),
+        <span class="css-number">inset</span> <span class="css-number">0</span> <span class="css-number">2px</span> <span class="css-number">4px</span> <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">255</span>, <span class="css-number">255</span>, <span class="css-number">0.6</span>);
+}
+
+<span class="css-selector">.boton-profundo:active</span> {
+    <span class="css-property">transform</span>: <span class="css-function">scale</span>(<span class="css-number">0.95</span>);
+}</code></pre>
+                        </div>
+
+                        <div class="demo-result-real">
+                            <h5>🎯 Resultado en Vivo:</h5>
+                            <button class="boton-profundo-demo"
+                                style="width: 80px; height: 80px; border-radius: 50%; border: none; cursor: pointer; background: radial-gradient(circle at 30% 30%, #ffffff 0%, #ff6b6b 50%, #c44569 100%); box-shadow: 0 4px 8px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.5); transition: all 0.3s ease; margin: 15px 0;">
+                                ✨
+                            </button>
+                            <p class="demo-notes">Pasa el mouse y haz clic para ver los efectos interactivos</p>
+
+                            <div class="code-breakdown-mini">
+                                <h6>🔍 Partes clave del código:</h6>
+                                <ul>
+                                    <li><span class="code-highlight">radial-gradient()</span> - Función que crea el
+                                        gradiente circular</li>
+                                    <li><span class="code-highlight">circle at 30% 30%</span> - Forma y posición del
+                                        punto de luz</li>
+                                    <li><span class="code-highlight">#ffffff → #ff6b6b → #c44569</span> - Transición de
+                                        luz a color</li>
+                                    <li><span class="code-highlight">box-shadow</span> - Efectos de profundidad
+                                        adicionales</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎭 Ventajas Únicas del Gradiente Radial</h3>
+
+                    <div class="formats-intro">
+                        <div class="formats-icon">🌟</div>
+                        <p>Los gradientes radiales ofrecen <strong>capacidades únicas</strong> que los hacen
+                            indispensables para diseños modernos y efectos visuales avanzados.</p>
+                    </div>
+
+                    <div class="color-formats-vertical">
+                        <div class="format-item-vertical">
+                            <div class="format-header">
+                                <div class="format-icon">🎯</div>
+                                <div class="format-title">
+                                    <h4>Enfoque Visual</h4>
+                                    <span class="format-subtitle">Dirigir la atención</span>
+                                </div>
+                                <span class="format-badge beginner">Estratégico</span>
+                            </div>
+                            <div class="format-content">
+                                <div class="demo-box"
+                                    style="background:radial-gradient(circle, #ffff99, transparent 70%); height: 100px;">
+                                </div>
+                                <div class="format-details">
+                                    <p><strong>Atrae la mirada hacia el centro</strong> de manera natural. Perfecto para
+                                        llamadas a la acción y elementos importantes.</p>
+                                    <div class="format-demo">
+                                        <div class="demo-box"
+                                            style="background:radial-gradient(circle, #ffff99, transparent 70%); width: 120px; height: 60px;">
+                                        </div>
+                                        <span class="demo-label">Foco de atención</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="format-item-vertical">
+                            <div class="format-header">
+                                <div class="format-icon">💫</div>
+                                <div class="format-title">
+                                    <h4>Profundidad 3D</h4>
+                                    <span class="format-subtitle">Efectos realistas</span>
+                                </div>
+                                <span class="format-badge popular">Inmersivo</span>
+                            </div>
+                            <div class="format-content">
+                                <div class="demo-box"
+                                    style="background:radial-gradient(circle at 30% 30%, #ffffff, #4ecdc4); height: 100px; border-radius: 50px;">
+                                </div>
+                                <div class="format-details">
+                                    <p><strong>Crea la ilusión de volumen</strong> y tridimensionalidad. Esencial para
+                                        botones, iconos y elementos interactivos.</p>
+                                    <div class="format-demo">
+                                        <div class="demo-box"
+                                            style="background:radial-gradient(circle at 30% 30%, #ffffff, #4ecdc4); width: 120px; height: 60px; border-radius: 30px;">
+                                        </div>
+                                        <span class="demo-label">Esfera 3D</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="format-item-vertical">
+                            <div class="format-header">
+                                <div class="format-icon">🌌</div>
+                                <div class="format-title">
+                                    <h4>Organicidad</h4>
+                                    <span class="format-subtitle">Formas naturales</span>
+                                </div>
+                                <span class="format-badge versatile">Natural</span>
+                            </div>
+                            <div class="format-content">
+                                <div class="demo-box"
+                                    style="background:radial-gradient(ellipse, #ff9a9e, #fad0c4); height: 100px;"></div>
+                                <div class="format-details">
+                                    <p><strong>Imita patrones de la naturaleza</strong> como burbujas, ondas, nubes y
+                                        explosiones. Ideal para fondos abstractos.</p>
+                                    <div class="format-demo">
+                                        <div class="demo-box"
+                                            style="background:radial-gradient(ellipse, #ff9a9e, #fad0c4); width: 120px; height: 60px;">
+                                        </div>
+                                        <span class="demo-label">Forma orgánica</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="format-item-vertical">
+                            <div class="format-header">
+                                <div class="format-icon">⚡</div>
+                                <div class="format-title">
+                                    <h4>Dinamismo</h4>
+                                    <span class="format-subtitle">Movimiento visual</span>
+                                </div>
+                                <span class="format-badge modern">Energético</span>
+                            </div>
+                            <div class="format-content">
+                                <div class="demo-box"
+                                    style="background:radial-gradient(circle, #667eea, transparent), radial-gradient(circle, #764ba2, transparent); height: 100px;">
+                                </div>
+                                <div class="format-details">
+                                    <p><strong>Genera sensación de energía</strong> y movimiento. Perfecto para
+                                        interfaces modernas y diseños dinámicos.</p>
+                                    <div class="format-demo">
+                                        <div class="demo-box"
+                                            style="background:radial-gradient(circle, #667eea, transparent), radial-gradient(circle, #764ba2, transparent); width: 120px; height: 60px;">
+                                        </div>
+                                        <span class="demo-label">Múltiples focos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-        </main>
+        </div>
+    </main>
 
-        <footer class="site-footer">
-            <small> Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript</small>
-        </footer>
+    <footer class="site-footer">
+        <small>💻 Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript 💻</small>
+    </footer>
+</body>
 
-    </body>
 </html>
