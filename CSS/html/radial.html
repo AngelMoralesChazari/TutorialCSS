@@ -37,9 +37,10 @@
             </ul>
         </aside>
 
-        <div id="main-lesson-container" class="main-lesson-container">
+        <!-- TODAS LAS LECCIONES DENTRO DE ESTE CONTENEDOR -->
+        <div id="main-lesson-container">
+            <!-- Lección 1 - visible por defecto -->
             <section id="lesson-content-1" class="lesson-content card">
-
                 <h2>1️⃣ ¿Qué es un Gradiente Radial?</h2>
 
                 <div class="theory-block">
@@ -661,6 +662,175 @@
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <!-- Lección 2 - oculta por defecto -->
+            <section id="lesson-content-2" class="lesson-content card" style="display: none;">
+                <h2>2️⃣ Formas y Tamaños</h2>
+
+                <div class="theory-block">
+                    <h3>🎨 Controla la Forma de tu Gradiente</h3>
+                    <p>Los gradientes radiales pueden tomar diferentes formas geométricas. Las dos principales son:</p>
+                </div>
+
+                <div class="example-block">
+                    <h4>🔵 Circle vs 🟢 Ellipse</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:radial-gradient(circle, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>Circle</strong><br>Forma circular perfecta</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:radial-gradient(ellipse, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>Ellipse</strong><br>Se adapta al contenedor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>📐 Sintaxis de Formas</h4>
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">styles.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre class="code-content"><code><span class="css-comment">/* Forma circular */</span>
+<span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-hex">#ff6b6b</span>, <span class="css-hex">#4ecdc4</span>);
+
+<span class="css-comment">/* Forma elíptica (valor por defecto) */</span>
+<span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">ellipse</span>, <span class="css-hex">#ff6b6b</span>, <span class="css-hex">#4ecdc4</span>);</code></pre>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>📏 Control de Tamaños</h3>
+                    <p>Puedes especificar exactamente qué tan grande quieres que sea tu gradiente radial:</p>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎯 Tamaños Predefinidos</h4>
+                    <div class="direction-grid">
+                        <div class="direction-item">
+                            <div class="demo-box" style="background:radial-gradient(circle closest-side, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>closest-side</strong><br>Llega hasta el lado más cercano</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box" style="background:radial-gradient(circle farthest-side, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>farthest-side</strong><br>Llega hasta el lado más lejano</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box" style="background:radial-gradient(circle closest-corner, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>closest-corner</strong><br>Llega hasta la esquina más cercana</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box" style="background:radial-gradient(circle farthest-corner, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>farthest-corner</strong><br>Llega hasta la esquina más lejana</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>📏 Tamaños Específicos</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:radial-gradient(circle 50px, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>50px de radio</strong><br>Tamaño fijo pequeño</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:radial-gradient(circle 100px, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>100px de radio</strong><br>Tamaño fijo mediano</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:radial-gradient(circle 150px, #ff6b6b, #4ecdc4);"></div>
+                            <p><strong>150px de radio</strong><br>Tamaño fijo grande</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎨 Combinación: Forma + Tamaño</h4>
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">styles.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre class="code-content"><code><span class="css-comment">/* Elipse que llega hasta la esquina más lejana */</span>
+<span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">ellipse farthest-corner</span>,
+    <span class="css-hex">#ff6b6b</span>,
+    <span class="css-hex">#4ecdc4</span>
+);
+
+<span class="css-comment">/* Círculo de tamaño específico */</span>
+<span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">circle 80px</span>,
+    <span class="css-hex">#ff6b6b</span>,
+    <span class="css-hex">#4ecdc4</span>
+);</code></pre>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🚀 Ejemplos Prácticos</h3>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Botón Circular Pequeño</h4>
+                                <p>Para botones que necesitan un efecto de luz concentrado</p>
+                                <div class="mini-demo" style="background:radial-gradient(circle 40px, #ff6b6b, #c44569); height: 60px; border-radius: 30px;"></div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Fondo Elíptico Completo</h4>
+                                <p>Para cubrir todo el espacio disponible</p>
+                                <div class="mini-demo" style="background:radial-gradient(ellipse farthest-corner, #667eea, #764ba2); height: 60px;"></div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Efecto de Spotlight</h4>
+                                <p>Para destacar áreas específicas</p>
+                                <div class="mini-demo" style="background:radial-gradient(circle 60px, #ffff99, transparent); height: 60px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <div class="rules-box">
+                        <h4>📋 Reglas para Formas y Tamaños</h4>
+                        <ul>
+                            <li>✅ <code>circle</code> crea formas circulares perfectas</li>
+                            <li>✅ <code>ellipse</code> se adapta al contenedor (valor por defecto)</li>
+                            <li>✅ Los tamaños predefinidos usan: <code>closest-side</code>, <code>farthest-side</code>, etc.</li>
+                            <li>✅ Puedes usar valores específicos como <code>circle 50px</code></li>
+                            <li>✅ Combina forma y tamaño: <code>ellipse farthest-corner</code></li>
+                            <li>❌ No uses comas entre forma y tamaño</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lección 3 - oculta por defecto -->
+            <section id="lesson-content-3" class="lesson-content card" style="display: none;">
+                <h2>3️⃣ Posicionamiento del Centro</h2>
+                <p>Contenido de la lección 3...</p>
+            </section>
+
+            <!-- Lección 4 - oculta por defecto -->
+            <section id="lesson-content-4" class="lesson-content card" style="display: none;">
+                <h2>4️⃣ Múltiples Colores</h2>
+                <p>Contenido de la lección 4...</p>
+            </section>
+
+            <!-- Lección 5 - oculta por defecto -->
+            <section id="lesson-content-5" class="lesson-content card" style="display: none;">
+                <h2>5️⃣ Practica</h2>
+                <p>Contenido de la lección 5...</p>
             </section>
         </div>
     </main>
