@@ -1141,7 +1141,8 @@
                         <ul>
                             <li>✅ Usa <code>at</code> para especificar la posición del centro</li>
                             <li>✅ Palabras clave: <code>top</code>, <code>right</code>, <code>bottom</code>,
-                                <code>left</code>, <code>center</code></li>
+                                <code>left</code>, <code>center</code>
+                            </li>
                             <li>✅ Posiciones combinadas: <code>top left</code>, <code>bottom right</code>, etc.</li>
                             <li>✅ Porcentajes: <code>30% 30%</code> (horizontal vertical)</li>
                             <li>✅ Píxeles: <code>100px 50px</code> (X Y)</li>
@@ -1178,9 +1179,380 @@
             </section>
 
             <!-- Lección 4 - oculta por defecto -->
+            <!-- Lección 4 - oculta por defecto -->
             <section id="lesson-content-4" class="lesson-content card" style="display: none;">
                 <h2>4️⃣ Múltiples Colores</h2>
-                <p>Contenido de la lección 4...</p>
+
+                <div class="theory-block">
+                    <h3>🌈 Crea Transiciones Complejas</h3>
+                    <p>Los gradientes radiales pueden tener más de dos colores, creando transiciones complejas y efectos
+                        visuales espectaculares.</p>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎨 Transiciones de 3 Colores</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff6b6b, #4ecdc4, #45b7d1);"></div>
+                            <p><strong>Rojo → Verde → Azul</strong><br>Transición triple suave</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff9a9e, #fad0c4, #fad0c4, #a18cd1);"></div>
+                            <p><strong>Rosa → Beige → Lila</strong><br>Cuatro colores armónicos</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #667eea, #764ba2, #f093fb, #f5576c);"></div>
+                            <p><strong>Azul → Púrpura → Rosa</strong><br>Gradiente vibrante</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>📐 Control de Paradas de Color</h4>
+                    <div class="direction-grid">
+                        <div class="direction-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%);">
+                            </div>
+                            <p><strong>0% - 50% - 100%</strong><br>Distribución uniforme</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff6b6b 0%, #4ecdc4 30%, #45b7d1 70%);"></div>
+                            <p><strong>0% - 30% - 70%</strong><br>Transición rápida</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff6b6b 0%, #4ecdc4 70%, #45b7d1 100%);">
+                            </div>
+                            <p><strong>0% - 70% - 100%</strong><br>Transición lenta</p>
+                        </div>
+                        <div class="direction-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff6b6b 20%, #4ecdc4 50%, #45b7d1 80%);">
+                            </div>
+                            <p><strong>20% - 50% - 80%</strong><br>Centrado en el medio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎯 Transiciones Bruscas</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff6b6b 0%, #ff6b6b 33%, #4ecdc4 33%, #4ecdc4 66%, #45b7d1 66%);">
+                            </div>
+                            <p><strong>Líneas definidas</strong><br>Transiciones abruptas</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 50%);"></div>
+                            <p><strong>Mitad y mitad</strong><br>Dos colores divididos</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="background:radial-gradient(circle, #ff6b6b 0%, #ff6b6b 40%, #4ecdc4 40%, #4ecdc4 70%, #45b7d1 70%);">
+                            </div>
+                            <p><strong>Bandas concéntricas</strong><br>Efecto de anillos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎨 Sintaxis de Múltiples Colores</h4>
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">styles.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre class="code-content"><code><span class="css-comment">/* Tres colores básicos */</span>
+<span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">circle</span>,
+    <span class="css-hex">#ff6b6b</span>,
+    <span class="css-hex">#4ecdc4</span>,
+    <span class="css-hex">#45b7d1</span>
+);
+
+<span class="css-comment">/* Con paradas de color específicas */</span>
+<span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">circle</span>,
+    <span class="css-hex">#ff6b6b</span> <span class="css-number">0%</span>,
+    <span class="css-hex">#4ecdc4</span> <span class="css-number">50%</span>,
+    <span class="css-hex">#45b7d1</span> <span class="css-number">100%</span>
+);
+
+<span class="css-comment">/* Transiciones bruscas */</span>
+<span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">circle</span>,
+    <span class="css-hex">#ff6b6b</span> <span class="css-number">0%</span>,
+    <span class="css-hex">#ff6b6b</span> <span class="css-number">33%</span>,
+    <span class="css-hex">#4ecdc4</span> <span class="css-number">33%</span>,
+    <span class="css-hex">#4ecdc4</span> <span class="css-number">66%</span>,
+    <span class="css-hex">#45b7d1</span> <span class="css-number">66%</span>
+);</code></pre>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🌟 Combinación Avanzada</h3>
+                    <p>Combina múltiples colores con posicionamiento y tamaños para crear efectos complejos:</p>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎭 Ejemplos con Todo Incluido</h4>
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>Atardecer Realista</h5>
+                                <span class="comparison-badge">Natural</span>
+                            </div>
+                            <div class="code-panel micro">
+                                <pre class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">ellipse at bottom</span>,
+    <span class="css-hex">#ff9a9e</span> <span class="css-number">0%</span>,
+    <span class="css-hex">#fecfef</span> <span class="css-number">50%</span>,
+    <span class="css-hex">#fecfef</span> <span class="css-number">50%</span>,
+    <span class="css-hex">#a18cd1</span> <span class="css-number">100%</span>
+);</code></pre>
+                            </div>
+                            <div class="comparison-demo">
+                                <div class="demo-box"
+                                    style="background:radial-gradient(ellipse at bottom, #ff9a9e 0%, #fecfef 50%, #fecfef 50%, #a18cd1 100%);">
+                                </div>
+                            </div>
+                            <div class="comparison-desc">
+                                <p>Simula un atardecer con horizonte definido.</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>Esfera Metálica</h5>
+                                <span class="comparison-badge">3D Avanzado</span>
+                            </div>
+                            <div class="code-panel micro">
+                                <pre class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">circle at 30% 30%</span>,
+    <span class="css-hex">#ffffff</span> <span class="css-number">0%</span>,
+    <span class="css-hex">#e0e0e0</span> <span class="css-number">15%</span>,
+    <span class="css-hex">#bdbdbd</span> <span class="css-number">50%</span>,
+    <span class="css-hex">#9e9e9e</span> <span class="css-number">100%</span>
+);</code></pre>
+                            </div>
+                            <div class="comparison-demo">
+                                <div class="demo-box"
+                                    style="background:radial-gradient(circle at 30% 30%, #ffffff 0%, #e0e0e0 15%, #bdbdbd 50%, #9e9e9e 100%); border-radius: 50px;">
+                                </div>
+                            </div>
+                            <div class="comparison-desc">
+                                <p>Crea una esfera metálica con múltiples tonos de gris.</p>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>Ojo Realista</h5>
+                                <span class="comparison-badge">Orgánico</span>
+                            </div>
+                            <div class="code-panel micro">
+                                <pre class="code-content"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">circle</span>,
+    <span class="css-hex">#000000</span> <span class="css-number">0%</span>,
+    <span class="css-hex">#2c3e50</span> <span class="css-number">40%</span>,
+    <span class="css-hex">#3498db</span> <span class="css-number">60%</span>,
+    <span class="css-hex">#ffffff</span> <span class="css-number">100%</span>
+);</code></pre>
+                            </div>
+                            <div class="comparison-demo">
+                                <div class="demo-box"
+                                    style="background:radial-gradient(circle, #000000 0%, #2c3e50 40%, #3498db 60%, #ffffff 100%); border-radius: 50px;">
+                                </div>
+                            </div>
+                            <div class="comparison-desc">
+                                <p>Simula un ojo humano con pupila, iris y reflejo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎨 Paletas de Color Armónicas</h3>
+                    <div class="step-by-step">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <h4>Análogos</h4>
+                                <p>Colores adyacentes en el círculo cromático</p>
+                                <div class="mini-demo"
+                                    style="background:radial-gradient(circle, #ff6b6b, #ffa56b, #ffd56b); height: 60px;">
+                                </div>
+                                <div class="code-panel micro">
+                                    <pre
+                                        class="code-content"><code><span class="css-hex">#ff6b6b</span>, <span class="css-hex">#ffa56b</span>, <span class="css-hex">#ffd56b</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <h4>Complementarios</h4>
+                                <p>Colores opuestos que crean contraste</p>
+                                <div class="mini-demo"
+                                    style="background:radial-gradient(circle, #ff6b6b, #45b7d1); height: 60px;"></div>
+                                <div class="code-panel micro">
+                                    <pre
+                                        class="code-content"><code><span class="css-hex">#ff6b6b</span>, <span class="css-hex">#45b7d1</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <h4>Triádicos</h4>
+                                <p>Tres colores equidistantes en el círculo</p>
+                                <div class="mini-demo"
+                                    style="background:radial-gradient(circle, #ff6b6b, #4ecdc4, #45b7d1); height: 60px;">
+                                </div>
+                                <div class="code-panel micro">
+                                    <pre
+                                        class="code-content"><code><span class="css-hex">#ff6b6b</span>, <span class="css-hex">#4ecdc4</span>, <span class="css-hex">#45b7d1</span></code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>💻 Demo: Selector de Colores Interactivo</h4>
+                    <div class="real-code-example">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">multicolor-demo.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre class="code-content"><code><span class="css-comment">/* Gradiente de 4 colores con posicionamiento */</span>
+<span class="css-selector">.gradiente-complejo</span> {
+    <span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+        <span class="css-value">circle at 70% 30%</span>,
+        <span class="css-hex">#ff6b6b</span> <span class="css-number">0%</span>,
+        <span class="css-hex">#ffa56b</span> <span class="css-number">25%</span>,
+        <span class="css-hex">#4ecdc4</span> <span class="css-number">50%</span>,
+        <span class="css-hex">#45b7d1</span> <span class="css-number">100%</span>
+    );
+}
+
+<span class="css-comment">/* Efecto de burbuja con transparencia */</span>
+<span class="css-selector">.efecto-burbuja</span> {
+    <span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+        <span class="css-value">circle</span>,
+        <span class="css-hex">#ffffff</span> <span class="css-number">0%</span>,
+        <span class="css-hex">#ffffff</span> <span class="css-number">40%</span>,
+        <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">255</span>, <span class="css-number">255</span>, <span class="css-number">0.8</span>) <span class="css-number">70%</span>,
+        <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">255</span>, <span class="css-number">255</span>, <span class="css-number">0</span>) <span class="css-number">100%</span>
+    );
+}
+
+<span class="css-comment">/* Gradiente con transiciones abruptas */</span>
+<span class="css-selector">.bandas-color</span> {
+    <span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+        <span class="css-value">circle</span>,
+        <span class="css-hex">#ff6b6b</span> <span class="css-number">0%</span>,
+        <span class="css-hex">#ff6b6b</span> <span class="css-number">20%</span>,
+        <span class="css-hex">#4ecdc4</span> <span class="css-number">20%</span>,
+        <span class="css-hex">#4ecdc4</span> <span class="css-number">40%</span>,
+        <span class="css-hex">#45b7d1</span> <span class="css-number">40%</span>,
+        <span class="css-hex">#45b7d1</span> <span class="css-number">60%</span>,
+        <span class="css-hex">#96ceb4</span> <span class="css-number">60%</span>,
+        <span class="css-hex">#96ceb4</span> <span class="css-number">80%</span>,
+        <span class="css-hex">#ffeaa7</span> <span class="css-number">80%</span>
+    );
+}</code></pre>
+                        </div>
+
+                        <div class="demo-result-real">
+                            <h5>🎯 Ejemplos Visuales:</h5>
+                            <div class="direction-grid">
+                                <div class="direction-item">
+                                    <div class="demo-box"
+                                        style="background:radial-gradient(circle at 70% 30%, #ff6b6b 0%, #ffa56b 25%, #4ecdc4 50%, #45b7d1 100%);">
+                                    </div>
+                                    <p>Gradiente complejo</p>
+                                </div>
+                                <div class="direction-item">
+                                    <div class="demo-box"
+                                        style="background:radial-gradient(circle, #ffffff 0%, #ffffff 40%, rgba(255,255,255,0.8) 70%, rgba(255,255,255,0) 100%);">
+                                    </div>
+                                    <p>Efecto burbuja</p>
+                                </div>
+                                <div class="direction-item">
+                                    <div class="demo-box"
+                                        style="background:radial-gradient(circle, #ff6b6b 0%, #ff6b6b 20%, #4ecdc4 20%, #4ecdc4 40%, #45b7d1 40%, #45b7d1 60%, #96ceb4 60%, #96ceb4 80%, #ffeaa7 80%);">
+                                    </div>
+                                    <p>Bandas de color</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <div class="rules-box">
+                        <h4>📋 Reglas para Múltiples Colores</h4>
+                        <ul>
+                            <li>✅ Puedes usar tantos colores como necesites</li>
+                            <li>✅ Separa los colores con <strong>comas</strong></li>
+                            <li>✅ Usa porcentajes para controlar las transiciones</li>
+                            <li>✅ Valores iguales crean transiciones abruptas</li>
+                            <li>✅ Combina con rgba/hsla para transparencias</li>
+                            <li>✅ Experimenta con paletas armónicas</li>
+                            <li>❌ No uses puntos y coma entre colores</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎓 Resumen: Todo lo Aprendido</h3>
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">resumen-completo.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre class="code-content"><code><span class="css-comment">/* FORMA + POSICIÓN + TAMAÑO + MÚLTIPLES COLORES */</span>
+<span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+    <span class="css-value">ellipse farthest-corner at 30% 20%</span>,
+    <span class="css-hex">#ff6b6b</span> <span class="css-number">0%</span>,
+    <span class="css-hex">#ffa56b</span> <span class="css-number">25%</span>,
+    <span class="css-hex">#4ecdc4</span> <span class="css-number">50%</span>,
+    <span class="css-hex">#45b7d1</span> <span class="css-number">75%</span>,
+    <span class="css-hex">#96ceb4</span> <span class="css-number">100%</span>
+);
+
+<span class="css-comment">/* EJEMPLO PRÁCTICO: Botón premium */</span>
+<span class="css-selector">.boton-premium</span> {
+    <span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(
+        <span class="css-value">circle at 30% 30%</span>,
+        <span class="css-hex">#ffffff</span> <span class="css-number">0%</span>,
+        <span class="css-hex">#ffeaa7</span> <span class="css-number">15%</span>,
+        <span class="css-hex">#ff6b6b</span> <span class="css-number">50%</span>,
+        <span class="css-hex">#c44569</span> <span class="css-number">100%</span>
+    );
+    <span class="css-property">border-radius</span>: <span class="css-number">25px</span>;
+    <span class="css-property">box-shadow</span>: <span class="css-number">0</span> <span class="css-number">8px</span> <span class="css-number">25px</span> <span class="css-function">rgba</span>(<span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.3</span>);
+}</code></pre>
+                    </div>
+
+                    <div class="final-result">
+                        <h5>🎉 ¡Resultado Final del Botón Premium!</h5>
+                        <div class="demo-box-final"
+                            style="background:radial-gradient(circle at 30% 30%, #ffffff 0%, #ffeaa7 15%, #ff6b6b 50%, #c44569 100%); border-radius: 25px; box-shadow: 0 8px 25px rgba(0,0,0,0.3);">
+                        </div>
+                        <p class="success-message">Has dominado los gradientes radiales con múltiples colores</p>
+                    </div>
+                </div>
             </section>
 
             <!-- Lección 5 - oculta por defecto -->
