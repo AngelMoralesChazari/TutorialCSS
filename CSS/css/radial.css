@@ -73,6 +73,15 @@
     border: 1px solid var(--border);
     box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
+/* Estilos para los demos en la sección de comparación */
+.demo-comparison .demo-box {
+    height: 120px; /* o el valor que prefieras */
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    margin-bottom: 10px;
+}
 
 /* === Menú lateral === */
 .side-menu {
@@ -1502,3 +1511,7 @@ html {
 .boton-circular-radial:active {
     transform: scale(0.95);
 }
+
+
+/* === SECCION 2 FORMAS Y TAMAÑOS === */
+
