@@ -1,35 +1,663 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>RGBS y HSLA</title>
-        
-        <link rel="stylesheet" href="../css/estilos.css" />
-        <script defer src="../js/nav.js"></script>
-    </head>
-    
-    <body>
-        <header class="site-header">
-            <h1>RGBA y HSLA</h1>
-            
-            <p>RGBA: Una forma de definir colores que incluye un canal alfa para la opacidad. Esto permite hacer que los colores sean semitransparentes, mezclandose con el fondo.</p>
-        </header>
-        
-        <nav class="site-nav">
-            <a href="index.html">Inicio</a>
-            <a href="lineal.html">Gradiente Lineal</a>
-            <a href="radial.html">Gradiente Radial</a>
-            <a href="outline.html">Outline</a>
-        </nav>
-        
-        <main class="content">
-            <section class="card">
-                <h2>Contenido principal</h2>
+<html lang="es">
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nostrum rerum neque provident incidunt voluptas alias quasi quae qui similique! Nobis sint repudiandae nostrum excepturi sed error illum sunt voluptas?</p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>RGBA y HSLA - Colores con Transparencia</title>
+
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" href="../css/colores.css" />
+    <script defer src="../js/nav.js"></script>
+    <script defer src="../js/RGBA-HSLA/colores.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>RGBA y HSLA</h1>
+        <p class="subtitle">Colores con Control de Transparencia</p>
+    </header>
+
+    <nav class="site-nav">
+        <a href="index.html">Inicio</a>
+        <a href="lineal.html">Gradiente Lineal</a>
+        <a href="radial.html">Gradiente Radial</a>
+        <a href="outline.html">Outline</a>
+    </nav>
+
+    <main class="content linear-layout">
+        <aside class="side-menu">
+            <h3>Temario</h3>
+            <ul class="lesson-list">
+                <li class="active" data-lesson="1">1️⃣ ¿Qué son RGBA y HSLA?</li>
+                <li data-lesson="2">2️⃣ Sintaxis y Valores</li>
+                <li data-lesson="3">3️⃣ Casos de Uso Prácticos</li>
+                <li data-lesson="4">4️⃣ Comparación y Ejemplos</li>
+                <li data-lesson="5">5️⃣ Práctica Interactiva</li>
+            </ul>
+        </aside>
+
+        <div id="main-lesson-container" class="main-lesson-container">
+            <!-- Lección 1: Introducción -->
+            <section id="lesson-content-1" class="lesson-content card">
+                <h2>1️⃣ ¿Qué son RGBA y HSLA?</h2>
+
+                <div class="theory-block">
+                    <div class="journey-intro">
+                        <div class="journey-icon">🎨</div>
+                        <p>Descubre el poder de los <strong>colores con transparencia</strong> en CSS. RGBA y HSLA te
+                            permiten crear efectos visuales sofisticados, superposiciones elegantes y diseños modernos
+                            con control total sobre la opacidad.</p>
+                    </div>
+
+                    <h3>🌈 Más Allá de los Colores Sólidos</h3>
+                    <p>Mientras que RGB y HSL definen colores sólidos, <strong>RGBA y HSLA añaden el canal
+                            Alpha</strong> que controla la transparencia del color. Esto abre un mundo de posibilidades
+                        creativas.</p>
+                </div>
+
+                <div class="example-block">
+                    <h4>🔍 Comparación Visual: Opaco vs Transparente</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box solid-demo" style="background:#ff6b6b;"></div>
+                            <p><strong>RGB Sólido</strong><br><code>rgb(255, 107, 107)</code></p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:rgba(255, 107, 107, 0.5);"></div>
+                            <p><strong>RGBA 50%</strong><br><code>rgba(255, 107, 107, 0.5)</code></p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="background:rgba(255, 107, 107, 0.2);"></div>
+                            <p><strong>RGBA 20%</strong><br><code>rgba(255, 107, 107, 0.2)</code></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎯 ¿Qué es el Canal Alpha?</h3>
+                    <p>El <strong>canal Alpha</strong> es un valor adicional que controla la transparencia de un color.
+                        Funciona como un "interruptor de visibilidad" que determina cuánto se muestra el color de fondo
+                        detrás.</p>
+
+                    <div class="concept-box">
+                        <h4>📊 Escala de Transparencia</h4>
+                        <div class="alpha-scale-demo">
+                            <div class="alpha-item">
+                                <div class="alpha-box" style="background:rgba(255, 107, 107, 1);"></div>
+                                <span><code>1.0</code><br>Completamente opaco</span>
+                            </div>
+                            <div class="alpha-item">
+                                <div class="alpha-box" style="background:rgba(255, 107, 107, 0.75);"></div>
+                                <span><code>0.75</code><br>75% visible</span>
+                            </div>
+                            <div class="alpha-item">
+                                <div class="alpha-box" style="background:rgba(255, 107, 107, 0.5);"></div>
+                                <span><code>0.5</code><br>50% transparente</span>
+                            </div>
+                            <div class="alpha-item">
+                                <div class="alpha-box" style="background:rgba(255, 107, 107, 0.25);"></div>
+                                <span><code>0.25</code><br>25% visible</span>
+                            </div>
+                            <div class="alpha-item">
+                                <div class="alpha-box" style="background:rgba(255, 107, 107, 0);"></div>
+                                <span><code>0.0</code><br>Completamente transparente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎨 Ejemplo de Sintaxis en Acción</h4>
+                    <div class="syntax-demo">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">styles.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre
+                                class="code-content"><code><span class="css-comment">/* Color rojo sólido */</span>
+<span class="css-property">background</span>: <span class="css-function">rgb</span>(<span class="css-number">255</span>, <span class="css-number">0</span>, <span class="css-number">0</span>);
+
+<span class="css-comment">/* Mismo rojo con 50% de transparencia */</span>
+<span class="css-property">background</span>: <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.5</span>);</code></pre>
+                        </div>
+
+                        <div class="demo-result">
+                            <div class="transparency-demo">
+                                <div class="color-comparison">
+                                    <div class="color-box solid" style="background:rgb(255, 0, 0);">
+                                        <span>RGB Sólido</span>
+                                    </div>
+                                    <div class="color-box transparent" style="background:rgba(255, 0, 0, 0.5);">
+                                        <span>RGBA 50%</span>
+                                    </div>
+                                </div>
+                                <p class="demo-explanation">
+                                    El mismo color rojo, pero RGBA permite ver el patrón de fondo a través del color.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🚀 Tu Primer Color con Transparencia</h3>
+
+                    <div class="step-by-step-enhanced">
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">1</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Elige un Color Base</h4>
+                                    <span class="step-tag">Fundamento</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">rgb</span>(<span class="css-number">255</span>, <span class="css-number">107</span>, <span class="css-number">107</span>)</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p>Comienza con un color sólido que conoces. Este será tu punto de partida para
+                                        añadir transparencia.</p>
+                                    <div class="color-preview-box" style="background:rgb(255, 107, 107);"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">2</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Cambia a RGBA</h4>
+                                    <span class="step-tag">Transformación</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">107</span>, <span class="css-number">107</span>)</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p>Cambia <code>rgb</code> por <code>rgba</code>. Los paréntesis ahora esperan un
+                                        cuarto valor.</p>
+                                    <div class="step-tip">
+                                        <span class="tip-icon">💡</span>
+                                        <span>RGBA significa Red, Green, Blue, Alpha - los cuatro componentes del
+                                            color.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">3</span>
+                                    <div class="step-line"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Añade el Valor Alpha</h4>
+                                    <span class="step-tag">Transparencia</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">107</span>, <span class="css-number">107</span>, <span class="css-number">0.5</span>)</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p>El cuarto valor (0.5) controla la opacidad. <code>1</code> es completamente
+                                        opaco, <code>0</code> es completamente transparente.</p>
+
+                                    <div class="alpha-options">
+                                        <div class="alpha-option">
+                                            <div class="alpha-demo" style="background:rgba(255, 107, 107, 1);"></div>
+                                            <span><code>1.0</code> - Opaco</span>
+                                        </div>
+                                        <div class="alpha-option">
+                                            <div class="alpha-demo" style="background:rgba(255, 107, 107, 0.5);"></div>
+                                            <span><code>0.5</code> - Semi</span>
+                                        </div>
+                                        <div class="alpha-option">
+                                            <div class="alpha-demo" style="background:rgba(255, 107, 107, 0);"></div>
+                                            <span><code>0.0</code> - Transparente</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="step-card final-step">
+                            <div class="step-header">
+                                <div class="step-indicator">
+                                    <span class="step-number">4</span>
+                                    <div class="step-line final"></div>
+                                </div>
+                                <div class="step-title">
+                                    <h4>Aplica en CSS</h4>
+                                    <span class="step-tag">Implementación</span>
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <div class="code-panel small">
+                                    <pre
+                                        class="code-content"><code><span class="css-property">background</span>: <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">107</span>, <span class="css-number">107</span>, <span class="css-number">0.5</span>);</code></pre>
+                                </div>
+                                <div class="step-explanation">
+                                    <p>Usa tu color RGBA en cualquier propiedad que acepte valores de color en CSS.</p>
+
+                                    <div class="final-result">
+                                        <h5>🎉 ¡Resultado Final!</h5>
+                                        <div class="demo-box-final" style="background:rgba(255, 107, 107, 0.5);">
+                                            <div class="checkerboard"></div>
+                                        </div>
+                                        <p class="success-message">¡Felicidades! Has creado tu primer color con
+                                            transparencia controlada.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🔧 ¿Dónde Usar RGBA y HSLA?</h3>
+
+                    <div class="application-grid">
+                        <div class="app-column">
+                            <div class="app-header">
+                                <h4>🎨 Propiedades CSS que Aceptan RGBA/HSLA</h4>
+                                <p>Puedes usar estos formatos en casi cualquier propiedad de color:</p>
+                            </div>
+
+                            <div class="properties-grid">
+                                <div class="property-card primary">
+                                    <div class="property-header">
+                                        <h5>background-color</h5>
+                                        <span class="property-badge">Común</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Fondos semitransparentes para elementos.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">background-color</span>: <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">107</span>, <span class="css-number">107</span>, <span class="css-number">0.3</span>);</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>color</h5>
+                                        <span class="property-badge">Texto</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Texto con transparencia para efectos sutiles.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">color</span>: <span class="css-function">rgba</span>(<span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.7</span>);</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>border-color</h5>
+                                        <span class="property-badge">Bordes</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Bordes translúcidos para interfaces modernas.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">border-color</span>: <span class="css-function">rgba</span>(<span class="css-number">100</span>, <span class="css-number">100</span>, <span class="css-number">255</span>, <span class="css-number">0.5</span>);</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="property-card">
+                                    <div class="property-header">
+                                        <h5>box-shadow</h5>
+                                        <span class="property-badge">Sombras</span>
+                                    </div>
+                                    <div class="property-content">
+                                        <p>Sombras suaves y realistas con transparencia.</p>
+                                        <div class="code-panel micro">
+                                            <pre
+                                                class="code-content"><code><span class="css-property">box-shadow</span>: <span class="css-number">0</span> <span class="css-number">4px</span> <span class="css-number">8px</span> <span class="css-function">rgba</span>(<span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.1</span>);</code></pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="app-column">
+                            <div class="app-header">
+                                <h4>💡 Casos de Uso Comunes</h4>
+                                <p>Aplicaciones prácticas en diseño web moderno:</p>
+                            </div>
+
+                            <div class="use-cases-grid">
+                                <div class="use-case-card">
+                                    <div class="use-case-icon">🎪</div>
+                                    <div class="use-case-content">
+                                        <h5>Overlays y Modales</h5>
+                                        <p>Fondos semitransparentes para popups y ventanas modales.</p>
+                                    </div>
+                                </div>
+
+                                <div class="use-case-card">
+                                    <div class="use-case-icon">📊</div>
+                                    <div class="use-case-content">
+                                        <h5>Grados de Color</h5>
+                                        <p>Crear variaciones sutiles del mismo color base.</p>
+                                    </div>
+                                </div>
+
+                                <div class="use-case-card">
+                                    <div class="use-case-icon">🌙</div>
+                                    <div class="use-case-content">
+                                        <h5>Modo Oscuro</h5>
+                                        <p>Transiciones suaves entre temas claro y oscuro.</p>
+                                    </div>
+                                </div>
+
+                                <div class="use-case-card">
+                                    <div class="use-case-icon">🎭</div>
+                                    <div class="use-case-content">
+                                        <h5>Efectos de Superposición</h5>
+                                        <p>Textos sobre imágenes manteniendo legibilidad.</p>
+                                    </div>
+                                </div>
+
+                                <div class="use-case-card">
+                                    <div class="use-case-icon">🔍</div>
+                                    <div class="use-case-content">
+                                        <h5>Estados de Interacción</h5>
+                                        <p>Hover states y efectos de foco sutiles.</p>
+                                    </div>
+                                </div>
+
+                                <div class="use-case-card">
+                                    <div class="use-case-icon">📱</div>
+                                    <div class="use-case-content">
+                                        <h5>Diseño Responsive</h5>
+                                        <p>Ajustar transparencias según el tamaño de pantalla.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-        </main>
-    </body>
+
+            <!-- Lección 2: Sintaxis y Valores -->
+            <section id="lesson-content-2" class="lesson-content card hidden-lesson">
+                <h2>2️⃣ Sintaxis y Valores</h2>
+
+                <div class="theory-block">
+                    <div class="journey-intro">
+                        <div class="journey-icon">📐</div>
+                        <p>Domina la <strong>sintaxis exacta</strong> de RGBA y HSLA. Aprende los rangos de valores
+                            válidos, diferencias clave entre ambos formatos y cómo elegir el mejor para cada situación.
+                        </p>
+                    </div>
+
+                    <h3>🎯 Sintaxis de RGBA</h3>
+                    <p>RGBA extiende el formato RGB tradicional añadiendo el canal Alpha para controlar la
+                        transparencia.</p>
+
+                    <div class="syntax-breakdown">
+                        <h4>Desglose de la Sintaxis RGBA</h4>
+
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">sintaxis.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre
+                                class="code-content"><code><span class="css-function">rgba</span>(<span class="rgba-r">red</span>, <span class="rgba-g">green</span>, <span class="rgba-b">blue</span>, <span class="rgba-a">alpha</span>)</code></pre>
+                        </div>
+
+                        <div class="breakdown-items">
+                            <div class="breakdown-item">
+                                <div class="part-name">Red (Rojo)</div>
+                                <div class="part-desc">
+                                    Número entero de <strong>0 a 255</strong>. Controla la intensidad del componente
+                                    rojo del color.
+                                    <div class="range-visualization">
+                                        <div class="range-item">
+                                            <h5>Escala Rojo</h5>
+                                            <div class="range-scale red"></div>
+                                            <div class="range-labels">
+                                                <span>0</span>
+                                                <span>255</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div class="part-name">Green (Verde)</div>
+                                <div class="part-desc">
+                                    Número entero de <strong>0 a 255</strong>. Controla la intensidad del componente
+                                    verde del color.
+                                    <div class="range-visualization">
+                                        <div class="range-item">
+                                            <h5>Escala Verde</h5>
+                                            <div class="range-scale green"></div>
+                                            <div class="range-labels">
+                                                <span>0</span>
+                                                <span>255</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div class="part-name">Blue (Azul)</div>
+                                <div class="part-desc">
+                                    Número entero de <strong>0 a 255</strong>. Controla la intensidad del componente
+                                    azul del color.
+                                    <div class="range-visualization">
+                                        <div class="range-item">
+                                            <h5>Escala Azul</h5>
+                                            <div class="range-scale blue"></div>
+                                            <div class="range-labels">
+                                                <span>0</span>
+                                                <span>255</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div class="part-name">Alpha (Transparencia)</div>
+                                <div class="part-desc">
+                                    Número decimal de <strong>0.0 (transparente) a 1.0 (opaco)</strong>. Controla la
+                                    visibilidad del color.
+                                    <div class="range-visualization">
+                                        <div class="range-item">
+                                            <h5>Escala Alpha</h5>
+                                            <div class="range-scale alpha"></div>
+                                            <div class="range-labels">
+                                                <span>0.0</span>
+                                                <span>1.0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="value-examples">
+                            <div class="value-example">
+                                <div class="demo-color" style="background: rgba(255, 0, 0, 1);"></div>
+                                <code>rgba(255, 0, 0, 1)</code>
+                                <span>Rojo puro</span>
+                            </div>
+                            <div class="value-example">
+                                <div class="demo-color" style="background: rgba(0, 255, 0, 0.5);"></div>
+                                <code>rgba(0, 255, 0, 0.5)</code>
+                                <span>Verde 50%</span>
+                            </div>
+                            <div class="value-example">
+                                <div class="demo-color" style="background: rgba(0, 0, 255, 0.2);"></div>
+                                <code>rgba(0, 0, 255, 0.2)</code>
+                                <span>Azul 20%</span>
+                            </div>
+                            <div class="value-example">
+                                <div class="demo-color" style="background: rgba(255, 255, 255, 0);"></div>
+                                <code>rgba(255, 255, 255, 0)</code>
+                                <span>Transparente</span>
+                            </div>
+                        </div>
+
+                        <div class="syntax-note">
+                            <h5>¡Recuerda!</h5>
+                            <p>El valor Alpha es opcional. Si no se especifica, el color será completamente opaco (alpha
+                                = 1.0).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎨 Demo Interactivo: Valores HSLA</h4>
+                    <p>Explora el modelo HSL y cómo la transparencia afecta a los colores:</p>
+
+                    <div class="interactive-demo">
+                        <div class="demo-controls-grid">
+                            <div class="control-group">
+                                <label for="hsla-h">🎨 Hue (0-360):</label>
+                                <input type="range" id="hsla-h" min="0" max="360" value="0">
+                                <span id="hsla-h-value">0°</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="hsla-s">💧 Saturation (0-100%):</label>
+                                <input type="range" id="hsla-s" min="0" max="100" value="100">
+                                <span id="hsla-s-value">100%</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="hsla-l">💡 Lightness (0-100%):</label>
+                                <input type="range" id="hsla-l" min="0" max="100" value="50">
+                                <span id="hsla-l-value">50%</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="hsla-a">⚪ Alpha (0-1):</label>
+                                <input type="range" id="hsla-a" min="0" max="100" value="50">
+                                <span id="hsla-a-value">0.5</span>
+                            </div>
+                        </div>
+
+                        <div class="demo-result-enhanced">
+                            <div class="code-panel">
+                                <div class="code-header">
+                                    <span class="code-filename">resultado.css</span>
+                                    <span class="code-language">CSS</span>
+                                </div>
+                                <pre class="code-content"
+                                    id="hsla-code"><code><span class="css-property">background</span>: <span class="css-function">hsla</span>(<span class="css-number">0</span>, <span class="css-number">100</span><span class="css-unit">%</span>, <span class="css-number">50</span><span class="css-unit">%</span>, <span class="css-number">0.5</span>);</code></pre>
+                            </div>
+
+                            <div class="demo-visual">
+                                <div id="hsla-demo-box" class="demo-box-large"
+                                    style="background:hsla(0, 100%, 50%, 0.5);">
+                                    <div class="checkerboard"></div>
+                                </div>
+                                <p class="demo-explanation">
+                                    Color HSLA: <code id="hsla-values">hsla(0, 100%, 50%, 0.5)</code>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>📊 Comparación: RGBA vs HSLA</h3>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>🎯 RGBA</h5>
+                                <span class="comparison-badge">Preciso</span>
+                            </div>
+                            <div class="comparison-content">
+                                <div class="pros-cons">
+                                    <div class="pros">
+                                        <h6>✅ Ventajas</h6>
+                                        <ul>
+                                            <li>Familiar para diseñadores web</li>
+                                            <li>Control preciso de canales RGB</li>
+                                            <li>Amplio soporte en navegadores</li>
+                                        </ul>
+                                    </div>
+                                    <div class="cons">
+                                        <h6>❌ Desventajas</h6>
+                                        <ul>
+                                            <li>Difícil ajustar brillo/saturación</li>
+                                            <li>Menos intuitivo para crear variaciones</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="comparison-card">
+                            <div class="comparison-header">
+                                <h5>🌈 HSLA</h5>
+                                <span class="comparison-badge">Intuitivo</span>
+                            </div>
+                            <div class="comparison-content">
+                                <div class="pros-cons">
+                                    <div class="pros">
+                                        <h6>✅ Ventajas</h6>
+                                        <ul>
+                                            <li>Más intuitivo para humanos</li>
+                                            <li>Fácil crear variaciones de color</li>
+                                            <li>Excelente para ajustes de tema</li>
+                                        </ul>
+                                    </div>
+                                    <div class="cons">
+                                        <h6>❌ Desventajas</h6>
+                                        <ul>
+                                            <li>Menos familiar para algunos</li>
+                                            <li>Conversión compleja a RGB</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box">
+                        <div class="tip-header">
+                            <span class="tip-icon">💡</span>
+                            <h5>Consejo de Elección</h5>
+                        </div>
+                        <p><strong>Usa RGBA</strong> cuando trabajes con colores específicos de una paleta o valores
+                            exactos. <strong>Usa HSLA</strong> cuando necesites crear variaciones de un color (más
+                            claro/más oscuro) o ajustar temas dinámicamente.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Continuaría con las lecciones 3, 4 y 5... -->
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <small>💻 Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript 💻</small>
+    </footer>
+</body>
+
 </html>

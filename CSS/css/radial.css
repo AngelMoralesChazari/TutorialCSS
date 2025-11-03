@@ -14,7 +14,7 @@
 }
 
 .lesson-theory {
-    background: rgba(17,24,39,0.92);
+    background: rgba(17, 24, 39, 0.92);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 20px;
@@ -50,7 +50,7 @@
 
 /* === Contenido del Ejemplo === */
 .lesson-example {
-    background: rgba(17,24,39,0.92);
+    background: rgba(17, 24, 39, 0.92);
     border: 1px solid var(--border);
     border-radius: 12px;
     padding: 20px;
@@ -69,15 +69,17 @@
     height: 180px;
     border-radius: 10px;
     border: 1px solid var(--border);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
 }
+
 /* Estilos para los demos en la sección de comparación */
 .demo-comparison .demo-box {
-    height: 120px; /* o el valor que prefieras */
+    height: 120px;
+    /* o el valor que prefieras */
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--border);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
     margin-bottom: 10px;
 }
 
@@ -120,19 +122,19 @@
     transition: all 0.25s ease;
     font-weight: 500;
     color: var(--text);
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
 .lesson-list li:hover {
-    background: rgba(56,189,248,0.15);
+    background: rgba(56, 189, 248, 0.15);
     border-color: var(--accent);
 }
 
 .lesson-list li.active {
-    background: rgba(56,189,248,0.25);
+    background: rgba(56, 189, 248, 0.25);
     color: #dbeafe;
     border-color: var(--accent);
     font-weight: 600;
@@ -230,7 +232,7 @@ html {
 .theory-block {
     margin-bottom: 30px;
     padding-bottom: 20px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .theory-block:last-of-type {
@@ -275,7 +277,7 @@ html {
 }
 
 .code-example {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     padding: 15px;
     border-radius: 8px;
     margin: 15px 0;
@@ -320,10 +322,10 @@ html {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-    background: rgba(255,255,255,0.03);
+    background: rgba(255, 255, 255, 0.03);
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .step-number {
@@ -351,7 +353,7 @@ html {
 
 /* Breakdown de código */
 .code-breakdown {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     padding: 20px;
     border-radius: 8px;
     margin: 20px 0;
@@ -365,7 +367,7 @@ html {
     display: flex;
     margin: 10px 0;
     padding: 8px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .part-name {
@@ -412,7 +414,7 @@ html {
 }
 
 .tag-item {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     padding: 8px 12px;
     border-radius: 6px;
     font-family: monospace;
@@ -447,7 +449,7 @@ html {
     background: #1e1e1e;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .code-header {
@@ -603,7 +605,7 @@ html {
     background: #1e1e1e;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
     border: 1px solid #444;
 }
 
@@ -1382,6 +1384,7 @@ html {
         opacity: 0;
         transform: translateY(20px);
     }
+
     100% {
         opacity: 1;
         transform: translateY(0);
@@ -1393,11 +1396,13 @@ html {
     .linear-layout {
         grid-template-columns: 260px 1fr;
     }
+
     #main-lesson-container {
         grid-column: span 1;
         grid-template-columns: 1fr;
         gap: 20px;
     }
+
     .lesson-example {
         min-height: 150px;
     }
@@ -1407,23 +1412,25 @@ html {
     .linear-layout {
         grid-template-columns: 1fr;
     }
+
     .side-menu {
         position: relative;
         top: 0;
         width: 100%;
     }
+
     #main-lesson-container {
         grid-template-columns: 1fr;
     }
-    
+
     .application-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .real-code-example {
         grid-template-columns: 1fr;
     }
-    
+
     .comparison-grid {
         grid-template-columns: 1fr;
     }
@@ -1434,32 +1441,32 @@ html {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .formats-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .direction-options {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .application-grid {
         grid-template-columns: 1fr;
         gap: 25px;
     }
-    
+
     .format-header {
         flex-direction: column;
         text-align: center;
         gap: 10px;
     }
-    
+
     .format-demo {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .format-demo .demo-box {
         width: 100%;
         max-width: 200px;
@@ -1474,7 +1481,7 @@ html {
 }
 
 .radial-3d {
-    box-shadow: 
+    box-shadow:
         0 8px 25px rgba(0, 0, 0, 0.3),
         inset 0 2px 4px rgba(255, 255, 255, 0.5);
 }
@@ -1487,7 +1494,7 @@ html {
     border: none;
     cursor: pointer;
     background: radial-gradient(circle at 30% 30%, #ffffff, #ff6b6b, #c44569);
-    box-shadow: 
+    box-shadow:
         0 4px 8px rgba(0, 0, 0, 0.3),
         inset 0 2px 4px rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
@@ -1501,7 +1508,7 @@ html {
 
 .boton-circular-radial:hover {
     transform: scale(1.1);
-    box-shadow: 
+    box-shadow:
         0 6px 12px rgba(0, 0, 0, 0.4),
         inset 0 2px 4px rgba(255, 255, 255, 0.6);
 }
@@ -1543,7 +1550,7 @@ html {
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--border);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.4);
     margin-bottom: 10px;
 }
 
@@ -1553,7 +1560,7 @@ html {
     width: 100%;
     border-radius: 8px;
     border: 1px solid var(--border);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     margin-bottom: 8px;
 }
 
@@ -1581,6 +1588,7 @@ html {
     border-radius: 12px;
     border-left: 4px solid var(--accent);
 }
+
 /* Estilos específicos para práctica radial si son necesarios */
 .practice-container .mi-gradiente {
     transition: all 0.3s ease;
@@ -1619,7 +1627,7 @@ html {
     border: 1px solid #444;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
 }
 
 .code-panel.practice-panel .code-header {
@@ -1842,7 +1850,8 @@ html {
 
 /* === BOTONES MEJORADOS === */
 
-.btn-play, .btn-reset {
+.btn-play,
+.btn-reset {
     display: flex;
     align-items: center;
     gap: 8px;
@@ -1861,7 +1870,8 @@ html {
     border-color: rgba(255, 255, 255, 0.2);
 }
 
-.btn-play:hover, .btn-reset:hover {
+.btn-play:hover,
+.btn-reset:hover {
     background: rgba(56, 189, 248, 0.2);
     transform: translateY(-2px);
 }
@@ -1877,7 +1887,7 @@ html {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .examples-grid {
         grid-template-columns: 1fr;
     }
@@ -1889,31 +1899,31 @@ html {
         gap: 10px;
         text-align: center;
     }
-    
+
     .preview-info {
         flex-direction: column;
         gap: 10px;
         align-items: center;
     }
-    
+
     .css-editor {
         height: 250px;
         font-size: 0.9rem;
     }
-    
+
     .example-card {
         padding: 15px;
     }
-    
+
     .example-card h5 {
         font-size: 0.9rem;
     }
-    
+
     .example-card .code-panel.enhanced .code-content {
         padding: 12px;
         font-size: 0.8rem;
     }
-    
+
     .example-btn {
         padding: 8px 12px;
         font-size: 0.8rem;
@@ -2007,7 +2017,8 @@ html {
 }
 
 /* Botones mejorados */
-.btn-play, .btn-reset {
+.btn-play,
+.btn-reset {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -2218,11 +2229,11 @@ html {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    
+
     .css-editor {
         height: 300px;
     }
-    
+
     .preview-content {
         min-height: 300px;
         padding: 30px;
@@ -2233,11 +2244,11 @@ html {
     .editor-actions {
         flex-direction: column;
     }
-    
+
     .preview-info {
         grid-template-columns: 1fr;
     }
-    
+
     .examples-grid {
         grid-template-columns: 1fr;
     }
