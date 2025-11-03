@@ -108,35 +108,50 @@
                     </div>
                 </div>
 
-                <div class="example-block">
-                    <h4>🎨 Ejemplo de Sintaxis en Acción</h4>
-                    <div class="syntax-demo">
-                        <div class="code-panel">
-                            <div class="code-header">
-                                <span class="code-filename">styles.css</span>
-                                <span class="code-language">CSS</span>
-                            </div>
-                            <pre
-                                class="code-content"><code><span class="css-comment">/* Color rojo sólido */</span>
-<span class="css-property">background</span>: <span class="css-function">rgb</span>(<span class="css-number">255</span>, <span class="css-number">0</span>, <span class="css-number">0</span>);
+                <div class="syntax-demo-compact">
+                    <div class="syntax-demo-header">
+                        <h3>Ejemplo de Sintaxis en Acción</h3>
+                    </div>
 
-<span class="css-comment">/* Mismo rojo con 50% de transparencia */</span>
-<span class="css-property">background</span>: <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">0</span>, <span class="css-number">0</span>, <span class="css-number">0.5</span>);</code></pre>
+                    <div class="syntax-demo-grid">
+                        <div class="code-column">
+                            <div class="code-column-header">styles.css</div>
+                            <div class="code-column-content">
+                                <div class="rgba-syntax">
+                                    <span class="comment">/* Color rojo sólido */</span><br>
+                                    <span class="property">background</span>: <span class="function">rgb</span>(<span
+                                        class="rgb-r">255</span>, <span class="rgb-g">0</span>, <span
+                                        class="rgb-b">0</span>);<br>
+                                    <br>
+                                    <span class="comment">/* Mismo rojo con 50% de transparencia */</span><br>
+                                    <span class="property">background</span>: <span class="function">rgba</span>(<span
+                                        class="rgb-r">255</span>, <span class="rgb-g">0</span>, <span
+                                        class="rgb-b">0</span>, <span class="alpha">0.5</span>);
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="demo-result">
-                            <div class="transparency-demo">
-                                <div class="color-comparison">
-                                    <div class="color-box solid" style="background:rgb(255, 0, 0);">
-                                        <span>RGB Sólido</span>
+                        <div class="visual-column">
+                            <div class="visual-demo">
+                                <div class="demo-item-compact">
+                                    <div class="demo-item-header">
+                                        <h4>RGB Sólido</h4>
+                                        <div class="color-code">rgb(255, 0, 0)</div>
                                     </div>
-                                    <div class="color-box transparent" style="background:rgba(255, 0, 0, 0.5);">
-                                        <span>RGBA 50%</span>
-                                    </div>
+                                    <div class="demo-box-compact demo-box-solid-compact"></div>
                                 </div>
-                                <p class="demo-explanation">
-                                    El mismo color rojo, pero RGBA permite ver el patrón de fondo a través del color.
-                                </p>
+
+                                <div class="demo-item-compact">
+                                    <div class="demo-item-header">
+                                        <h4>RGBA 50%</h4>
+                                        <div class="color-code">rgba(255, 0, 0, 0.5)</div>
+                                    </div>
+                                    <div class="demo-box-compact demo-box-transparent-compact"></div>
+                                </div>
+                            </div>
+
+                            <div class="explanation-compact">
+                                El mismo color rojo, pero RGBA permite ver el patrón de fondo a través del color.
                             </div>
                         </div>
                     </div>
