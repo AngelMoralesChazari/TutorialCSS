@@ -1288,7 +1288,8 @@
                             <div class="use-case-content">
                                 <h5>Combina con Backdrop Filter</h5>
                                 <p>Para efectos glassmorphism, combina RGBA/HSLA con
-                                    <code>backdrop-filter: blur()</code> para resultados espectaculares.</p>
+                                    <code>backdrop-filter: blur()</code> para resultados espectaculares.
+                                </p>
                             </div>
                         </div>
 
@@ -1323,35 +1324,36 @@
             </section>
 
             <!-- Lección 4: Comparación y Ejemplos -->
-<section id="lesson-content-4" class="lesson-content card hidden-lesson">
-    <h2>4️⃣ Comparación y Ejemplos</h2>
+            <section id="lesson-content-4" class="lesson-content card hidden-lesson">
+                <h2>4️⃣ Comparación y Ejemplos</h2>
 
-    <div class="theory-block">
-        <div class="journey-intro">
-            <div class="journey-icon">⚖️</div>
-            <p>Compara <strong>RGBA vs HSLA cara a cara</strong> y descubre cuándo usar cada formato. Aprende mediante ejemplos prácticos y situaciones reales.</p>
-        </div>
-
-        <h3>🎯 Comparación Directa: RGBA vs HSLA</h3>
-        <p>Veamos cómo se comportan ambos formatos en diferentes escenarios comunes.</p>
-
-        <div class="example-block">
-            <h4>🔄 Mismo Color, Diferentes Formatos</h4>
-            <p>Compara cómo representar el mismo color en RGBA y HSLA:</p>
-
-            <div class="comparison-grid-enhanced">
-                <div class="comparison-column">
-                    <div class="comparison-header">
-                        <h5>🎯 RGBA</h5>
-                        <span class="comparison-badge">RGB + Alpha</span>
+                <div class="theory-block">
+                    <div class="journey-intro">
+                        <div class="journey-icon">⚖️</div>
+                        <p>Compara <strong>RGBA vs HSLA cara a cara</strong> y descubre cuándo usar cada formato.
+                            Aprende mediante ejemplos prácticos y situaciones reales.</p>
                     </div>
-                    <div class="comparison-content">
-                        <div class="code-panel">
-                            <div class="code-header">
-                                <span class="code-filename">rgba-examples.css</span>
-                                <span class="code-language">CSS</span>
-                            </div>
-                            <pre class="code-content">
+
+                    <h3>🎯 Comparación Directa: RGBA vs HSLA</h3>
+                    <p>Veamos cómo se comportan ambos formatos en diferentes escenarios comunes.</p>
+
+                    <div class="example-block">
+                        <h4>🔄 Mismo Color, Diferentes Formatos</h4>
+                        <p>Compara cómo representar el mismo color en RGBA y HSLA:</p>
+
+                        <div class="comparison-grid-enhanced">
+                            <div class="comparison-column">
+                                <div class="comparison-header">
+                                    <h5>🎯 RGBA</h5>
+                                    <span class="comparison-badge">RGB + Alpha</span>
+                                </div>
+                                <div class="comparison-content">
+                                    <div class="code-panel">
+                                        <div class="code-header">
+                                            <span class="code-filename">rgba-examples.css</span>
+                                            <span class="code-language">CSS</span>
+                                        </div>
+                                        <pre class="code-content">
 <code><span class="comment">/* Rojo corporativo */</span>
 <span class="css-property">background</span>: <span class="css-function">rgba</span>(<span class="rgba-r">219</span>, <span class="rgba-g">68</span>, <span class="rgba-b">55</span>, <span class="rgba-a">1</span>);
 
@@ -1361,34 +1363,34 @@
 <span class="comment">/* Azul primario */</span>
 <span class="css-property">background</span>: <span class="css-function">rgba</span>(<span class="rgba-r">33</span>, <span class="rgba-g">150</span>, <span class="rgba-b">243</span>, <span class="rgba-a">0.6</span>);</code>
                             </pre>
-                        </div>
-                        
-                        <div class="color-demos">
-                            <div class="color-demo-item" style="background: rgba(219, 68, 55, 1);">
-                                <span>rgba(219, 68, 55, 1)</span>
-                            </div>
-                            <div class="color-demo-item" style="background: rgba(76, 175, 80, 0.8);">
-                                <span>rgba(76, 175, 80, 0.8)</span>
-                            </div>
-                            <div class="color-demo-item" style="background: rgba(33, 150, 243, 0.6);">
-                                <span>rgba(33, 150, 243, 0.6)</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    </div>
 
-                <div class="comparison-column">
-                    <div class="comparison-header">
-                        <h5>🌈 HSLA</h5>
-                        <span class="comparison-badge">HSL + Alpha</span>
-                    </div>
-                    <div class="comparison-content">
-                        <div class="code-panel">
-                            <div class="code-header">
-                                <span class="code-filename">hsla-examples.css</span>
-                                <span class="code-language">CSS</span>
+                                    <div class="color-demos">
+                                        <div class="color-demo-item" style="background: rgba(219, 68, 55, 1);">
+                                            <span>rgba(219, 68, 55, 1)</span>
+                                        </div>
+                                        <div class="color-demo-item" style="background: rgba(76, 175, 80, 0.8);">
+                                            <span>rgba(76, 175, 80, 0.8)</span>
+                                        </div>
+                                        <div class="color-demo-item" style="background: rgba(33, 150, 243, 0.6);">
+                                            <span>rgba(33, 150, 243, 0.6)</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <pre class="code-content">
+
+                            <div class="comparison-column">
+                                <div class="comparison-header">
+                                    <h5>🌈 HSLA</h5>
+                                    <span class="comparison-badge">HSL + Alpha</span>
+                                </div>
+                                <div class="comparison-content">
+                                    <div class="code-panel">
+                                        <div class="code-header">
+                                            <span class="code-filename">hsla-examples.css</span>
+                                            <span class="code-language">CSS</span>
+                                        </div>
+                                        <pre class="code-content">
 <code><span class="comment">/* Rojo corporativo */</span>
 <span class="css-property">background</span>: <span class="css-function">hsla</span>(<span class="hsla-h">5</span>, <span class="hsla-s">68</span><span class="css-unit">%</span>, <span class="hsla-l">54</span><span class="css-unit">%</span>, <span class="hsla-a">1</span>);
 
@@ -1398,45 +1400,45 @@
 <span class="comment">/* Azul primario */</span>
 <span class="css-property">background</span>: <span class="css-function">hsla</span>(<span class="hsla-h">207</span>, <span class="hsla-s">90</span><span class="css-unit">%</span>, <span class="hsla-l">54</span><span class="css-unit">%</span>, <span class="hsla-a">0.6</span>);</code>
                             </pre>
-                        </div>
-                        
-                        <div class="color-demos">
-                            <div class="color-demo-item" style="background: hsla(5, 68%, 54%, 1);">
-                                <span>hsla(5, 68%, 54%, 1)</span>
-                            </div>
-                            <div class="color-demo-item" style="background: hsla(122, 39%, 49%, 0.8);">
-                                <span>hsla(122, 39%, 49%, 0.8)</span>
-                            </div>
-                            <div class="color-demo-item" style="background: hsla(207, 90%, 54%, 0.6);">
-                                <span>hsla(207, 90%, 54%, 0.6)</span>
+                                    </div>
+
+                                    <div class="color-demos">
+                                        <div class="color-demo-item" style="background: hsla(5, 68%, 54%, 1);">
+                                            <span>hsla(5, 68%, 54%, 1)</span>
+                                        </div>
+                                        <div class="color-demo-item" style="background: hsla(122, 39%, 49%, 0.8);">
+                                            <span>hsla(122, 39%, 49%, 0.8)</span>
+                                        </div>
+                                        <div class="color-demo-item" style="background: hsla(207, 90%, 54%, 0.6);">
+                                            <span>hsla(207, 90%, 54%, 0.6)</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="theory-block">
-        <h3>🎨 Creando Variaciones de Color</h3>
-        <p>Compara cómo crear variaciones de un color base en ambos formatos:</p>
+                <div class="theory-block">
+                    <h3>🎨 Creando Variaciones de Color</h3>
+                    <p>Compara cómo crear variaciones de un color base en ambos formatos:</p>
 
-        <div class="example-block">
-            <h4>🔧 Ajustando Luminosidad vs Componentes RGB</h4>
+                    <div class="example-block">
+                        <h4>🔧 Ajustando Luminosidad vs Componentes RGB</h4>
 
-            <div class="comparison-grid-enhanced">
-                <div class="comparison-column">
-                    <div class="comparison-header">
-                        <h5>🎯 Con RGBA</h5>
-                        <span class="comparison-badge">Más complejo</span>
-                    </div>
-                    <div class="comparison-content">
-                        <div class="code-panel">
-                            <div class="code-header">
-                                <span class="code-filename">rgba-variations.css</span>
-                                <span class="code-language">CSS</span>
-                            </div>
-                            <pre class="code-content">
+                        <div class="comparison-grid-enhanced">
+                            <div class="comparison-column">
+                                <div class="comparison-header">
+                                    <h5>🎯 Con RGBA</h5>
+                                    <span class="comparison-badge">Más complejo</span>
+                                </div>
+                                <div class="comparison-content">
+                                    <div class="code-panel">
+                                        <div class="code-header">
+                                            <span class="code-filename">rgba-variations.css</span>
+                                            <span class="code-language">CSS</span>
+                                        </div>
+                                        <pre class="code-content">
 <code><span class="comment">/* Color base */</span>
 <span class="css-property">background</span>: <span class="css-function">rgba</span>(<span class="rgba-r">74</span>, <span class="rgba-g">144</span>, <span class="rgba-b">226</span>, <span class="rgba-a">1</span>);
 
@@ -1449,42 +1451,42 @@
 <span class="comment">/* Versión transparente */</span>
 <span class="css-property">background</span>: <span class="css-function">rgba</span>(<span class="rgba-r">74</span>, <span class="rgba-g">144</span>, <span class="rgba-b">226</span>, <span class="rgba-a">0.5</span>);</code>
                             </pre>
-                        </div>
-                        
-                        <div class="variation-demos">
-                            <div class="variation-item" style="background: rgba(74, 144, 226, 1);">
-                                <span>Base</span>
-                            </div>
-                            <div class="variation-item" style="background: rgba(140, 187, 241, 1);">
-                                <span>+ Claro</span>
-                            </div>
-                            <div class="variation-item" style="background: rgba(47, 115, 181, 1);">
-                                <span>+ Oscuro</span>
-                            </div>
-                            <div class="variation-item" style="background: rgba(74, 144, 226, 0.5);">
-                                <span>Transparente</span>
-                            </div>
-                        </div>
-                        
-                        <div class="comparison-note">
-                            <span class="note-icon">⚠️</span>
-                            <p>Requiere cálculos manuales de componentes RGB para variaciones</p>
-                        </div>
-                    </div>
-                </div>
+                                    </div>
 
-                <div class="comparison-column">
-                    <div class="comparison-header">
-                        <h5>🌈 Con HSLA</h5>
-                        <span class="comparison-badge">Más intuitivo</span>
-                    </div>
-                    <div class="comparison-content">
-                        <div class="code-panel">
-                            <div class="code-header">
-                                <span class="code-filename">hsla-variations.css</span>
-                                <span class="code-language">CSS</span>
+                                    <div class="variation-demos">
+                                        <div class="variation-item" style="background: rgba(74, 144, 226, 1);">
+                                            <span>Base</span>
+                                        </div>
+                                        <div class="variation-item" style="background: rgba(140, 187, 241, 1);">
+                                            <span>+ Claro</span>
+                                        </div>
+                                        <div class="variation-item" style="background: rgba(47, 115, 181, 1);">
+                                            <span>+ Oscuro</span>
+                                        </div>
+                                        <div class="variation-item" style="background: rgba(74, 144, 226, 0.5);">
+                                            <span>Transparente</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparison-note">
+                                        <span class="note-icon">⚠️</span>
+                                        <p>Requiere cálculos manuales de componentes RGB para variaciones</p>
+                                    </div>
+                                </div>
                             </div>
-                            <pre class="code-content">
+
+                            <div class="comparison-column">
+                                <div class="comparison-header">
+                                    <h5>🌈 Con HSLA</h5>
+                                    <span class="comparison-badge">Más intuitivo</span>
+                                </div>
+                                <div class="comparison-content">
+                                    <div class="code-panel">
+                                        <div class="code-header">
+                                            <span class="code-filename">hsla-variations.css</span>
+                                            <span class="code-language">CSS</span>
+                                        </div>
+                                        <pre class="code-content">
 <code><span class="comment">/* Color base */</span>
 <span class="css-property">background</span>: <span class="css-function">hsla</span>(<span class="hsla-h">210</span>, <span class="hsla-s">75</span><span class="css-unit">%</span>, <span class="hsla-l">59</span><span class="css-unit">%</span>, <span class="hsla-a">1</span>);
 
@@ -1497,142 +1499,304 @@
 <span class="comment">/* Versión transparente */</span>
 <span class="css-property">background</span>: <span class="css-function">hsla</span>(<span class="hsla-h">210</span>, <span class="hsla-s">75</span><span class="css-unit">%</span>, <span class="hsla-l">59</span><span class="css-unit">%</span>, <span class="hsla-a">0.5</span>);</code>
                             </pre>
-                        </div>
-                        
-                        <div class="variation-demos">
-                            <div class="variation-item" style="background: hsla(210, 75%, 59%, 1);">
-                                <span>Base</span>
+                                    </div>
+
+                                    <div class="variation-demos">
+                                        <div class="variation-item" style="background: hsla(210, 75%, 59%, 1);">
+                                            <span>Base</span>
+                                        </div>
+                                        <div class="variation-item" style="background: hsla(210, 75%, 75%, 1);">
+                                            <span>+ Claro</span>
+                                        </div>
+                                        <div class="variation-item" style="background: hsla(210, 75%, 45%, 1);">
+                                            <span>+ Oscuro</span>
+                                        </div>
+                                        <div class="variation-item" style="background: hsla(210, 75%, 59%, 0.5);">
+                                            <span>Transparente</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparison-note success">
+                                        <span class="note-icon">✅</span>
+                                        <p>Solo ajusta luminosidad para variaciones claras/oscuras</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="variation-item" style="background: hsla(210, 75%, 75%, 1);">
-                                <span>+ Claro</span>
-                            </div>
-                            <div class="variation-item" style="background: hsla(210, 75%, 45%, 1);">
-                                <span>+ Oscuro</span>
-                            </div>
-                            <div class="variation-item" style="background: hsla(210, 75%, 59%, 0.5);">
-                                <span>Transparente</span>
-                            </div>
-                        </div>
-                        
-                        <div class="comparison-note success">
-                            <span class="note-icon">✅</span>
-                            <p>Solo ajusta luminosidad para variaciones claras/oscuras</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="theory-block">
-        <h3>📊 Tabla Comparativa Completa</h3>
+                <div class="theory-block">
+                    <h3>📊 Tabla Comparativa Completa</h3>
 
-        <div class="comparison-table-container">
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Característica</th>
-                        <th>🎯 RGBA</th>
-                        <th>🌈 HSLA</th>
-                        <th>🏆 Ganador</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Facilidad para crear variaciones</td>
-                        <td>❌ Difícil</td>
-                        <td>✅ Fácil</td>
-                        <td>HSLA</td>
-                    </tr>
-                    <tr>
-                        <td>Precisión con colores específicos</td>
-                        <td>✅ Excelente</td>
-                        <td>❌ Regular</td>
-                        <td>RGBA</td>
-                    </tr>
-                    <tr>
-                        <td>Intuitividad para humanos</td>
-                        <td>❌ Baja</td>
-                        <td>✅ Alta</td>
-                        <td>HSLA</td>
-                    </tr>
-                    <tr>
-                        <td>Ajustes de tema dinámicos</td>
-                        <td>❌ Complejo</td>
-                        <td>✅ Simple</td>
-                        <td>HSLA</td>
-                    </tr>
-                    <tr>
-                        <td>Compatibilidad con navegadores</td>
-                        <td>✅ Excelente</td>
-                        <td>✅ Excelente</td>
-                        <td>Empate</td>
-                    </tr>
-                    <tr>
-                        <td>Uso con herramientas de diseño</td>
-                        <td>✅ Común</td>
-                        <td>❌ Menos común</td>
-                        <td>RGBA</td>
-                    </tr>
-                    <tr>
-                        <td>Rendimiento</td>
-                        <td>✅ Óptimo</td>
-                        <td>✅ Óptimo</td>
-                        <td>Empate</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-    <div class="theory-block">
-        <h3>🎯 Guía de Elección Rápida</h3>
-
-        <div class="choice-guide">
-            <div class="choice-card">
-                <div class="choice-header">
-                    <h5>🎯 ELIGE RGBA CUANDO:</h5>
-                    <span class="choice-badge rgba-badge">Precisión</span>
+                    <div class="comparison-table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Característica</th>
+                                    <th>🎯 RGBA</th>
+                                    <th>🌈 HSLA</th>
+                                    <th>🏆 Ganador</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Facilidad para crear variaciones</td>
+                                    <td>❌ Difícil</td>
+                                    <td>✅ Fácil</td>
+                                    <td>HSLA</td>
+                                </tr>
+                                <tr>
+                                    <td>Precisión con colores específicos</td>
+                                    <td>✅ Excelente</td>
+                                    <td>❌ Regular</td>
+                                    <td>RGBA</td>
+                                </tr>
+                                <tr>
+                                    <td>Intuitividad para humanos</td>
+                                    <td>❌ Baja</td>
+                                    <td>✅ Alta</td>
+                                    <td>HSLA</td>
+                                </tr>
+                                <tr>
+                                    <td>Ajustes de tema dinámicos</td>
+                                    <td>❌ Complejo</td>
+                                    <td>✅ Simple</td>
+                                    <td>HSLA</td>
+                                </tr>
+                                <tr>
+                                    <td>Compatibilidad con navegadores</td>
+                                    <td>✅ Excelente</td>
+                                    <td>✅ Excelente</td>
+                                    <td>Empate</td>
+                                </tr>
+                                <tr>
+                                    <td>Uso con herramientas de diseño</td>
+                                    <td>✅ Común</td>
+                                    <td>❌ Menos común</td>
+                                    <td>RGBA</td>
+                                </tr>
+                                <tr>
+                                    <td>Rendimiento</td>
+                                    <td>✅ Óptimo</td>
+                                    <td>✅ Óptimo</td>
+                                    <td>Empate</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div class="choice-content">
-                    <ul>
-                        <li>✅ Trabajas con colores específicos de marca</li>
-                        <li>✅ Usas paletas de color predefinidas</li>
-                        <li>✅ Necesitas valores exactos de RGB</li>
-                        <li>✅ Colaboras con diseñadores que usan RGB</li>
-                        <li>✅ Desarrollas para sistemas legacy</li>
-                    </ul>
-                </div>
-            </div>
 
-            <div class="choice-card">
-                <div class="choice-header">
-                    <h5>🌈 ELIGE HSLA CUANDO:</h5>
-                    <span class="choice-badge hsla-badge">Flexibilidad</span>
-                </div>
-                <div class="choice-content">
-                    <ul>
-                        <li>✅ Creas sistemas de color dinámicos</li>
-                        <li>✅ Necesitas variaciones claras/oscuras</li>
-                        <li>✅ Implementas modo oscuro/claro</li>
-                        <li>✅ Trabajas con temas personalizables</li>
-                        <li>✅ Prefieres un enfoque más intuitivo</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+                <div class="theory-block">
+                    <h3>🎯 Guía de Elección Rápida</h3>
 
-        <div class="tip-box final-tip">
-            <div class="tip-header">
-                <span class="tip-icon">💡</span>
-                <h5>Conclusión Final</h5>
-            </div>
-            <p><strong>No hay un formato "mejor" universal</strong>. La elección depende del contexto:<br>
-            <strong>RGBA</strong> para precisión y colores específicos. <strong>HSLA</strong> para flexibilidad y sistemas dinámicos.<br>
-            ¡Muchos desarrolladores expertos usan ambos según la situación!</p>
-        </div>
-    </div>
-</section>
+                    <div class="choice-guide">
+                        <div class="choice-card">
+                            <div class="choice-header">
+                                <h5>🎯 ELIGE RGBA CUANDO:</h5>
+                                <span class="choice-badge rgba-badge">Precisión</span>
+                            </div>
+                            <div class="choice-content">
+                                <ul>
+                                    <li>✅ Trabajas con colores específicos de marca</li>
+                                    <li>✅ Usas paletas de color predefinidas</li>
+                                    <li>✅ Necesitas valores exactos de RGB</li>
+                                    <li>✅ Colaboras con diseñadores que usan RGB</li>
+                                    <li>✅ Desarrollas para sistemas legacy</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="choice-card">
+                            <div class="choice-header">
+                                <h5>🌈 ELIGE HSLA CUANDO:</h5>
+                                <span class="choice-badge hsla-badge">Flexibilidad</span>
+                            </div>
+                            <div class="choice-content">
+                                <ul>
+                                    <li>✅ Creas sistemas de color dinámicos</li>
+                                    <li>✅ Necesitas variaciones claras/oscuras</li>
+                                    <li>✅ Implementas modo oscuro/claro</li>
+                                    <li>✅ Trabajas con temas personalizables</li>
+                                    <li>✅ Prefieres un enfoque más intuitivo</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tip-box final-tip">
+                        <div class="tip-header">
+                            <span class="tip-icon">💡</span>
+                            <h5>Conclusión Final</h5>
+                        </div>
+                        <p><strong>No hay un formato "mejor" universal</strong>. La elección depende del contexto:<br>
+                            <strong>RGBA</strong> para precisión y colores específicos. <strong>HSLA</strong> para
+                            flexibilidad y sistemas dinámicos.<br>
+                            ¡Muchos desarrolladores expertos usan ambos según la situación!
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lección 5: Práctica Interactiva -->
+            <section id="lesson-content-5" class="lesson-content card hidden-lesson">
+                <h2>5️⃣ Práctica Interactiva</h2>
+
+                <div class="theory-block">
+                    <div class="journey-intro">
+                        <div class="journey-icon">🎮</div>
+                        <p>Pon en práctica todo lo aprendido sobre <strong>RGBA y HSLA</strong>. Escribe código y ve los
+                            resultados en tiempo real.</p>
+                    </div>
+
+                    <h3>💻 Editor de Práctica</h3>
+                    <p>Modifica los valores y observa cómo cambian los resultados inmediatamente.</p>
+                </div>
+
+                <div class="practice-container">
+                    <div class="practice-grid">
+                        <!-- Panel de Código -->
+                        <div class="code-panel-practice">
+                            <div class="panel-header">
+                                <h4>📝 Editor de CSS</h4>
+                                <span class="panel-badge">Editable</span>
+                            </div>
+                            <div class="code-editor">
+                                <div class="editor-tabs">
+                                    <button class="tab-button active" data-tab="rgba-practice">RGBA</button>
+                                    <button class="tab-button" data-tab="hsla-practice">HSLA</button>
+                                </div>
+
+                                <div class="editor-content">
+                                    <!-- Editor RGBA -->
+                                    <div class="tab-content active" id="rgba-practice">
+                                        <textarea class="css-editor" id="rgba-editor" spellcheck="false">
+/* Ejemplo RGBA - ¡Modifica estos valores! */
+.background-box {
+    background: rgba(255, 107, 107, 0.7);
+    width: 200px;
+    height: 150px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.text-element {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.shadow-box {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+                            </textarea>
+                                    </div>
+
+                                    <!-- Editor HSLA -->
+                                    <div class="tab-content" id="hsla-practice">
+                                        <textarea class="css-editor" id="hsla-editor" spellcheck="false">
+/* Ejemplo HSLA - ¡Modifica estos valores! */
+.background-box {
+    background: hsla(0, 100%, 70%, 0.7);
+    width: 200px;
+    height: 150px;
+    border-radius: 12px;
+    border: 2px solid hsla(0, 0%, 100%, 0.3);
+}
+
+.text-element {
+    color: hsla(0, 0%, 100%, 0.9);
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.shadow-box {
+    box-shadow: 0 8px 25px hsla(0, 0%, 0%, 0.2);
+}
+                            </textarea>
+                                    </div>
+                                </div>
+
+                                <div class="editor-actions">
+                                    <button class="action-button" id="reset-button">
+                                        🔄 Reiniciar
+                                    </button>
+                                    <button class="action-button primary" id="apply-button">
+                                        ⚡ Aplicar Cambios
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Panel de Vista Previa -->
+                        <div class="preview-panel">
+                            <div class="panel-header">
+                                <h4>👁️ Vista Previa en Tiempo Real</h4>
+                                <span class="panel-badge">Live</span>
+                            </div>
+                            <div class="preview-content">
+                                <div id="live-preview">
+                                    <!-- Aquí se renderizará el resultado -->
+                                    <div class="background-box shadow-box">
+                                        <div class="text-element">
+                                            ¡Edita el código para ver cambios!
+                                        </div>
+                                    </div>
+
+                                    <div class="preview-grid">
+                                        <div class="preview-item">
+                                            <div class="preview-box" style="background: rgba(255, 107, 107, 0.7);">
+                                            </div>
+                                            <span>Fondo RGBA/HSLA</span>
+                                        </div>
+                                        <div class="preview-item">
+                                            <div class="preview-box"
+                                                style="border: 2px solid rgba(255, 255, 255, 0.3);"></div>
+                                            <span>Borde Transparente</span>
+                                        </div>
+                                        <div class="preview-item">
+                                            <div class="preview-box shadow-box"></div>
+                                            <span>Sombra RGBA/HSLA</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>💡 Consejos para Practicar</h3>
+
+                    <div class="practice-tips">
+                        <div class="tip-item">
+                            <span class="tip-icon">🎯</span>
+                            <div class="tip-content">
+                                <h5>Experimenta con Transparencias</h5>
+                                <p>Prueba valores alpha desde 0.0 (transparente) hasta 1.0 (opaco)</p>
+                            </div>
+                        </div>
+
+                        <div class="tip-item">
+                            <span class="tip-icon">🌈</span>
+                            <div class="tip-content">
+                                <h5>Compara RGBA vs HSLA</h5>
+                                <p>Cambia entre pestañas para ver cómo lograr el mismo efecto en ambos formatos</p>
+                            </div>
+                        </div>
+
+                        <div class="tip-item">
+                            <span class="tip-icon">⚡</span>
+                            <div class="tip-content">
+                                <h5>Modifica en Tiempo Real</h5>
+                                <p>Los cambios se aplican inmediatamente al hacer clic en "Aplicar Cambios"</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
         </div>
     </main>
