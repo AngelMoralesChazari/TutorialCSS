@@ -414,7 +414,8 @@
             </section>
 
             <!-- Lección 2: Sintaxis y Valores -->
-            <section id="lesson-content-2" class="lesson-content card hidden-lesson">
+            <!-- Lección 2: Sintaxis y Valores -->
+            <section id="lesson-content-2" class="lesson-content card">
                 <h2>2️⃣ Sintaxis y Valores</h2>
 
                 <div class="theory-block">
@@ -546,6 +547,175 @@
                     </div>
                 </div>
 
+                <!-- NUEVO: Panel Interactivo RGBA -->
+                <div class="example-block">
+                    <h4>🎨 Demo Interactivo: Valores RGBA</h4>
+                    <p>Explora cómo los componentes RGB y la transparencia afectan al color final:</p>
+
+                    <div class="interactive-demo">
+                        <div class="demo-controls-grid">
+                            <div class="control-group">
+                                <label for="rgba-r">🔴 Red (0-255):</label>
+                                <input type="range" id="rgba-r" min="0" max="255" value="255">
+                                <span id="rgba-r-value">255</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="rgba-g">🟢 Green (0-255):</label>
+                                <input type="range" id="rgba-g" min="0" max="255" value="107">
+                                <span id="rgba-g-value">107</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="rgba-b">🔵 Blue (0-255):</label>
+                                <input type="range" id="rgba-b" min="0" max="255" value="107">
+                                <span id="rgba-b-value">107</span>
+                            </div>
+                            <div class="control-group">
+                                <label for="rgba-a">⚪ Alpha (0-1):</label>
+                                <input type="range" id="rgba-a" min="0" max="100" value="50">
+                                <span id="rgba-a-value">0.5</span>
+                            </div>
+                        </div>
+
+                        <div class="demo-result-enhanced">
+                            <div class="code-panel">
+                                <div class="code-header">
+                                    <span class="code-filename">resultado.css</span>
+                                    <span class="code-language">CSS</span>
+                                </div>
+                                <pre class="code-content"
+                                    id="rgba-code"><code><span class="css-property">background</span>: <span class="css-function">rgba</span>(<span class="css-number">255</span>, <span class="css-number">107</span>, <span class="css-number">107</span>, <span class="css-number">0.5</span>);</code></pre>
+                            </div>
+
+                            <div class="demo-visual">
+                                <div id="rgba-demo-box" class="demo-box-large"
+                                    style="background:rgba(255, 107, 107, 0.5);">
+                                    <div class="checkerboard"></div>
+                                </div>
+                                <p class="demo-explanation">
+                                    Color RGBA: <code id="rgba-values">rgba(255, 107, 107, 0.5)</code>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🌈 Sintaxis de HSLA</h3>
+                    <p>HSLA utiliza el modelo de color HSL (Hue, Saturation, Lightness) con un canal Alpha adicional
+                        para transparencia.</p>
+
+                    <div class="syntax-breakdown">
+                        <h4>Desglose de la Sintaxis HSLA</h4>
+
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">sintaxis.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre
+                                class="code-content"><code><span class="css-function">hsla</span>(<span class="hsla-h">hue</span>, <span class="hsla-s">saturation</span>, <span class="hsla-l">lightness</span>, <span class="hsla-a">alpha</span>)</code></pre>
+                        </div>
+
+                        <div class="breakdown-items">
+                            <div class="breakdown-item">
+                                <div class="part-name">Hue (Tono)</div>
+                                <div class="part-desc">
+                                    Número entero de <strong>0 a 360</strong>. Representa el ángulo en la rueda de color
+                                    (0°=rojo, 120°=verde, 240°=azul).
+                                    <div class="range-visualization">
+                                        <div class="range-item">
+                                            <h5>Rueda de Color</h5>
+                                            <div class="range-scale hue"></div>
+                                            <div class="range-labels">
+                                                <span>0°</span>
+                                                <span>360°</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div class="part-name">Saturation (Saturación)</div>
+                                <div class="part-desc">
+                                    Porcentaje de <strong>0% a 100%</strong>. Controla la intensidad del color (0%=gris,
+                                    100%=color puro).
+                                    <div class="range-visualization">
+                                        <div class="range-item">
+                                            <h5>Escala Saturación</h5>
+                                            <div class="range-scale saturation"></div>
+                                            <div class="range-labels">
+                                                <span>0%</span>
+                                                <span>100%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div class="part-name">Lightness (Luminosidad)</div>
+                                <div class="part-desc">
+                                    Porcentaje de <strong>0% a 100%</strong>. Controla el brillo del color (0%=negro,
+                                    100%=blanco, 50%=color puro).
+                                    <div class="range-visualization">
+                                        <div class="range-item">
+                                            <h5>Escala Luminosidad</h5>
+                                            <div class="range-scale lightness"></div>
+                                            <div class="range-labels">
+                                                <span>0%</span>
+                                                <span>100%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="breakdown-item">
+                                <div class="part-name">Alpha (Transparencia)</div>
+                                <div class="part-desc">
+                                    Número decimal de <strong>0.0 (transparente) a 1.0 (opaco)</strong>. Controla la
+                                    visibilidad del color.
+                                    <div class="range-visualization">
+                                        <div class="range-item">
+                                            <h5>Escala Alpha</h5>
+                                            <div class="range-scale alpha"></div>
+                                            <div class="range-labels">
+                                                <span>0.0</span>
+                                                <span>1.0</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="value-examples">
+                            <div class="value-example">
+                                <div class="demo-color" style="background: hsla(0, 100%, 50%, 1);"></div>
+                                <code>hsla(0, 100%, 50%, 1)</code>
+                                <span>Rojo puro</span>
+                            </div>
+                            <div class="value-example">
+                                <div class="demo-color" style="background: hsla(120, 100%, 50%, 0.5);"></div>
+                                <code>hsla(120, 100%, 50%, 0.5)</code>
+                                <span>Verde 50%</span>
+                            </div>
+                            <div class="value-example">
+                                <div class="demo-color" style="background: hsla(240, 100%, 50%, 0.2);"></div>
+                                <code>hsla(240, 100%, 50%, 0.2)</code>
+                                <span>Azul 20%</span>
+                            </div>
+                            <div class="value-example">
+                                <div class="demo-color" style="background: hsla(0, 0%, 100%, 0);"></div>
+                                <code>hsla(0, 0%, 100%, 0)</code>
+                                <span>Transparente</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel Interactivo HSLA (Existente) -->
                 <div class="example-block">
                     <h4>🎨 Demo Interactivo: Valores HSLA</h4>
                     <p>Explora el modelo HSL y cómo la transparencia afecta a los colores:</p>
@@ -614,6 +784,7 @@
                                             <li>Familiar para diseñadores web</li>
                                             <li>Control preciso de canales RGB</li>
                                             <li>Amplio soporte en navegadores</li>
+                                            <li>Ideal para colores específicos</li>
                                         </ul>
                                     </div>
                                     <div class="cons">
@@ -621,6 +792,7 @@
                                         <ul>
                                             <li>Difícil ajustar brillo/saturación</li>
                                             <li>Menos intuitivo para crear variaciones</li>
+                                            <li>Complejo para ajustes de tema</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -640,6 +812,7 @@
                                             <li>Más intuitivo para humanos</li>
                                             <li>Fácil crear variaciones de color</li>
                                             <li>Excelente para ajustes de tema</li>
+                                            <li>Simple ajustar brillo/saturación</li>
                                         </ul>
                                     </div>
                                     <div class="cons">
@@ -647,6 +820,7 @@
                                         <ul>
                                             <li>Menos familiar para algunos</li>
                                             <li>Conversión compleja a RGB</li>
+                                            <li>Menos preciso para colores específicos</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -662,6 +836,18 @@
                         <p><strong>Usa RGBA</strong> cuando trabajes con colores específicos de una paleta o valores
                             exactos. <strong>Usa HSLA</strong> cuando necesites crear variaciones de un color (más
                             claro/más oscuro) o ajustar temas dinámicamente.</p>
+                    </div>
+
+                    <div class="use-case-card">
+                        <div class="use-case-icon">🎯</div>
+                        <div class="use-case-content">
+                            <h5>Ejemplo Práctico</h5>
+                            <p><strong>RGBA:</strong> <code>rgba(74, 144, 226, 0.8)</code> - Color azul corporativo con
+                                transparencia.<br>
+                                <strong>HSLA:</strong> <code>hsla(210, 75%, 60%, 0.8)</code> - Mismo color pero fácil de
+                                hacer más claro: <code>hsla(210, 75%, 70%, 0.8)</code>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>
