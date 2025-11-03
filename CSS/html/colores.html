@@ -854,7 +854,473 @@
                 </div>
             </section>
 
-            <!-- Continuaría con las lecciones 3, 4 y 5... -->
+            <!-- Lección 3: Casos de Uso Prácticos -->
+            <section id="lesson-content-3" class="lesson-content card hidden-lesson">
+                <h2>3️⃣ Casos de Uso Prácticos</h2>
+
+                <div class="theory-block">
+                    <div class="journey-intro">
+                        <div class="journey-icon">🚀</div>
+                        <p>Descubre cómo aplicar <strong>RGBA y HSLA en proyectos reales</strong>. Desde overlays
+                            elegantes hasta sistemas de diseño complejos, aprende a aprovechar el poder de la
+                            transparencia en CSS.</p>
+                    </div>
+
+                    <h3>🎯 Overlays y Fondos Semitransparentes</h3>
+                    <p>Uno de los usos más comunes de RGBA/HSLA es crear overlays que permiten ver el contenido de fondo
+                        mientras mantienen legibilidad.</p>
+
+                    <div class="example-block">
+                        <h4>🎪 Overlay sobre Imágenes</h4>
+                        <p>Perfecto para textos sobre imágenes hero o banners:</p>
+
+                        <div class="syntax-demo-compact">
+                            <div class="syntax-demo-grid">
+                                <div class="code-column">
+                                    <div class="code-column-header">hero.css</div>
+                                    <div class="code-column-content">
+                                        <div class="rgba-syntax">
+                                            <span class="comment">/* Overlay oscuro semitransparente */</span><br>
+                                            <span class="css-selector">.hero-overlay</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">background</span>: <span
+                                                class="css-function">rgba</span>(<span class="rgba-r">0</span>, <span
+                                                class="rgba-g">0</span>, <span class="rgba-b">0</span>, <span
+                                                class="rgba-a">0.6</span>);<br>
+                                            &nbsp;&nbsp;<span class="css-property">position</span>: absolute;<br>
+                                            &nbsp;&nbsp;<span class="css-property">top</span>: <span
+                                                class="css-number">0</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">left</span>: <span
+                                                class="css-number">0</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">width</span>: <span
+                                                class="css-number">100</span><span class="css-unit">%</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">height</span>: <span
+                                                class="css-number">100</span><span class="css-unit">%</span>;<br>
+                                            }<br>
+                                            <br>
+                                            <span class="comment">/* Texto legible sobre el overlay */</span><br>
+                                            <span class="css-selector">.hero-content</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">color</span>: <span
+                                                class="css-function">rgba</span>(<span class="rgba-r">255</span>, <span
+                                                class="rgba-g">255</span>, <span class="rgba-b">255</span>, <span
+                                                class="rgba-a">0.9</span>);<br>
+                                            &nbsp;&nbsp;<span class="css-property">position</span>: relative;<br>
+                                            &nbsp;&nbsp;<span class="css-property">z-index</span>: <span
+                                                class="css-number">2</span>;<br>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="visual-column">
+                                    <div class="demo-visual">
+                                        <div class="image-overlay-demo">
+                                            <div class="demo-image-placeholder">
+                                                <div class="image-overlay" style="background: rgba(0, 0, 0, 0.6);">
+                                                </div>
+                                                <div class="overlay-content">
+                                                    <h4>Título sobre Imagen</h4>
+                                                    <p>Texto perfectamente legible gracias al overlay semitransparente
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="explanation-compact">
+                                        El overlay oscuro con 60% de opacidad mejora la legibilidad del texto sobre la
+                                        imagen.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-block">
+                        <h4>📱 Modales y Dialogs</h4>
+                        <p>Fondos de modal que oscurecen el contenido detrás sin bloquearlo completamente:</p>
+
+                        <div class="syntax-demo-compact">
+                            <div class="syntax-demo-grid">
+                                <div class="code-column">
+                                    <div class="code-column-header">modal.css</div>
+                                    <div class="code-column-content">
+                                        <div class="rgba-syntax">
+                                            <span class="comment">/* Fondo del modal backdrop */</span><br>
+                                            <span class="css-selector">.modal-backdrop</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">background</span>: <span
+                                                class="css-function">rgba</span>(<span class="rgba-r">0</span>, <span
+                                                class="rgba-g">0</span>, <span class="rgba-b">0</span>, <span
+                                                class="rgba-a">0.7</span>);<br>
+                                            &nbsp;&nbsp;<span class="css-property">position</span>: fixed;<br>
+                                            &nbsp;&nbsp;<span class="css-property">top</span>: <span
+                                                class="css-number">0</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">left</span>: <span
+                                                class="css-number">0</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">width</span>: <span
+                                                class="css-number">100</span><span class="css-unit">vw</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">height</span>: <span
+                                                class="css-number">100</span><span class="css-unit">vh</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">z-index</span>: <span
+                                                class="css-number">1000</span>;<br>
+                                            }<br>
+                                            <br>
+                                            <span class="comment">/* Contenido del modal */</span><br>
+                                            <span class="css-selector">.modal-content</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">background</span>: <span
+                                                class="css-function">rgba</span>(<span class="rgba-r">255</span>, <span
+                                                class="rgba-g">255</span>, <span class="rgba-b">255</span>, <span
+                                                class="rgba-a">0.95</span>);<br>
+                                            &nbsp;&nbsp;<span class="css-property">backdrop-filter</span>: <span
+                                                class="css-value">blur</span>(<span class="css-number">10</span><span
+                                                class="css-unit">px</span>);<br>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="visual-column">
+                                    <div class="demo-visual">
+                                        <div class="modal-demo">
+                                            <div class="modal-backdrop-demo" style="background: rgba(0, 0, 0, 0.7);">
+                                                <div class="modal-content-demo"
+                                                    style="background: rgba(255, 255, 255, 0.95);">
+                                                    <h4>Modal de Ejemplo</h4>
+                                                    <p>Contenido del modal con fondo semitransparente</p>
+                                                    <button class="demo-button">Cerrar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="explanation-compact">
+                                        El backdrop con 70% de opacidad crea un efecto de enfoque en el modal.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🌈 Sistemas de Color y Temas</h3>
+                    <p>HSLA es especialmente útil para crear sistemas de color coherentes y temas dinámicos.</p>
+
+                    <div class="example-block">
+                        <h4>🎨 Variaciones de Color con HSLA</h4>
+                        <p>Crea paletas de colores manteniendo el mismo tono base:</p>
+
+                        <div class="syntax-demo-compact">
+                            <div class="syntax-demo-grid">
+                                <div class="code-column">
+                                    <div class="code-column-header">colors.css</div>
+                                    <div class="code-column-content">
+                                        <div class="hsla-syntax">
+                                            <span class="comment">/* Color base - Azul corporativo */</span><br>
+                                            <span class="css-selector">:root</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">--primary-h</span>: <span
+                                                class="css-number">210</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">--primary-s</span>: <span
+                                                class="css-number">75</span><span class="css-unit">%</span>;<br>
+                                            &nbsp;&nbsp;<span class="css-property">--primary-l</span>: <span
+                                                class="css-number">60</span><span class="css-unit">%</span>;<br>
+                                            }<br>
+                                            <br>
+                                            <span class="comment">/* Variaciones del color primario */</span><br>
+                                            <span class="css-selector">.primary-color</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">background</span>: <span
+                                                class="css-function">hsla</span>(<span class="hsla-h">var</span>(<span
+                                                class="css-value">--primary-h</span>), <span
+                                                class="hsla-s">var</span>(<span class="css-value">--primary-s</span>),
+                                            <span class="hsla-l">var</span>(<span class="css-value">--primary-l</span>),
+                                            <span class="hsla-a">1</span>);<br>
+                                            }<br>
+                                            <span class="css-selector">.primary-light</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">background</span>: <span
+                                                class="css-function">hsla</span>(<span class="hsla-h">var</span>(<span
+                                                class="css-value">--primary-h</span>), <span
+                                                class="hsla-s">var</span>(<span class="css-value">--primary-s</span>),
+                                            <span class="hsla-l"><span class="css-number">75</span></span><span
+                                                class="css-unit">%</span>, <span class="hsla-a">1</span>);<br>
+                                            }<br>
+                                            <span class="css-selector">.primary-dark</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">background</span>: <span
+                                                class="css-function">hsla</span>(<span class="hsla-h">var</span>(<span
+                                                class="css-value">--primary-h</span>), <span
+                                                class="hsla-s">var</span>(<span class="css-value">--primary-s</span>),
+                                            <span class="hsla-l"><span class="css-number">45</span></span><span
+                                                class="css-unit">%</span>, <span class="hsla-a">1</span>);<br>
+                                            }<br>
+                                            <span class="css-selector">.primary-transparent</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">background</span>: <span
+                                                class="css-function">hsla</span>(<span class="hsla-h">var</span>(<span
+                                                class="css-value">--primary-h</span>), <span
+                                                class="hsla-s">var</span>(<span class="css-value">--primary-s</span>),
+                                            <span class="hsla-l">var</span>(<span class="css-value">--primary-l</span>),
+                                            <span class="hsla-a">0.3</span>);<br>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="visual-column">
+                                    <div class="demo-visual">
+                                        <div class="color-palette-demo">
+                                            <div class="color-variation" style="background: hsla(210, 75%, 60%, 1);">
+                                                <span>Primario</span>
+                                            </div>
+                                            <div class="color-variation" style="background: hsla(210, 75%, 75%, 1);">
+                                                <span>Claro</span>
+                                            </div>
+                                            <div class="color-variation" style="background: hsla(210, 75%, 45%, 1);">
+                                                <span>Oscuro</span>
+                                            </div>
+                                            <div class="color-variation" style="background: hsla(210, 75%, 60%, 0.3);">
+                                                <span>Transparente</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="explanation-compact">
+                                        Manteniendo el mismo tono (210°) y saturación (75%), solo variamos luminosidad y
+                                        transparencia.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎭 Efectos Visuales y Sombras</h3>
+                    <p>Utiliza RGBA para crear sombras y efectos visuales más realistas y sutiles.</p>
+
+                    <div class="example-block">
+                        <h4>✨ Sombras Suaves con RGBA</h4>
+                        <p>Sombras que se integran naturalmente con cualquier fondo:</p>
+
+                        <div class="syntax-demo-compact">
+                            <div class="syntax-demo-grid">
+                                <div class="code-column">
+                                    <div class="code-column-header">shadows.css</div>
+                                    <div class="code-column-content">
+                                        <div class="rgba-syntax">
+                                            <span class="comment">/* Sombra sutil para cards */</span><br>
+                                            <span class="css-selector">.card</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">box-shadow</span>: <span
+                                                class="css-number">0</span> <span class="css-number">4</span><span
+                                                class="css-unit">px</span> <span class="css-number">12</span><span
+                                                class="css-unit">px</span> <span class="css-function">rgba</span>(<span
+                                                class="rgba-r">0</span>, <span class="rgba-g">0</span>, <span
+                                                class="rgba-b">0</span>, <span class="rgba-a">0.25</span>);<br>
+                                            }<br>
+                                            <br>
+                                            <span class="comment">/* Sombra más intensa al hover */</span><br>
+                                            <span class="css-selector">.card:hover</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">box-shadow</span>: <span
+                                                class="css-number">0</span> <span class="css-number">8</span><span
+                                                class="css-unit">px</span> <span class="css-number">24</span><span
+                                                class="css-unit">px</span> <span class="css-function">rgba</span>(<span
+                                                class="rgba-r">0</span>, <span class="rgba-g">0</span>, <span
+                                                class="rgba-b">0</span>, <span class="rgba-a">0.35</span>);<br>
+                                            }<br>
+                                            <br>
+                                            <span class="comment">/* Sombra coloreada más visible */</span><br>
+                                            <span class="css-selector">.primary-shadow</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">box-shadow</span>: <span
+                                                class="css-number">0</span> <span class="css-number">6</span><span
+                                                class="css-unit">px</span> <span class="css-number">20</span><span
+                                                class="css-unit">px</span> <span class="css-function">rgba</span>(<span
+                                                class="rgba-r">56</span>, <span class="rgba-g">189</span>, <span
+                                                class="rgba-b">248</span>, <span class="rgba-a">0.5</span>);<br>
+                                            }<br>
+                                            <br>
+                                            <span class="comment">/* Sombra de éxito */</span><br>
+                                            <span class="css-selector">.success-shadow</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">box-shadow</span>: <span
+                                                class="css-number">0</span> <span class="css-number">4</span><span
+                                                class="css-unit">px</span> <span class="css-number">16</span><span
+                                                class="css-unit">px</span> <span class="css-function">rgba</span>(<span
+                                                class="rgba-r">76</span>, <span class="rgba-g">175</span>, <span
+                                                class="rgba-b">80</span>, <span class="rgba-a">0.4</span>);<br>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="visual-column">
+                                    <div class="demo-visual">
+                                        <div class="shadow-demo">
+                                            <div class="shadow-card"
+                                                style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);">
+                                                <p>Sombra Sutil</p>
+                                                <small>rgba(0, 0, 0, 0.25)</small>
+                                            </div>
+                                            <div class="shadow-card"
+                                                style="box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);">
+                                                <p>Sombra Intensa</p>
+                                                <small>rgba(0, 0, 0, 0.35)</small>
+                                            </div>
+                                            <div class="shadow-card"
+                                                style="box-shadow: 0 6px 20px rgba(56, 189, 248, 0.5);">
+                                                <p>Sombra Azul</p>
+                                                <small>rgba(56, 189, 248, 0.5)</small>
+                                            </div>
+                                            <div class="shadow-card"
+                                                style="box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4);">
+                                                <p>Sombra Verde</p>
+                                                <small>rgba(76, 175, 80, 0.4)</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="explanation-compact">
+                                        Aumentamos la opacidad de las sombras para mejor visibilidad. RGBA permite
+                                        sombras que se adaptan a cualquier fondo.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🌙 Modo Oscuro y Temas Dinámicos</h3>
+                    <p>RGBA y HSLA son esenciales para crear transiciones suaves entre temas claro y oscuro.</p>
+
+                    <div class="example-block">
+                        <h4>🔄 Transiciones entre Temas</h4>
+                        <p>Usa HSLA para ajustes de tema y RGBA para overlays adaptativos:</p>
+
+                        <div class="syntax-demo-compact">
+                            <div class="syntax-demo-grid">
+                                <div class="code-column">
+                                    <div class="code-column-header">themes.css</div>
+                                    <div class="code-column-content">
+                                        <div class="hsla-syntax">
+                                            <span class="comment">/* Variables para tema claro */</span><br>
+                                            <span class="css-selector">[data-theme="light"]</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">--text-color</span>: <span
+                                                class="css-function">hsla</span>(<span class="hsla-h">0</span>, <span
+                                                class="hsla-s">0</span><span class="css-unit">%</span>, <span
+                                                class="hsla-l">20</span><span class="css-unit">%</span>, <span
+                                                class="hsla-a">0.9</span>);<br>
+                                            &nbsp;&nbsp;<span class="css-property">--bg-overlay</span>: <span
+                                                class="css-function">rgba</span>(<span class="rgba-r">255</span>, <span
+                                                class="rgba-g">255</span>, <span class="rgba-b">255</span>, <span
+                                                class="rgba-a">0.8</span>);<br>
+                                            }<br>
+                                            <br>
+                                            <span class="comment">/* Variables para tema oscuro */</span><br>
+                                            <span class="css-selector">[data-theme="dark"]</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">--text-color</span>: <span
+                                                class="css-function">hsla</span>(<span class="hsla-h">0</span>, <span
+                                                class="hsla-s">0</span><span class="css-unit">%</span>, <span
+                                                class="hsla-l">90</span><span class="css-unit">%</span>, <span
+                                                class="hsla-a">0.9</span>);<br>
+                                            &nbsp;&nbsp;<span class="css-property">--bg-overlay</span>: <span
+                                                class="css-function">rgba</span>(<span class="rgba-r">0</span>, <span
+                                                class="rgba-g">0</span>, <span class="rgba-b">0</span>, <span
+                                                class="rgba-a">0.8</span>);<br>
+                                            }<br>
+                                            <br>
+                                            <span class="comment">/* Aplicación de variables */</span><br>
+                                            <span class="css-selector">.card</span> {<br>
+                                            &nbsp;&nbsp;<span class="css-property">color</span>: <span
+                                                class="css-function">var</span>(<span
+                                                class="css-value">--text-color</span>);<br>
+                                            &nbsp;&nbsp;<span class="css-property">background</span>: <span
+                                                class="css-function">var</span>(<span
+                                                class="css-value">--bg-overlay</span>);<br>
+                                            &nbsp;&nbsp;<span class="css-property">backdrop-filter</span>: <span
+                                                class="css-value">blur</span>(<span class="css-number">10</span><span
+                                                class="css-unit">px</span>);<br>
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="visual-column">
+                                    <div class="demo-visual">
+                                        <div class="theme-demo">
+                                            <div class="theme-card light-theme"
+                                                style="color: hsla(0, 0%, 10%, 0.95); background: rgba(255, 255, 255, 0.8);">
+                                                <h4>Tema Claro</h4>
+                                                <p style="color: hsla(0, 0%, 20%, 0.9);">Texto oscuro sobre fondo claro
+                                                    semitransparente</p>
+                                            </div>
+                                            <div class="theme-card dark-theme"
+                                                style="color: hsla(0, 0%, 95%, 0.95); background: rgba(0, 0, 0, 0.8);">
+                                                <h4>Tema Oscuro</h4>
+                                                <p style="color: hsla(0, 0%, 85%, 0.9);">Texto claro sobre fondo oscuro
+                                                    semitransparente</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="explanation-compact">
+                                        HSLA para colores de texto adaptativos, RGBA para fondos semitransparentes.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎯 Mejores Prácticas y Consejos</h3>
+
+                    <div class="use-cases-grid">
+                        <div class="use-case-card">
+                            <div class="use-case-icon">🎨</div>
+                            <div class="use-case-content">
+                                <h5>Usa HSLA para Sistemas de Color</h5>
+                                <p>Cuando necesites crear variaciones de un color (más claro, más oscuro, transparente),
+                                    HSLA es tu mejor aliado.</p>
+                            </div>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">🔧</div>
+                            <div class="use-case-content">
+                                <h5>Usa RGBA para Valores Específicos</h5>
+                                <p>Cuando trabajes con colores exactos de una paleta o marcas específicas, RGBA ofrece
+                                    mayor precisión.</p>
+                            </div>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">⚡</div>
+                            <div class="use-case-content">
+                                <h5>Combina con Backdrop Filter</h5>
+                                <p>Para efectos glassmorphism, combina RGBA/HSLA con
+                                    <code>backdrop-filter: blur()</code> para resultados espectaculares.</p>
+                            </div>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">📱</div>
+                            <div class="use-case-content">
+                                <h5>Considera el Rendimiento</h5>
+                                <p>Las transparencias excesivas pueden afectar el rendimiento. Úsalas estratégicamente
+                                    en elementos clave.</p>
+                            </div>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">🎭</div>
+                            <div class="use-case-content">
+                                <h5>Prueba la Accesibilidad</h5>
+                                <p>Asegúrate de que el contraste sea suficiente incluso con transparencias,
+                                    especialmente para texto.</p>
+                            </div>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-icon">💡</div>
+                            <div class="use-case-content">
+                                <h5>Experimenta con Gradientes</h5>
+                                <p>Combina múltiples colores RGBA/HSLA en gradientes para crear efectos visuales únicos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
