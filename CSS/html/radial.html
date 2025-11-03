@@ -1571,59 +1571,88 @@
                         ¡Experimenta con diferentes formas, posiciones, tamaños y colores!</p>
                 </div>
 
+                <!-- En tu lección 5 (práctica) -->
+                <!-- En tu lección 5 -->
                 <div class="practice-container">
                     <div class="practice-grid">
-                        <!-- Panel de código -->
-                        <div class="code-panel practice-panel">
-                            <div class="code-header">
-                                <span class="code-filename">practica.css</span>
-                                <span class="code-language">CSS</span>
-                                <button id="reset-practice-btn" class="btn-reset">
-                                    <span class="btn-icon">🔄</span>
-                                    <span>Reiniciar</span>
-                                </button>
+                        <!-- Panel del Editor -->
+                        <div class="editor-panel">
+                            <div class="editor-header">
+                                <h4>Editor de CSS</h4>
+                                <div class="editor-subtitle">Modifica el gradiente radial en tiempo real</div>
                             </div>
-                            <div class="code-content">
-                                <textarea id="css-practice-editor" class="css-editor" spellcheck="false">.mi-gradiente {
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle, #667eea, #764ba2);
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-}</textarea>
+                            <div class="editor-content">
+                                <textarea id="css-practice-editor" class="css-editor" spellcheck="false"></textarea>
                             </div>
                             <div class="editor-actions">
                                 <button id="apply-css-btn" class="btn-play">
-                                    <span class="btn-icon">▶️</span>
-                                    <span>Aplicar Cambios</span>
+                                    <span>▶️ Aplicar Cambios</span>
+                                </button>
+                                <button id="reset-practice-btn" class="btn-reset">
+                                    <span>🔄 Reiniciar</span>
                                 </button>
                                 <div class="hint-box">
                                     <span class="hint-icon">💡</span>
-                                    <span>Presiona Ctrl+Enter para aplicar cambios rápidamente</span>
+                                    <span>Ctrl+Enter para aplicar cambios</span>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Panel de preview -->
-                        <div class="preview-panel practice-panel">
+                        <!-- Panel del Preview -->
+                        <div class="preview-panel">
                             <div class="preview-header">
-                                <h4>📱 Vista Previa</h4>
-                                <span class="preview-subtitle">Los cambios se reflejan en tiempo real</span>
+                                <h4>Vista Previa</h4>
+                                <div class="preview-subtitle">Los cambios se reflejan en tiempo real</div>
                             </div>
                             <div class="preview-content">
-                                <div id="practice-preview" class="preview-container">
+                                <div class="preview-container">
                                     <div class="mi-gradiente"></div>
                                 </div>
                             </div>
                             <div class="preview-info">
                                 <div class="info-item">
                                     <span class="info-label">Elemento:</span>
-                                    <code>.mi-gradiente</code>
+                                    <code class="info-value">.mi-gradiente</code>
                                 </div>
                                 <div class="info-item">
                                     <span class="info-label">Tamaño:</span>
-                                    <span>100% × 100%</span>
+                                    <code class="info-value">100% × 100%</code>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ejemplos -->
+                    <div class="examples-section">
+                        <h4>Ejemplos de Gradientes Radiales</h4>
+                        <div class="examples-grid">
+                            <div class="example-card">
+                                <h5>Gradiente Circular Simple</h5>
+                                <div class="example-preview"
+                                    style="background: radial-gradient(circle, #667eea, #764ba2);"></div>
+                                <div class="example-code">radial-gradient(circle, #667eea, #764ba2)</div>
+                                <button class="example-btn" data-code="radial-gradient(circle, #667eea, #764ba2)">
+                                    Cargar Ejemplo
+                                </button>
+                            </div>
+                            <div class="example-card">
+                                <h5>Gradiente Elíptico</h5>
+                                <div class="example-preview"
+                                    style="background: radial-gradient(ellipse, #ff6b6b, #4ecdc4);"></div>
+                                <div class="example-code">radial-gradient(ellipse, #ff6b6b, #4ecdc4)</div>
+                                <button class="example-btn" data-code="radial-gradient(ellipse, #ff6b6b, #4ecdc4)">
+                                    Cargar Ejemplo
+                                </button>
+                            </div>
+                            <div class="example-card">
+                                <h5>Gradiente con Posición</h5>
+                                <div class="example-preview"
+                                    style="background: radial-gradient(circle at 30% 70%, #ffe66d, #ff6b6b);"></div>
+                                <div class="example-code">radial-gradient(circle at 30% 70%, #ffe66d, #ff6b6b)</div>
+                                <button class="example-btn"
+                                    data-code="radial-gradient(circle at 30% 70%, #ffe66d, #ff6b6b)">
+                                    Cargar Ejemplo
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1644,7 +1673,7 @@
                                 <pre
                                     class="code-content centered"><code><span class="css-property">background</span>: <span class="css-function">radial-gradient</span>(<span class="css-value">circle</span>, <span class="css-hex">#ff6b6b</span>, <span class="css-hex">#4ecdc4</span>);</code></pre>
                             </div>
-                            <button class="example-btn" data-code="radial-gradient(circle, #ff6b6b, #4ecdc4)">
+                            <button class="example-btn" data-code="linear-gradient(to right, #ff6b6b, #4ecdc4)">
                                 Probar este código
                             </button>
                         </div>

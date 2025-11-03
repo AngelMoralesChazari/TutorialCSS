@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Movimiento circular del punto central
                 posX = 50 + 40 * Math.cos(Date.now() / 1000);
                 posY = 50 + 40 * Math.sin(Date.now() / 1000);
-                
+
                 updateAllDisplays();
                 highlightCodeUpdate();
             }, speed);
@@ -577,7 +577,7 @@ ${codeLines});</code>`;
         // Función para actualizar marcadores de posición
         function updatePositionMarkers() {
             if (!colorStopsOverlay) return;
-            
+
             colorStopsOverlay.innerHTML = '';
 
             colorStops.forEach(stop => {
@@ -669,6 +669,10 @@ ${codeLines});</code>`;
     // FUNCIONALIDAD PARA SECCIÓN 5 - PRÁCTICA RADIAL
     // =======================================================
 
+    // =======================================================
+    // FUNCIONALIDAD PARA SECCIÓN 5 - PRÁCTICA RADIAL
+    // =======================================================
+
     function initializePracticeSection() {
         console.log('🚀 Inicializando sección de práctica radial...');
 
@@ -694,24 +698,31 @@ ${codeLines});</code>`;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }`;
 
-        // Función para aplicar el CSS
+        // ✅ FUNCIÓN CORREGIDA: Aplicar el CSS
         function applyCSS() {
             const cssCode = cssEditor.value;
-            console.log('🎨 Aplicando CSS radial:', cssCode);
+            console.log('🎨 Aplicando CSS:', cssCode);
 
             try {
-                // Extraer solo las propiedades del selector .mi-gradiente
-                const styleContent = cssCode.replace('.mi-gradiente', '').trim();
-                const cleanStyle = styleContent.replace(/[{}]/g, '').trim();
+                // Extraer las propiedades CSS del código
+                const cssContent = extractCSSProperties(cssCode);
 
-                // Aplicar estilos directamente al elemento
-                previewElement.style.cssText = cleanStyle;
+                if (cssContent) {
+                    // Aplicar cada propiedad al elemento preview
+                    Object.keys(cssContent).forEach(property => {
+                        previewElement.style[property] = cssContent[property];
+                    });
 
-                // Efecto visual de éxito
-                previewElement.style.transform = 'scale(1.02)';
-                setTimeout(() => {
-                    previewElement.style.transform = 'scale(1)';
-                }, 200);
+                    // Efecto visual de éxito
+                    previewElement.style.transform = 'scale(1.02)';
+                    setTimeout(() => {
+                        previewElement.style.transform = 'scale(1)';
+                    }, 200);
+
+                    console.log('✅ CSS aplicado correctamente');
+                } else {
+                    throw new Error('No se pudieron extraer propiedades CSS válidas');
+                }
 
             } catch (error) {
                 console.error('❌ Error aplicando CSS:', error);
@@ -721,6 +732,41 @@ ${codeLines});</code>`;
                     previewElement.style.boxShadow = '';
                 }, 1000);
             }
+        }
+
+        // ✅ FUNCIÓN AUXILIAR: Extraer propiedades CSS del código
+        function extractCSSProperties(cssCode) {
+            // Buscar el contenido dentro de .mi-gradiente { ... }
+            const match = cssCode.match(/\.mi-gradiente\s*\{([^}]+)\}/i);
+
+            if (!match || !match[1]) {
+                console.warn('⚠️ No se encontró el selector .mi-gradiente');
+                // Intentar aplicar directamente como propiedades
+                return parseCSSProperties(cssCode);
+            }
+
+            const cssContent = match[1].trim();
+            return parseCSSProperties(cssContent);
+        }
+
+        // ✅ FUNCIÓN AUXILIAR: Parsear propiedades CSS
+        function parseCSSProperties(cssContent) {
+            const properties = {};
+            const declarations = cssContent.split(';');
+
+            declarations.forEach(declaration => {
+                const trimmed = declaration.trim();
+                if (trimmed) {
+                    const [property, value] = trimmed.split(':').map(part => part.trim());
+                    if (property && value) {
+                        // Convertir propiedad CSS a formato camelCase para style[]
+                        const camelCaseProperty = property.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+                        properties[camelCaseProperty] = value;
+                    }
+                }
+            });
+
+            return properties;
         }
 
         // Función para reiniciar
@@ -737,7 +783,7 @@ ${codeLines});</code>`;
             const newCode = `.mi-gradiente {
     width: 100%;
     height: 100%;
-    background: ${gradradientCode};
+    background: ${gradientCode};
     border-radius: 12px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }`;
