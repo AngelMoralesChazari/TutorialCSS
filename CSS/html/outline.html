@@ -1,41 +1,322 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
-        <title>Outline</title>
-        
-        <link rel="stylesheet" href="../css/estilos.css" />
-        <script defer src="../js/nav.js"></script>
-    </head>
-    
-    <body>
-        
-        <header class="site-header">
-            <h1>Outline</h1>
-            
-            <p>Dibuja una linea alrededor de un elemento, fuera de su borde. A diferencia del <b>border</b>, <b>outline</b> no ocupaesapcio en el dise;o y es util para indicar el foco de un elemento sin afectar el layout.</P>
-        </header>
-        
-        <nav class="site-nav">
-            <a href="index.html">Inicio</a>
-            <a href="lineal.html">Gradiente Lineal</a>
-            <a href="radial.html">Gradiente Radial</a>
-            <a href="colores.html">RGBA y HSLA</a>
-        </nav>
-        
-        <main class="content">
-            <section class="card">
-                <h2>Contenido principal</h2>
+<html lang="es">
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis nostrum rerum neque provident incidunt voluptas alias quasi quae qui similique! Nobis sint repudiandae nostrum excepturi sed error illum sunt voluptas?</p>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Propiedad Outline</title>
+
+    <link rel="stylesheet" href="../css/estilos.css" />
+    <link rel="stylesheet" href="../css/outline.css" />
+    <script defer src="../js/nav.js"></script>
+    <script defer src="../js/outline.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <h1>Propiedad Outline</h1>
+    </header>
+
+    <nav class="site-nav">
+        <a href="index.html">Inicio</a>
+        <a href="lineal.html">Gradiente Lineal</a>
+        <a href="radial.html">Gradiente Radial</a>
+        <a href="colores.html">RGBA y HSLA</a>
+    </nav>
+
+    <main class="content outline-layout">
+        <aside class="side-menu">
+            <h3>Temario</h3>
+            <ul class="lesson-list">
+                <li class="active" data-lesson="1">1️⃣ ¿Qué es Outline?</li>
+                <li data-lesson="2">2️⃣ Outline vs Border</li>
+                <li data-lesson="3">3️⃣ Estilos y Colores</li>
+                <li data-lesson="4">4️⃣ Outline Offset</li>
+                <li data-lesson="5">5️⃣ Accesibilidad</li>
+                <li data-lesson="6">6️⃣ Practica</li>
+            </ul>
+        </aside>
+
+        <div id="main-lesson-container" class="main-lesson-container">
+            <section id="lesson-content-1" class="lesson-content card">
+                <h2>1️⃣ ¿Qué es Outline?</h2>
+
+                <div class="theory-block">
+                    <div class="journey-intro">
+                        <div class="journey-icon">🎯</div>
+                        <p>Descubre la propiedad CSS <strong>outline</strong>, una herramienta esencial para mejorar la
+                            accesibilidad, el enfoque visual y el diseño de interfaces. Aprende cómo funciona, cuándo
+                            usarla y por qué es diferente del border tradicional.</p>
+                    </div>
+
+                    <h3>🎯 ¿Qué es exactamente un "outline"?</h3>
+                    <p>El <strong>outline</strong> es una línea que se dibuja alrededor de un elemento, <strong>por
+                            fuera del borde</strong>. A diferencia del border, el outline no ocupa espacio en el modelo
+                        de caja y se dibuja sobre los elementos adyacentes.</p>
+                </div>
+
+                <div class="example-block">
+                    <h4>🔍 Visualiza el Concepto</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box solid-demo" style="border: 2px solid #4ecdc4;"></div>
+                            <p>SOLO BORDER<br>Ocupa espacio</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" id="outline-demo-box"></div>
+                            <p>BORDER + OUTLINE<br>Outline fuera del borde</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box solid-demo" style="outline: 2px solid #ff6b6b;"></div>
+                            <p>SOLO OUTLINE<br>No ocupa espacio</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>🎨 Sintaxis Básica</h4>
+                    <div class="syntax-demo">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">styles.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre class="code-content"><code><span class="css-property">outline</span>: <span class="css-number">2px</span> <span class="css-value">solid</span> <span class="css-color">red</span>;</code></pre>
+                        </div>
+
+                        <div class="demo-result">
+                            <div class="demo-box" style="outline: 2px solid red; border: 1px solid #ccc;"></div>
+                            <p class="demo-explanation">
+                                <strong>Resultado:</strong> Outline rojo de 2px alrededor del elemento
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🚀 Características Principales del Outline</h3>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📏</div>
+                            <h4>No Ocupa Espacio</h4>
+                            <p>El outline se dibuja por fuera del modelo de caja, por lo que no afecta el layout ni el
+                                flujo de los elementos.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🎨</div>
+                            <h4>Siempre Rectangular</h4>
+                            <p>Independientemente de la forma del elemento, el outline siempre será rectangular.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">⌨️</div>
+                            <h4>Enfoque por Defecto</h4>
+                            <p>Los navegadores aplican outline automáticamente a elementos enfocados para
+                                accesibilidad.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🔍</div>
+                            <h4>Propiedad de Shorthand</h4>
+                            <p>Outline es una propiedad que combina: width, style y color en una sola declaración.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>📋 ¿Dónde se Usa el Outline?</h3>
+
+                    <div class="application-intro">
+                        <div class="app-icon">🎯</div>
+                        <p>El outline tiene aplicaciones específicas en el desarrollo web moderno. Estas son las
+                            situaciones más comunes donde encontrarás esta propiedad:</p>
+                    </div>
+
+                    <div class="usage-cases">
+                        <div class="usage-case">
+                            <h5>🎯 Indicadores de Enfoque</h5>
+                            <p>Para mostrar qué elemento tiene el foco cuando se navega con teclado.</p>
+                            <div class="code-panel small">
+                                <pre class="code-content"><code><span class="css-selector">button</span>:<span class="css-pseudo">focus</span> {
+    <span class="css-property">outline</span>: <span class="css-number">2px</span> <span class="css-value">solid</span> <span class="css-hex">#007bff</span>;
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="usage-case">
+                            <h5>🚨 Estados de Validación</h5>
+                            <p>Para resaltar campos de formulario con errores o advertencias.</p>
+                            <div class="code-panel small">
+                                <pre class="code-content"><code><span class="css-selector">.error</span> {
+    <span class="css-property">outline</span>: <span class="css-number">2px</span> <span class="css-value">solid</span> <span class="css-hex">#dc3545</span>;
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="usage-case">
+                            <h5>👁️ Mejora de Accesibilidad</h5>
+                            <p>Para usuarios que dependen de navegación por teclado o lectores de pantalla.</p>
+                            <div class="code-panel small">
+                                <pre class="code-content"><code><span class="css-selector">*</span>:<span class="css-pseudo">focus</span> {
+    <span class="css-property">outline</span>: <span class="css-number">3px</span> <span class="css-value">dashed</span> <span class="css-hex">#ff6b6b</span>;
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-block">
+                    <h4>💻 Ejemplo Real: Botón con Outline</h4>
+
+                    <div class="real-code-example">
+                        <div class="code-panel">
+                            <div class="code-header">
+                                <span class="code-filename">estilos.css</span>
+                                <span class="code-language">CSS</span>
+                            </div>
+                            <pre class="code-content"><code><span class="css-comment">/* Estilo para botón con outline en foco */</span>
+<span class="css-selector">.btn-accesible</span> {
+    <span class="css-property">padding</span>: <span class="css-number">12px</span> <span class="css-number">24px</span>;
+    <span class="css-property">background</span>: <span class="css-hex">#007bff</span>;
+    <span class="css-property">color</span>: <span class="css-value">white</span>;
+    <span class="css-property">border</span>: <span class="css-value">none</span>;
+    <span class="css-property">border-radius</span>: <span class="css-number">6px</span>;
+    <span class="css-property">cursor</span>: <span class="css-value">pointer</span>;
+    <span class="css-property">transition</span>: <span class="css-value">all</span> <span class="css-number">0.3s</span> <span class="css-value">ease</span>;
+}
+
+<span class="css-selector">.btn-accesible</span>:<span class="css-pseudo">focus</span> {
+    <span class="css-property">outline</span>: <span class="css-number">3px</span> <span class="css-value">solid</span> <span class="css-hex">#0056b3</span>;
+    <span class="css-property">outline-offset</span>: <span class="css-number">2px</span>;
+}</code></pre>
+                        </div>
+
+                        <div class="demo-result-real">
+                            <h5>🎯 Resultado en Vivo:</h5>
+                            <button class="btn-accesible-demo" id="focusable-btn">✨ Botón Accesible</button>
+                            <p class="demo-notes">Haz clic o usa Tab para enfocar el botón y ver el outline</p>
+
+                            <div class="code-breakdown-mini">
+                                <h6>🔍 Partes clave del código:</h6>
+                                <ul>
+                                    <li><span class="code-highlight">:focus</span> - Pseudoclase que activa el outline
+                                    </li>
+                                    <li><span class="code-highlight">outline: 3px solid #0056b3</span> - Define el
+                                        outline</li>
+                                    <li><span class="code-highlight">outline-offset: 2px</span> - Separa el outline del
+                                        borde</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>⚠️ Consideraciones Importantes</h3>
+
+                    <div class="considerations">
+                        <div class="consideration-card warning">
+                            <div class="consideration-header">
+                                <span class="consideration-icon">🚫</span>
+                                <h5>No Remover Outline por Completo</h5>
+                            </div>
+                            <p>Eliminar completamente el outline rompe la accesibilidad. En su lugar, personalízalo para
+                                que sea visualmente atractivo y accesible.</p>
+                        </div>
+
+                        <div class="consideration-card tip">
+                            <div class="consideration-header">
+                                <span class="consideration-icon">💡</span>
+                                <h5>Usar outline-offset</h5>
+                            </div>
+                            <p>La propiedad <code>outline-offset</code> te permite separar el outline del borde del
+                                elemento, creando un efecto visual más atractivo.</p>
+                        </div>
+
+                        <div class="consideration-card info">
+                            <div class="consideration-header">
+                                <span class="consideration-icon">ℹ️</span>
+                                <h5>Outline no Afecta Layout</h5>
+                            </div>
+                            <p>Al contrario del border, el outline no afecta las dimensiones del elemento ni el flujo del
+                                documento.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>🎯 Resumen de la Lección</h3>
+
+                    <div class="lesson-summary">
+                        <div class="summary-point">
+                            <span class="summary-number">1</span>
+                            <div class="summary-content">
+                                <h5>Outline es Externo</h5>
+                                <p>Se dibuja por fuera del borde y no ocupa espacio en el modelo de caja.</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-point">
+                            <span class="summary-number">2</span>
+                            <div class="summary-content">
+                                <h5>Esencial para Accesibilidad</h5>
+                                <p>Indica elementos enfocados para usuarios de teclado y lectores de pantalla.</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-point">
+                            <span class="summary-number">3</span>
+                            <div class="summary-content">
+                                <h5>Propiedad Shorthand</h5>
+                                <p>Combina outline-width, outline-style y outline-color en una sola declaración.</p>
+                            </div>
+                        </div>
+
+                        <div class="summary-point">
+                            <span class="summary-number">4</span>
+                            <div class="summary-content">
+                                <h5>Siempre Rectangular</h5>
+                                <p>Independientemente de la forma del elemento, el outline será rectangular.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
-        </main>
 
-        <footer class="site-footer">
-            <small> Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript</small>
-        </footer>
-        
-    </body>
+            <!-- SECCIONES FUTURAS (vacíos por ahora) -->
+            <section id="lesson-content-2" class="lesson-content card hidden-lesson">
+                <h2>2️⃣ Outline vs Border</h2>
+                <p>Contenido pendiente...</p>
+            </section>
+
+            <section id="lesson-content-3" class="lesson-content card hidden-lesson">
+                <h2>3️⃣ Estilos y Colores</h2>
+                <p>Contenido pendiente...</p>
+            </section>
+
+            <section id="lesson-content-4" class="lesson-content card hidden-lesson">
+                <h2>4️⃣ Outline Offset</h2>
+                <p>Contenido pendiente...</p>
+            </section>
+
+            <section id="lesson-content-5" class="lesson-content card hidden-lesson">
+                <h2>5️⃣ Accesibilidad</h2>
+                <p>Contenido pendiente...</p>
+            </section>
+
+            <section id="lesson-content-6" class="lesson-content card hidden-lesson">
+                <h2>6️⃣ Practica</h2>
+                <p>Contenido pendiente...</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <small>💻 Creado por Angel Morales Chazari — HTML5 + CSS + JavaScript 💻</small>
+    </footer>
+</body>
+
 </html>
