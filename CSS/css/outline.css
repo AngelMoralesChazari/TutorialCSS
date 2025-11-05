@@ -376,8 +376,8 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 20px;
-    margin: 20px 0;
+    gap: 50px;
+    margin: 40px 0;
 }
 
 .demo-item {
@@ -622,4 +622,52 @@
         flex-direction: column;
         gap: 15px;
     }
+}
+
+/* === SECCION 2  ===*/
+
+/* Variant para demos de la sección 2 (más visuales) */
+.demo-box {
+  border-radius: 14px;
+}
+
+.demo-comparison .demo-item p {
+  margin-top: 10px;
+  color: var(--muted);
+}
+
+.syntax-demo, .real-code-example { margin-top: 16px; }
+
+/* === FIN SECCION 2  ===*/
+
+/* === SECCION 3 === */
+/* Sección 3 ajustes sutiles */
+.example-block .demo-box { border-radius: 12px; }
+.example-block .demo-item p { margin-top: 10px; }
+.syntax-demo, .real-code-example { margin-top: 12px; }
+
+/* === FIN SECCION 3 === */
+
+
+/* === SECCION 4 === */
+/* Sección 4: refinamientos */
+#offlab-preview { transition: outline-width .15s ease, outline-offset .15s ease, border-radius .15s ease; }
+.example-block > h4 { margin: 0 0 12px; }
+/* === FIN SECCION 4=== */
+
+/* Botones de los labs accesibles */
+.btn-accesible-demo {
+  outline: none; /* manejamos outline en estados focus/visible específicos */
+}
+
+.btn-accesible-demo:focus-visible {
+  outline: 3px solid #59e0d6;
+  outline-offset: 4px;
+}
+
+/* Inputs con foco consistente */
+input.focus-ring:focus-visible {
+  outline: 3px solid #ff7b86;
+  outline-offset: 4px;
+  border-color: rgba(255,255,255,.25);
 }

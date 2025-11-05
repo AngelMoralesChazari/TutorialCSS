@@ -75,7 +75,8 @@
                                 <span class="code-filename">styles.css</span>
                                 <span class="code-language">CSS</span>
                             </div>
-                            <pre class="code-content"><code><span class="css-property">outline</span>: <span class="css-number">2px</span> <span class="css-value">solid</span> <span class="css-color">red</span>;</code></pre>
+                            <pre
+                                class="code-content"><code><span class="css-property">outline</span>: <span class="css-number">2px</span> <span class="css-value">solid</span> <span class="css-color">red</span>;</code></pre>
                         </div>
 
                         <div class="demo-result">
@@ -234,7 +235,8 @@
                                 <span class="consideration-icon">ℹ️</span>
                                 <h5>Outline no Afecta Layout</h5>
                             </div>
-                            <p>Al contrario del border, el outline no afecta las dimensiones del elemento ni el flujo del
+                            <p>Al contrario del border, el outline no afecta las dimensiones del elemento ni el flujo
+                                del
                                 documento.</p>
                         </div>
                     </div>
@@ -282,22 +284,785 @@
             <!-- SECCIONES FUTURAS (vacíos por ahora) -->
             <section id="lesson-content-2" class="lesson-content card hidden-lesson">
                 <h2>2️⃣ Outline vs Border</h2>
-                <p>Contenido pendiente...</p>
+
+                <!-- Introducción -->
+                <div class="theory-block">
+                    <h3>🧭 Diferencias Clave</h3>
+                    <p>
+                        <strong>Border</strong> forma parte del modelo de caja: ocupa espacio, afecta el layout y
+                        respeta el
+                        <em>border-radius</em>. En cambio, el <strong>outline</strong> se dibuja <em>por fuera</em> del
+                        borde,
+                        <strong>no ocupa espacio</strong> y siempre es <strong>rectangular</strong> (no sigue el radio
+                        de borde).
+                    </p>
+                </div>
+
+                <!-- Comparativo Visual (3 columnas) -->
+                <div class="example-block">
+                    <h4>🔍 Comparativa Visual</h4>
+
+                    <div class="demo-comparison">
+                        <!-- Solo Border -->
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="background: rgba(255,255,255,0.06); border: 6px solid #59e0d6; border-radius: 14px; height: 160px; box-shadow: 0 8px 26px rgba(0,0,0,0.45);">
+                            </div>
+                            <p><strong>SOLO BORDER</strong><br>Ocupa espacio • Respeta border-radius</p>
+                        </div>
+
+                        <!-- Border + Outline -->
+                        <div class="demo-item">
+                            <div class="demo-box" style="
+          position: relative;
+          background: rgba(255,255,255,0.06);
+          border: 4px solid #59e0d6;
+          border-radius: 14px;
+          height: 160px;
+          outline: 8px solid #ff7b86;
+          outline-offset: 10px;
+          box-shadow: 0 8px 26px rgba(0,0,0,0.45);
+        "></div>
+                            <p><strong>BORDER + OUTLINE</strong><br>Outline fuera del borde • No ocupa espacio</p>
+                        </div>
+
+                        <!-- Solo Outline -->
+                        <div class="demo-item">
+                            <div class="demo-box" style="
+          background: rgba(255,255,255,0.06);
+          height: 160px;
+          outline: 8px solid #ff7b86;
+          outline-offset: 10px;
+          border-radius: 14px; /* solo afecta el fondo; el outline sigue rectangular */
+          box-shadow: 0 8px 26px rgba(0,0,0,0.45);
+        "></div>
+                            <p><strong>SOLO OUTLINE</strong><br>No ocupa espacio • Siempre rectangular</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel de código: diferencias técnicas -->
+                <div class="theory-block">
+                    <h3>🧩 ¿Qué cambia realmente?</h3>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📐</div>
+                            <h4>Modelo de Caja</h4>
+                            <p><strong>Border</strong> suma al ancho/alto del elemento. <strong>Outline</strong> no.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🟦</div>
+                            <h4>Geometría</h4>
+                            <p>Border respeta <code>border-radius</code>. Outline siempre es rectangular.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🔁</div>
+                            <h4>Interacción</h4>
+                            <p>Outline se usa mucho para <strong>enfoque</strong> accesible; border para diseño
+                                estructural.</p>
+                        </div>
+
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h4>Superposición</h4>
+                            <p>Outline no afecta al flujo, por eso puede “salirse” visualmente sin empujar elementos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">comparativa.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre class="code-content"><code><span class="css-comment">/* Border ocupa espacio y respeta el radio */</span>
+<span class="css-selector">.solo-border</span> {
+  <span class="css-property">border</span>: <span class="css-number">6px</span> <span class="css-value">solid</span> <span class="css-hex">#59e0d6</span>;
+  <span class="css-property">border-radius</span>: <span class="css-number">14px</span>;
+}
+
+<span class="css-comment">/* Border + Outline: outline queda por fuera sin afectar layout */</span>
+<span class="css-selector">.border-outline</span> {
+  <span class="css-property">border</span>: <span class="css-number">4px</span> <span class="css-value">solid</span> <span class="css-hex">#59e0d6</span>;
+  <span class="css-property">outline</span>: <span class="css-number">8px</span> <span class="css-value">solid</span> <span class="css-hex">#ff7b86</span>;
+  <span class="css-property">outline-offset</span>: <span class="css-number">10px</span>;
+  <span class="css-property">border-radius</span>: <span class="css-number">14px</span>;
+}
+
+<span class="css-comment">/* Solo Outline: no modifica el tamaño del elemento */</span>
+<span class="css-selector">.solo-outline</span> {
+  <span class="css-property">outline</span>: <span class="css-number">8px</span> <span class="css-value">solid</span> <span class="css-hex">#ff7b86</span>;
+  <span class="css-property">outline-offset</span>: <span class="css-number">10px</span>;
+  <span class="css-property">border-radius</span>: <span class="css-number">14px</span>;
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Mini laboratorio -->
+                <div class="example-block">
+                    <h4>🧪 Mini‑Lab: Ajusta y observa</h4>
+
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Grosor Border</label>
+                            <input id="lab-border-width" type="range" min="0" max="20" value="6" style="width:100%;">
+                        </div>
+                        <div class="demo-item">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Grosor Outline</label>
+                            <input id="lab-outline-width" type="range" min="0" max="20" value="8" style="width:100%;">
+                        </div>
+                        <div class="demo-item">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Outline Offset</label>
+                            <input id="lab-outline-offset" type="range" min="0" max="30" value="10" style="width:100%;">
+                        </div>
+                    </div>
+
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div id="lab-solo-border" class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); border: 6px solid #59e0d6; border-radius: 14px; box-shadow: 0 8px 26px rgba(0,0,0,0.45);">
+                            </div>
+                            <p>Solo Border</p>
+                        </div>
+                        <div class="demo-item">
+                            <div id="lab-border-outline" class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); border: 4px solid #59e0d6; border-radius: 14px; outline: 8px solid #ff7b86; outline-offset: 10px; box-shadow: 0 8px 26px rgba(0,0,0,0.45);">
+                            </div>
+                            <p>Border + Outline</p>
+                        </div>
+                        <div class="demo-item">
+                            <div id="lab-solo-outline" class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); outline: 8px solid #ff7b86; outline-offset: 10px; border-radius: 14px; box-shadow: 0 8px 26px rgba(0,0,0,0.45);">
+                            </div>
+                            <p>Solo Outline</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Consideraciones -->
+                <div class="theory-block">
+                    <h3>⚠️ Cuándo usar cada uno</h3>
+                    <div class="considerations">
+                        <div class="consideration-card tip">
+                            <div class="consideration-header">
+                                <span class="consideration-icon">💡</span>
+                                <h5>Border para estructura</h5>
+                            </div>
+                            <p>Úsalo para delimitar cajas, tarjetas y contenedores que forman parte del layout.</p>
+                        </div>
+
+                        <div class="consideration-card info">
+                            <div class="consideration-header">
+                                <span class="consideration-icon">🧑‍🦯</span>
+                                <h5>Outline para estados</h5>
+                            </div>
+                            <p>Perfecto para <strong>enfoque</strong> y estados temporales sin modificar el tamaño del
+                                elemento.</p>
+                        </div>
+
+                        <div class="consideration-card warning">
+                            <div class="consideration-header">
+                                <span class="consideration-icon">🚫</span>
+                                <h5>No remplaza la accesibilidad</h5>
+                            </div>
+                            <p>No elimines el outline por completo. En su lugar, <em>personalízalo</em> para que sea
+                                consistente con tu diseño.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen -->
+                <div class="theory-block">
+                    <h3>🧾 Resumen Rápido</h3>
+                    <div class="lesson-summary">
+                        <div class="summary-point">
+                            <span class="summary-number">1</span>
+                            <div class="summary-content">
+                                <h5>Border = Layout</h5>
+                                <p>Afecta tamaño y respeta radios.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">2</span>
+                            <div class="summary-content">
+                                <h5>Outline = Superposición</h5>
+                                <p>No ocupa espacio y es ideal para foco/estados.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">3</span>
+                            <div class="summary-content">
+                                <h5>Offset potencia el efecto</h5>
+                                <p>Separa visualmente el outline del borde.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">4</span>
+                            <div class="summary-content">
+                                <h5>Rectangular por definición</h5>
+                                <p>No sigue el border-radius (a diferencia del border).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="lesson-content-3" class="lesson-content card hidden-lesson">
                 <h2>3️⃣ Estilos y Colores</h2>
-                <p>Contenido pendiente...</p>
+
+                <!-- Introducción -->
+                <div class="theory-block">
+                    <h3>🎨 ¿Qué puedo personalizar?</h3>
+                    <p>
+                        Con <strong>outline</strong> puedes ajustar <strong>grosor</strong>
+                        (<code>outline-width</code>),
+                        <strong>estilo</strong> (<code>outline-style</code>) y <strong>color</strong>
+                        (<code>outline-color</code>),
+                        o usar la <strong>shorthand</strong> <code>outline</code>.
+                        Además, <code>outline-offset</code> separa visualmente el outline del borde.
+                    </p>
+                </div>
+
+                <!-- Estilos de línea -->
+                <div class="example-block">
+                    <h4>🧵 Estilos de Línea</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); outline: 6px solid #7dd3fc; outline-offset: 10px; border-radius: 12px;">
+                            </div>
+                            <p><strong>solid</strong></p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); outline: 6px dashed #93c5fd; outline-offset: 10px; border-radius: 12px;">
+                            </div>
+                            <p><strong>dashed</strong></p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); outline: 6px dotted #c4b5fd; outline-offset: 10px; border-radius: 12px;">
+                            </div>
+                            <p><strong>dotted</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); outline: 8px double #ff7b86; outline-offset: 10px; border-radius: 12px;">
+                            </div>
+                            <p><strong>double</strong></p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); outline: 8px groove #fca5a5; outline-offset: 10px; border-radius: 12px;">
+                            </div>
+                            <p><strong>groove</strong> (soporte parcial)</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box"
+                                style="height:160px; background: rgba(255,255,255,0.06); outline: 8px ridge #fdba74; outline-offset: 10px; border-radius: 12px;">
+                            </div>
+                            <p><strong>ridge</strong> (soporte parcial)</p>
+                        </div>
+                    </div>
+
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">estilos.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre
+                            class="code-content"><code><span class="css-comment">/* Variaciones de estilo */</span>
+<span class="css-selector">.o-solid</span>  { <span class="css-property">outline</span>: <span class="css-number">4px</span> <span class="css-value">solid</span>  <span class="css-hex">#7dd3fc</span>; }
+<span class="css-selector">.o-dashed</span> { <span class="css-property">outline</span>: <span class="css-number">4px</span> <span class="css-value">dashed</span> <span class="css-hex">#93c5fd</span>; }
+<span class="css-selector">.o-dotted</span> { <span class="css-property">outline</span>: <span class="css-number">4px</span> <span class="css-value">dotted</span> <span class="css-hex">#c4b5fd</span>; }
+<span class="css-selector">.o-double</span> { <span class="css-property">outline</span>: <span class="css-number">6px</span> <span class="css-value">double</span> <span class="css-hex">#ff7b86</span>; }
+<span class="css-selector">.o-groove</span> { <span class="css-property">outline</span>: <span class="css-number">6px</span> <span class="css-value">groove</span> <span class="css-hex">#fca5a5</span>; }
+<span class="css-selector">.o-ridge</span>  { <span class="css-property">outline</span>: <span class="css-number">6px</span> <span class="css-value">ridge</span>  <span class="css-hex">#fdba74</span>; }</code></pre>
+                    </div>
+                </div>
+
+                <!-- Colores y contraste -->
+                <div class="theory-block">
+                    <h3>🌈 Colores y Contraste</h3>
+                    <p>Para estados de enfoque accesibles, el outline debe tener suficiente contraste con el fondo y el
+                        contenido. Evita colores demasiado tenues sobre fondos oscuros.</p>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">✅</div>
+                            <h4>Recomendado</h4>
+                            <p>Tonos brillantes sobre fondo oscuro: <code>#7dd3fc</code>, <code>#ff7b86</code>,
+                                <code>#f59e0b</code>.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚠️</div>
+                            <h4>Evitar</h4>
+                            <p>Colores con bajo contraste o cercanos al color de fondo.</p>
+                        </div>
+                    </div>
+
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">accesible.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre class="code-content"><code><span class="css-comment">/* Paleta sugerida en temas oscuros */</span>
+<span class="css-selector">:root</span> {
+  <span class="css-property">--o-primary</span>: <span class="css-hex">#59e0d6</span>;
+  <span class="css-property">--o-accent</span>: <span class="css-hex">#ff7b86</span>;
+  <span class="css-property">--o-warn</span>: <span class="css-hex">#f59e0b</span>;
+}
+<span class="css-selector">.focus-ring</span>:<span class="css-pseudo">focus</span> {
+  <span class="css-property">outline</span>: <span class="css-number">3px</span> <span class="css-value">solid</span> <span class="css-function">var</span>(--o-accent);
+  <span class="css-property">outline-offset</span>: <span class="css-number">4px</span>;
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Mini‑Lab interactivo -->
+                <div class="example-block">
+                    <h4>🧪 Mini‑Lab: Estilo, grosor, color y offset</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item" style="flex: 1.2;">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Estilo</label>
+                            <select id="style-select"
+                                style="width:100%; background:#0f172a; color:#e5e7eb; border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:10px;">
+                                <option value="solid" selected>solid</option>
+                                <option value="dashed">dashed</option>
+                                <option value="dotted">dotted</option>
+                                <option value="double">double</option>
+                                <option value="groove">groove (parcial)</option>
+                                <option value="ridge">ridge (parcial)</option>
+                            </select>
+                        </div>
+                        <div class="demo-item">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Grosor (px)</label>
+                            <input id="width-range" type="range" min="0" max="20" value="6" style="width:100%;">
+                        </div>
+                        <div class="demo-item">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Offset (px)</label>
+                            <input id="offset-range" type="range" min="0" max="30" value="10" style="width:100%;">
+                        </div>
+                        <div class="demo-item">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Color</label>
+                            <input id="color-input" type="color" value="#ff7b86"
+                                style="width:100%; height:40px; padding:0; background:#0f172a; border:1px solid rgba(255,255,255,.15); border-radius:8px;">
+                        </div>
+                    </div>
+
+                    <div class="demo-comparison" style="margin-top:12px;">
+                        <div class="demo-item" style="flex:1 1 100%;">
+                            <div id="lab-preview" class="demo-box"
+                                style="height:180px; background: rgba(255,255,255,0.06); outline: 6px solid #ff7b86; outline-offset: 10px; border-radius: 12px; box-shadow: 0 8px 26px rgba(0,0,0,0.45);">
+                            </div>
+                            <p id="lab-css"
+                                style="font-family:Consolas, monospace; color:#93c5fd; font-size:.9rem; margin-top:10px; word-break:break-all;">
+                                outline: 6px solid #ff7b86; outline-offset: 10px;
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buenas prácticas -->
+                <div class="theory-block">
+                    <h3>🧭 Buenas prácticas</h3>
+                    <div class="usage-cases">
+                        <div class="usage-case">
+                            <h5>Contraste suficiente</h5>
+                            <p>Asegura que el color elegido sea claramente visible en tu tema. Evita tonos cercanos al
+                                fondo.</p>
+                        </div>
+                        <div class="usage-case">
+                            <h5>Offset moderado</h5>
+                            <p>Entre 4–12px suele ser suficiente. Offsets muy grandes pueden “romper” la composición
+                                visual.</p>
+                        </div>
+                        <div class="usage-case">
+                            <h5>Consistencia</h5>
+                            <p>Define tokens/variables para reutilizar colores y grosores en todo el proyecto.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen -->
+                <div class="theory-block">
+                    <h3>🧾 Resumen Rápido</h3>
+                    <div class="lesson-summary">
+                        <div class="summary-point">
+                            <span class="summary-number">1</span>
+                            <div class="summary-content">
+                                <h5>Shorthand poderosa</h5>
+                                <p><code>outline: width style color;</code> en una sola línea.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">2</span>
+                            <div class="summary-content">
+                                <h5>Estilos útiles</h5>
+                                <p>solid/dashed/dotted son los más consistentes entre navegadores.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">3</span>
+                            <div class="summary-content">
+                                <h5>Color con intención</h5>
+                                <p>Usa paletas con alto contraste y consistentes con tu UI.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">4</span>
+                            <div class="summary-content">
+                                <h5>Offset para claridad</h5>
+                                <p>Separa el outline del borde para mejorar legibilidad visual.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="lesson-content-4" class="lesson-content card hidden-lesson">
                 <h2>4️⃣ Outline Offset</h2>
-                <p>Contenido pendiente...</p>
+
+                <!-- Introducción -->
+                <div class="theory-block">
+                    <h3>🧭 ¿Qué es outline-offset?</h3>
+                    <p>
+                        <code>outline-offset</code> controla la <strong>distancia entre el borde del elemento y su
+                            outline</strong>.
+                        Al aumentar su valor, el outline “se despega” del elemento, sin afectar el layout ni el tamaño
+                        real de la caja.
+                    </p>
+                </div>
+
+                <!-- Comparativa Visual -->
+                <div class="example-block">
+                    <h4>🔍 Efecto del Offset</h4>
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <div class="demo-box" style="
+          height:160px; background: rgba(255,255,255,0.06);
+          outline: 8px solid #ff7b86; outline-offset: 0px; border-radius: 12px;
+          box-shadow: 0 8px 26px rgba(0,0,0,0.45);"></div>
+                            <p><strong>offset: 0px</strong><br>Outline pegado al borde</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="
+          height:160px; background: rgba(255,255,255,0.06);
+          outline: 8px solid #ff7b86; outline-offset: 8px; border-radius: 12px;
+          box-shadow: 0 8px 26px rgba(0,0,0,0.45);"></div>
+                            <p><strong>offset: 8px</strong><br>Separación clara</p>
+                        </div>
+                        <div class="demo-item">
+                            <div class="demo-box" style="
+          height:160px; background: rgba(255,255,255,0.06);
+          outline: 8px solid #ff7b86; outline-offset: 16px; border-radius: 12px;
+          box-shadow: 0 8px 26px rgba(0,0,0,0.45);"></div>
+                            <p><strong>offset: 16px</strong><br>Mayor aire visual</p>
+                        </div>
+                    </div>
+
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">offset.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre class="code-content"><code><span class="css-selector">.card</span> {
+  <span class="css-property">outline</span>: <span class="css-number">8px</span> <span class="css-value">solid</span> <span class="css-hex">#ff7b86</span>;
+  <span class="css-property">outline-offset</span>: <span class="css-number">12px</span>;
+  <span class="css-property">border-radius</span>: <span class="css-number">12px</span>;
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Patrones útiles -->
+                <div class="theory-block">
+                    <h3>🧩 Patrones con outline-offset</h3>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">🪄</div>
+                            <h4>Enfoque visible</h4>
+                            <p>Despega el focus para no “chocar” con el borde: <code>outline-offset: 4–8px</code>.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧱</div>
+                            <h4>Tarjetas destacadas</h4>
+                            <p>Imita un “marco externo” elegante sin alterar el layout.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🖼️</div>
+                            <h4>Falso padding</h4>
+                            <p>Crea separación visual externa sin agregar padding interno.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🧑‍🦯</div>
+                            <h4>Accesibilidad</h4>
+                            <p>Un offset moderado mejora la legibilidad del estado de foco.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mini‑Lab interactivo -->
+                <div class="example-block">
+                    <h4>🧪 Mini‑Lab: Juega con el offset</h4>
+
+                    <div class="demo-comparison">
+                        <div class="demo-item" style="flex:1.1;">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Grosor (px)</label>
+                            <input id="offlab-width" type="range" min="0" max="24" value="8" style="width:100%;">
+                        </div>
+                        <div class="demo-item" style="flex:1.1;">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Offset (px)</label>
+                            <input id="offlab-offset" type="range" min="0" max="32" value="12" style="width:100%;">
+                        </div>
+                        <div class="demo-item" style="flex:1.1;">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Color</label>
+                            <input id="offlab-color" type="color" value="#ff7b86"
+                                style="width:100%; height:40px; padding:0; background:#0f172a; border:1px solid rgba(255,255,255,.15); border-radius:8px;">
+                        </div>
+                        <div class="demo-item" style="flex:1.1;">
+                            <label style="display:block; color: var(--muted); margin-bottom:8px;">Border radius
+                                (px)</label>
+                            <input id="offlab-radius" type="range" min="0" max="30" value="12" style="width:100%;">
+                        </div>
+                    </div>
+
+                    <div class="demo-comparison" style="margin-top:12px;">
+                        <div class="demo-item" style="flex:1 1 100%;">
+                            <div id="offlab-preview" class="demo-box" style="
+          height:180px; background: rgba(255,255,255,0.06);
+          outline: 8px solid #ff7b86; outline-offset: 12px; border-radius: 12px;
+          border: 4px solid #59e0d6; box-shadow: 0 8px 26px rgba(0,0,0,0.45);"></div>
+
+                            <p id="offlab-css"
+                                style="font-family:Consolas, monospace; color:#93c5fd; font-size:.9rem; margin-top:10px; word-break:break-all;">
+                                outline: 8px solid #ff7b86; outline-offset: 12px; border-radius: 12px;
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Buenas prácticas -->
+                <div class="theory-block">
+                    <h3>🧭 Recomendaciones</h3>
+                    <div class="usage-cases">
+                        <div class="usage-case">
+                            <h5>Offset equilibrado</h5>
+                            <p>Entre 4–12px funciona bien en la mayoría de interfaces. Más de 16px solo para énfasis
+                                fuerte.</p>
+                        </div>
+                        <div class="usage-case">
+                            <h5>Combínalo con border</h5>
+                            <p>Un borde fino + outline con offset produce un “doble marco” limpio y accesible.</p>
+                        </div>
+                        <div class="usage-case">
+                            <h5>Responsive</h5>
+                            <p>En móviles reduce ligeramente el offset para no saturar el espacio.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen -->
+                <div class="theory-block">
+                    <h3>🧾 Resumen Rápido</h3>
+                    <div class="lesson-summary">
+                        <div class="summary-point">
+                            <span class="summary-number">1</span>
+                            <div class="summary-content">
+                                <h5>No afecta layout</h5>
+                                <p>El offset solo separa visualmente el outline.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">2</span>
+                            <div class="summary-content">
+                                <h5>Mejora el foco</h5>
+                                <p>Hace más legible el estado activo/enfocado.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">3</span>
+                            <div class="summary-content">
+                                <h5>Doble marco elegante</h5>
+                                <p>Úsalo junto con un border fino para un efecto premium.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">4</span>
+                            <div class="summary-content">
+                                <h5>Usa valores moderados</h5>
+                                <p>4–12px suelen ser suficientes; ajusta según densidad de la UI.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="lesson-content-5" class="lesson-content card hidden-lesson">
                 <h2>5️⃣ Accesibilidad</h2>
-                <p>Contenido pendiente...</p>
+
+                <!-- Introducción -->
+                <div class="theory-block">
+                    <h3>♿ ¿Por qué es importante el outline?</h3>
+                    <p>
+                        El <strong>outline</strong> es clave para la <strong>navegación por teclado</strong> (Tab,
+                        Shift+Tab) y para
+                        usuarios con ayudas técnicas. Un <em>focus visible</em> permite saber qué elemento está activo
+                        sin usar el mouse.
+                        <strong>No elimines</strong> el outline: personalízalo para que sea <em>claro</em> y
+                        <em>consistente</em>.
+                    </p>
+                </div>
+
+                <!-- Focus visible: buenas y malas prácticas -->
+                <div class="example-block">
+                    <h4>👁️ Focus visible: buenas prácticas</h4>
+
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">✅</div>
+                            <h4>Personalizar, no quitar</h4>
+                            <p>Usa colores con buen contraste y un <code>outline-offset</code> de 3–6px.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🚫</div>
+                            <h4>Evita: outline: none sin reemplazo</h4>
+                            <p>Rompe accesibilidad. Si lo quitas, provee un indicador de foco alternativo sólido.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⌨️</div>
+                            <h4>Prueba con teclado</h4>
+                            <p>Recorre tu UI con Tab/Shift+Tab y verifica que el foco sea visible en todo momento.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h4>Tamaño/espaciado</h4>
+                            <p>El foco no debe desplazar layout; el outline es ideal porque no ocupa espacio.</p>
+                        </div>
+                    </div>
+
+                    <div class="code-panel">
+                        <div class="code-header">
+                            <span class="code-filename">focus.css</span>
+                            <span class="code-language">CSS</span>
+                        </div>
+                        <pre class="code-content"><code><span class="css-comment">/* 1) Focus accesible consistente */</span>
+<span class="css-selector">.focus-ring</span>:<span class="css-pseudo">focus</span>,
+<span class="css-selector">.focus-ring</span>:<span class="css-pseudo">focus-visible</span> {
+  <span class="css-property">outline</span>: <span class="css-number">3px</span> <span class="css-value">solid</span> <span class="css-hex">#59e0d6</span>;
+  <span class="css-property">outline-offset</span>: <span class="css-number">4px</span>;
+  <span class="css-property">border-radius</span>: <span class="css-number">8px</span>;
+}
+
+<span class="css-comment">/* 2) Solo mostrar foco cuando viene de teclado (focus-visible) */</span>
+<span class="css-selector">.kbd-ring</span>:<span class="css-pseudo">focus</span> { <span class="css-property">outline</span>: <span class="css-value">none</span>; }
+<span class="css-selector">.kbd-ring</span>:<span class="css-pseudo">focus-visible</span> {
+  <span class="css-property">outline</span>: <span class="css-number">3px</span> <span class="css-value">solid</span> <span class="css-hex">#ff7b86</span>;
+  <span class="css-property">outline-offset</span>: <span class="css-number">4px</span>;
+  <span class="css-property">border-radius</span>: <span class="css-number">8px</span>;
+}
+
+<span class="css-comment">/* 3) Alternativa si decides remover outline por estilo: usa box-shadow robusto */</span>
+<span class="css-selector">.shadow-ring</span>:<span class="css-pseudo">focus-visible</span> {
+  <span class="css-property">outline</span>: <span class="css-value">none</span>;
+  <span class="css-property">box-shadow</span>: 0 0 0 <span class="css-number">3px</span> <span class="css-hex">#0ea5e9</span>, 0 0 0 <span class="css-number">6px</span> rgba(14,165,233,.35);
+  <span class="css-property">border-radius</span>: <span class="css-number">8px</span>;
+}</code></pre>
+                    </div>
+                </div>
+
+                <!-- Demo interactiva: por defecto vs personalizado -->
+                <div class="example-block">
+                    <h4>🧪 Mini‑Lab: Compara el foco</h4>
+
+                    <div class="demo-comparison">
+                        <div class="demo-item">
+                            <button class="btn-accesible-demo" id="a11y-default">Foco por defecto</button>
+                            <p>Navega con Tab y observa el resaltado nativo del navegador.</p>
+                        </div>
+                        <div class="demo-item">
+                            <button class="btn-accesible-demo focus-ring" id="a11y-custom">Foco personalizado</button>
+                            <p>Foco visible consistente (outline + offset).</p>
+                        </div>
+                        <div class="demo-item">
+                            <button class="btn-accesible-demo kbd-ring" id="a11y-kbd">Solo teclado
+                                (focus-visible)</button>
+                            <p>El foco solo aparece al usar teclado, no con click.</p>
+                        </div>
+                    </div>
+
+                    <div class="demo-comparison" style="margin-top:14px;">
+                        <div class="demo-item" style="flex:1 1 100%;">
+                            <input id="a11y-input" class="focus-ring" placeholder="Campo con focus accesible"
+                                style="width:100%; padding:12px 14px; background:#0b1220; color:#e5e7eb; border:1px solid rgba(255,255,255,.12); border-radius:8px;">
+                            <p style="margin-top:10px;">Tip: Presiona Tab varias veces y verifica que nunca “pierdes” el
+                                foco visual.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patrones comunes -->
+                <div class="theory-block">
+                    <h3>🧩 Patrones accesibles con outline</h3>
+                    <div class="usage-cases">
+                        <div class="usage-case">
+                            <h5>Enlaces y botones</h5>
+                            <p>Todos los elementos interactivos deben tener un estado de foco visible. Evita removerlo
+                                globalmente con <code>*:focus { outline: none; }</code>.</p>
+                        </div>
+                        <div class="usage-case">
+                            <h5>Componentes complejos</h5>
+                            <p>En modales/menús, asegura trampa de foco y estilo de foco consistente para los elementos
+                                navegables.</p>
+                        </div>
+                        <div class="usage-case">
+                            <h5>Estado y color</h5>
+                            <p>Usa colores con alto contraste. Considera <code>prefers-contrast</code> en temas
+                                avanzados.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resumen -->
+                <div class="theory-block">
+                    <h3>🧾 Resumen Rápido</h3>
+                    <div class="lesson-summary">
+                        <div class="summary-point">
+                            <span class="summary-number">1</span>
+                            <div class="summary-content">
+                                <h5>Focus siempre visible</h5>
+                                <p>Personaliza el outline, no lo elimines.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">2</span>
+                            <div class="summary-content">
+                                <h5>focus-visible</h5>
+                                <p>Muestra el foco solo cuando es relevante (teclado).</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">3</span>
+                            <div class="summary-content">
+                                <h5>Contraste y offset</h5>
+                                <p>Colores vivos + 3–6px de separación ayudan a la claridad.</p>
+                            </div>
+                        </div>
+                        <div class="summary-point">
+                            <span class="summary-number">4</span>
+                            <div class="summary-content">
+                                <h5>Pruebas reales</h5>
+                                <p>Recorre tu sitio con teclado y lectores de pantalla.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <section id="lesson-content-6" class="lesson-content card hidden-lesson">
