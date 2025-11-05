@@ -1066,9 +1066,76 @@
             </section>
 
             <section id="lesson-content-6" class="lesson-content card hidden-lesson">
-                <h2>6️⃣ Practica</h2>
-                <p>Contenido pendiente...</p>
-            </section>
+  <h2>6️⃣ Práctica</h2>
+
+  <div class="practice-container">
+    <div class="practice-grid">
+      <!-- Panel de código -->
+      <div class="code-panel practice-panel">
+        <div class="code-header">
+          <span class="code-filename">practica.css</span>
+          <span class="code-language">CSS</span>
+          <button id="outline-reset-practice-btn" class="btn-reset">
+            <span class="btn-icon">🔄</span>
+            <span>Reiniciar</span>
+          </button>
+        </div>
+
+        <div class="code-content">
+          <textarea id="outline-css-practice-editor" class="css-editor" spellcheck="false">.mi-outline {
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+
+  /* Ajusta aquí tu práctica */
+  border: 2px solid #59e0d6;
+  outline: 8px solid #ff7b86;
+  outline-offset: 12px;
+
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}</textarea>
+        </div>
+
+        <div class="editor-actions">
+          <button id="outline-apply-css-btn" class="btn-play">
+            <span class="btn-icon">▶️</span>
+            <span>Aplicar Cambios</span>
+          </button>
+          <div class="hint-box">
+            <span class="hint-icon">💡</span>
+            <span>Ctrl+Enter aplica los cambios</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Panel de vista previa -->
+      <div class="preview-panel practice-panel">
+        <div class="preview-header">
+          <h4>📱 Vista Previa</h4>
+          <span class="preview-subtitle">Se actualiza en tiempo real</span>
+        </div>
+
+        <div class="preview-content">
+          <div id="outline-practice-preview" class="preview-container">
+            <div class="mi-outline"></div>
+          </div>
+        </div>
+
+        <div class="preview-info">
+          <div class="info-item">
+            <span class="info-label">Elemento:</span>
+            <code>.mi-outline</code>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Tamaño:</span>
+            <span>100% × 100%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
         </div>
     </main>
 

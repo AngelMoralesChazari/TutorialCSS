@@ -688,3 +688,129 @@
   box-shadow: 0 0 0 3px rgba(89,224,214,.25);
   transform: translateY(-2px);
 }
+
+/* === PRACTICA OUTLINE – UI mejorada === */
+.practice-container {
+  margin-top: 10px;
+}
+
+.practice-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 18px;
+}
+
+.practice-panel {
+  background: rgba(17,24,39,0.92);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  box-shadow: 0 12px 34px rgba(0,0,0,.45);
+  overflow: hidden;
+}
+
+.practice-panel .code-header,
+.practice-panel .preview-header {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 12px 16px;
+  background: rgba(255,255,255,.04);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+
+.btn-reset {
+  display: inline-flex; gap:8px; align-items:center;
+  padding: 8px 12px;
+  background: rgba(56,189,248,.18);
+  border: 1px solid rgba(56,189,248,.35);
+  color: #dbeafe;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+}
+.btn-reset:hover { transform: translateY(-1px); box-shadow: 0 0 0 3px rgba(56,189,248,.18); }
+
+.css-editor {
+  width: 100%;
+  min-height: 220px;
+  background: #0b1220;
+  color: #e5e7eb;
+  border: none;
+  padding: 14px;
+  font-family: Consolas, Monaco, "Courier New", monospace;
+  font-size: .95rem;
+  outline: none;
+  resize: vertical;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+
+.editor-actions {
+  display:flex; align-items:center; gap:12px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,.10);
+  background: rgba(255,255,255,.03);
+}
+
+.btn-play {
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 10px 14px;
+  background: linear-gradient(135deg, #22d3ee, #60a5fa);
+  color:#0b1220; font-weight:700;
+  border: none; border-radius: 10px;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn-play:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(96,165,250,.35); }
+
+.hint-box {
+  display:flex; align-items:center; gap:8px; color: var(--muted);
+  font-size: .9rem;
+}
+
+.preview-content {
+  padding: 14px;
+}
+
+.preview-container {
+  width: 100%;
+  height: 240px;              /* más alto para apreciar el outline */
+  background: radial-gradient(1200px 600px at 0% 0%, rgba(30,64,175,.18), rgba(2,6,23,.0)),
+              rgba(255,255,255,.02);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 12px;
+  display:flex; align-items:center; justify-content:center;
+  position: relative;
+  overflow:hidden;
+}
+
+.preview-info {
+  display:flex; gap:16px; padding: 10px 14px; color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+}
+
+.preview-info .info-label { color:#93c5fd; }
+
+/* El elemento que el usuario estiliza */
+.preview-container .mi-outline {
+  width: clamp(160px, 70%, 780px);
+  height: clamp(60px, 46%, 160px);
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+  /* Defaults visibles si el usuario borra su CSS */
+  border: 2px solid #59e0d6;
+  outline: 8px solid #ff7b86;
+  outline-offset: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.35);
+  transition: outline-width .15s ease, outline-offset .15s ease, border-radius .15s ease;
+}
+
+/* Estado de foco dentro de la vista previa para teclado */
+.preview-container .mi-outline:focus-visible {
+  outline: 3px solid #22d3ee;
+  outline-offset: 6px;
+}
+
+/* Responsive de la grid de práctica */
+@media (max-width: 1000px){
+  .practice-grid { grid-template-columns: 1fr; }
+  .preview-container { height: 220px; }
+}

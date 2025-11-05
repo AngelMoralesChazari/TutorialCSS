@@ -205,6 +205,88 @@ document.addEventListener('DOMContentLoaded', () => {
         btnCustom.click();
     })();
 
+    // === Sección 6 (Outline): Práctica con panel de código + preview ===
+    // === PRACTICA OUTLINE ===
+    (function () {
+        const ta = document.getElementById('outline-css-practice-editor');
+        const preview = document.querySelector('#outline-practice-preview .mi-outline');
+        const btnApply = document.getElementById('outline-apply-css-btn');
+        const btnReset = document.getElementById('outline-reset-practice-btn');
+
+        const DEFAULT_CSS = `.mi-outline {
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.06);
+  border-radius: 12px;
+
+  /* Ajusta aquí tu práctica */
+  border: 2px solid #59e0d6;
+  outline: 8px solid #ff7b86;
+  outline-offset: 12px;
+
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+}`;
+
+        function applyUserCSS() {
+            if (!preview || !ta) return;
+
+            // Garantiza un contenedor único para scoping y más especificidad
+            const scope = document.getElementById('outline-practice-preview');
+
+            // Crea o reutiliza el <style> y colócalo al final del <head>
+            let styleEl = document.getElementById('outline-practice-style');
+            if (!styleEl) {
+                styleEl = document.createElement('style');
+                styleEl.id = 'outline-practice-style';
+                document.head.appendChild(styleEl);
+            } else {
+                // Re-append para dejarlo al final del head y ganar precedencia
+                document.head.appendChild(styleEl);
+            }
+
+            // Aumenta especificidad y scopea las reglas del usuario al preview
+            // 1) parse simple: si el usuario pega ".mi-outline { ... }",
+            // la convertimos a "#outline-practice-preview .mi-outline { ... }"
+            const raw = ta.value;
+            const scoped = raw.replace(/(^|\s)\.mi-outline\s*(?=\{)/g, ' #outline-practice-preview .mi-outline');
+
+            // 2) Añade !important a propiedades conflictivas de outline/border para asegurar override
+            const boosted = scoped.replace(/(outline(?:-offset|-width|-color)?\s*:\s*[^;]+;)/g, (m) => {
+                return m.includes('!important') ? m : m.replace(/;$/, ' !important;');
+            }).replace(/(border(?:-width|-color|-style)?\s*:\s*[^;]+;)/g, (m) => {
+                return m.includes('!important') ? m : m.replace(/;$/, ' !important;');
+            });
+
+            styleEl.textContent = boosted;
+
+            // Accesibilidad
+            preview.setAttribute('tabindex', '0');
+        }
+
+        function resetCSS() {
+            if (!ta) return;
+            ta.value = DEFAULT_CSS;
+            applyUserCSS();
+        }
+
+        if (btnApply) btnApply.addEventListener('click', applyUserCSS);
+        if (btnReset) btnReset.addEventListener('click', resetCSS);
+
+        if (ta) {
+            ta.addEventListener('keydown', (e) => {
+                if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'enter') {
+                    e.preventDefault();
+                    applyUserCSS();
+                }
+            });
+        }
+
+        // Primera carga
+        applyUserCSS();
+    })();
+
+
+
     // Soporte de hash directo (ej: ...#lesson-content-4)
     function initFromHash() {
         const hash = window.location.hash.replace('#', '');
