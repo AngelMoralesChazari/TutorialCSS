@@ -656,18 +656,35 @@
 /* === FIN SECCION 4=== */
 
 /* Botones de los labs accesibles */
-.btn-accesible-demo {
-  outline: none; /* manejamos outline en estados focus/visible específicos */
-}
-
-.btn-accesible-demo:focus-visible {
+/* Estado de foco personalizado (visible siempre que esté enfocado) */
+.focus-ring:focus,
+.focus-ring:focus-visible {
   outline: 3px solid #59e0d6;
   outline-offset: 4px;
+  border-radius: 8px;
 }
 
-/* Inputs con foco consistente */
-input.focus-ring:focus-visible {
+/* Solo teclado: click no muestra, teclado sí (focus-visible) */
+.kbd-ring:focus { outline: none; }
+.kbd-ring:focus-visible {
   outline: 3px solid #ff7b86;
   outline-offset: 4px;
-  border-color: rgba(255,255,255,.25);
+  border-radius: 8px;
+}
+
+/* Para “default” quitamos cualquier override explícito */
+.focus-none:focus,
+.focus-none:focus-visible {
+  outline: revert;           /* deja el valor por defecto del user agent */
+  outline-offset: revert;
+  box-shadow: none;
+}
+
+/* Estética del botón activo del lab */
+.lab-mode-btn {
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.lab-mode-btn.active {
+  box-shadow: 0 0 0 3px rgba(89,224,214,.25);
+  transform: translateY(-2px);
 }

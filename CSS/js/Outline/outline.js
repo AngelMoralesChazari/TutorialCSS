@@ -138,33 +138,71 @@ document.addEventListener('DOMContentLoaded', () => {
         update();
     })();
 
-    // === Sección 5: Accesibilidad (demos focus) ===
-    (function setupA11yDemos() {
-        const defaultBtn = document.getElementById('a11y-default');
-        const customBtn = document.getElementById('a11y-custom');
-        const kbdBtn = document.getElementById('a11y-kbd');
+    // === Sección 5: Mini‑Lab - Modos de foco en tiempo real ===
+    (function setupA11yLiveModes() {
+        const btnDefault = document.getElementById('a11y-default');
+        const btnCustom = document.getElementById('a11y-custom');
+        const btnKbd = document.getElementById('a11y-kbd');
         const input = document.getElementById('a11y-input');
 
-        if (!defaultBtn || !customBtn || !kbdBtn || !input) return;
+        if (!btnDefault || !btnCustom || !btnKbd || !input) return;
 
-        // Botón para mostrar rápidamente el foco con teclado
-        [defaultBtn, customBtn, kbdBtn, input].forEach(el => {
-            el.addEventListener('click', () => {
-                // Mueve el foco a sí mismo para que el usuario vea el estado
-                el.focus();
+        // Marca visual del botón activo
+        const buttons = [btnDefault, btnCustom, btnKbd];
+        buttons.forEach(b => b.classList.add('lab-mode-btn'));
+
+        function setActiveButton(active) {
+            buttons.forEach(b => b.classList.toggle('active', b === active));
+        }
+
+        // Limpia clases de modo en un elemento
+        function clearModes(el) {
+            el.classList.remove('focus-ring', 'kbd-ring', 'focus-none');
+        }
+
+        // Aplica un modo a un conjunto de elementos interactivos del lab
+        function applyMode(mode) {
+            // El lab afecta a los tres botones + el input del lab:
+            const targets = [btnDefault, btnCustom, btnKbd, input];
+            targets.forEach(t => {
+                clearModes(t);
+                t.classList.add(mode);
             });
+        }
+
+        // Forzar a que se “vea” el estado inmediatamente
+        function previewFocus(el) {
+            // Quita el foco actual y vuelve a enfocarlo para refrescar estilos
+            el.blur();
+            requestAnimationFrame(() => el.focus());
+        }
+
+        // Modo: Default (estilo del navegador)
+        btnDefault.addEventListener('click', () => {
+            applyMode('focus-none');
+            setActiveButton(btnDefault);
+            previewFocus(input);
         });
 
-        // Accesibilidad menor: Enter activa botones cuando es el foco
-        [defaultBtn, customBtn, kbdBtn].forEach(el => {
-            el.setAttribute('tabindex', '0');
-            el.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    el.click();
-                }
-            });
+        // Modo: Personalizado (focus-ring visible en focus/focus-visible)
+        btnCustom.addEventListener('click', () => {
+            applyMode('focus-ring');
+            setActiveButton(btnCustom);
+            previewFocus(input);
         });
+
+        // Modo: Solo teclado (usa :focus-visible)
+        btnKbd.addEventListener('click', () => {
+            applyMode('kbd-ring');
+            setActiveButton(btnKbd);
+
+            // Para demostrar focus-visible: si haces click no se verá, con Tab sí.
+            // Previsualizamos con teclado simulando un enfoque sin mouse:
+            previewFocus(input);
+        });
+
+        // Estado inicial: personalizado
+        btnCustom.click();
     })();
 
     // Soporte de hash directo (ej: ...#lesson-content-4)
