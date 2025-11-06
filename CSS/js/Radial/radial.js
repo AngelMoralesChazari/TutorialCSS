@@ -8,11 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentRotationDemo = null;
     let isRunning = false;
 
-    // =======================================================
-    // FUNCIONES DE INTERACTIVIDAD MEJORADAS
-    // =======================================================
-
-    // Función para demo de formas radiales (equivalente a direction demo)
+    // demo de formas radiales 
     function initializeShapesDemo() {
         const demoBox = document.getElementById('shapes-demo-box');
         const shapeDisplay = document.getElementById('current-shape');
@@ -25,12 +21,10 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', function () {
                 const shape = this.dataset.shape;
 
-                // Remover activo de todos los botones
                 shapeButtons.forEach(btn => btn.classList.remove('active'));
-                // Activar botón clickeado
+
                 this.classList.add('active');
 
-                // Actualizar demo y código
                 demoBox.style.background = `radial-gradient(${shape}, #4ecdc4, #764ba2)`;
                 if (shapeDisplay) shapeDisplay.textContent = shape;
                 if (shapeCode) shapeCode.textContent = shape;
@@ -38,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Función para demo de posicionamiento radial
+    // demo de posicionamiento radial
     function initializePositionDemo() {
         console.log('🔧 Inicializando demo de posicionamiento radial...');
 
@@ -77,14 +71,6 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        console.log('✅ Elementos encontrados para posición radial:', {
-            positionBox: !!positionBox,
-            startBtn: !!startBtn,
-            stopBtn: !!stopBtn,
-            speedRange: !!speedRange,
-            colorPicker1: !!colorPicker1,
-            colorPicker2: !!colorPicker2
-        });
 
         // Variables de estado para posición radial
         let posX = 50;
@@ -94,19 +80,19 @@ document.addEventListener('DOMContentLoaded', () => {
         let color2 = '#38BDF8';
         isRunning = false;
 
-        // ✅ FUNCIÓN MEJORADA: Actualizar todo el display
+        // Actualizar todo el display
         function updateAllDisplays() {
             console.log('🔄 Actualizando displays - Posición:', posX, posY, 'Colores:', color1, color2);
 
-            // 1. Actualizar el gradiente visual
+            // gradiente visual
             positionBox.style.background = `radial-gradient(circle at ${posX}% ${posY}%, ${color1}, ${color2})`;
 
-            // 2. Actualizar indicadores de posición
+            // indicadores de posición
             if (currentPositionDisplay) currentPositionDisplay.textContent = `${posX}% ${posY}%`;
             const positionIndicator = positionBox.querySelector('.position-indicator');
             if (positionIndicator) positionIndicator.textContent = `${posX}%, ${posY}%`;
 
-            // 3. ACTUALIZAR CÓDIGO EN EL PANEL
+            // codigo del panel
             if (codePosition) codePosition.textContent = `${posX}% ${posY}%`;
             if (codeGradientPosition) codeGradientPosition.textContent = `${posX}% ${posY}%`;
             if (codeColor1) codeColor1.textContent = color1;
@@ -149,9 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Iniciar movimiento
         function startMovement() {
-            console.log('▶️ Iniciando movimiento con velocidad:', speed);
 
             if (rotationInterval) {
                 clearInterval(rotationInterval);
@@ -160,7 +144,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             isRunning = true;
             rotationInterval = setInterval(() => {
-                // Movimiento circular del punto central
                 posX = 50 + 40 * Math.cos(Date.now() / 1000);
                 posY = 50 + 40 * Math.sin(Date.now() / 1000);
 
@@ -175,10 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Detener movimiento
         function stopMovement() {
-            console.log('⏸️ Deteniendo movimiento');
-
             isRunning = false;
             if (rotationInterval) {
                 clearInterval(rotationInterval);
@@ -192,29 +172,22 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Reiniciar
         function resetMovement() {
-            console.log('🔄 Reiniciando movimiento');
             stopMovement();
             posX = 50;
             posY = 50;
             updateAllDisplays();
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Actualizar velocidad
         function updateSpeed() {
             if (speedRange && speedValue) {
                 speed = parseInt(speedRange.value);
                 speedValue.textContent = `${speed}ms`;
 
-                console.log('🎚️ Velocidad actualizada:', speed);
-
-                // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeInterval) {
                     codeInterval.textContent = speed;
                 }
 
-                // Si está corriendo, reiniciar con nueva velocidad
                 if (isRunning) {
                     startMovement();
                 }
@@ -223,15 +196,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Actualizar color 1
         function updateColor1() {
             if (colorPicker1 && colorValue1) {
                 color1 = colorPicker1.value.toUpperCase();
                 colorValue1.textContent = color1;
 
-                console.log('🎨 Color 1 actualizado:', color1);
-
-                // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeColor1) {
                     codeColor1.textContent = color1;
                 }
@@ -241,15 +210,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Actualizar color 2
         function updateColor2() {
             if (colorPicker2 && colorValue2) {
                 color2 = colorPicker2.value.toUpperCase();
                 colorValue2.textContent = color2;
 
-                console.log('🎨 Color 2 actualizado:', color2);
-
-                // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeColor2) {
                     codeColor2.textContent = color2;
                 }
@@ -259,34 +224,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ CONFIGURACIÓN DE EVENT LISTENERS
+        // configuracion de events listeners 
         function setupEventListeners() {
             console.log('🔌 Configurando event listeners...');
 
-            // Configurar eventos
+            // eventos
             if (startBtn) {
                 startBtn.addEventListener('click', startMovement);
-                console.log('✅ Listener de start configurado');
             }
             if (stopBtn) {
                 stopBtn.addEventListener('click', stopMovement);
-                console.log('✅ Listener de stop configurado');
             }
             if (resetBtn) {
                 resetBtn.addEventListener('click', resetMovement);
-                console.log('✅ Listener de reset configurado');
             }
             if (speedRange) {
                 speedRange.addEventListener('input', updateSpeed);
-                console.log('✅ Listener de speed configurado');
             }
             if (colorPicker1) {
                 colorPicker1.addEventListener('input', updateColor1);
-                console.log('✅ Listener de color1 configurado');
             }
             if (colorPicker2) {
                 colorPicker2.addEventListener('input', updateColor2);
-                console.log('✅ Listener de color2 configurado');
             }
         }
 
@@ -302,7 +261,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ INICIALIZACIÓN COMPLETA
         function initialize() {
             console.log('🚀 Inicializando demo de posición radial...');
 
@@ -321,14 +279,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Configurar evento de teclado
             document.addEventListener('keydown', handleSpaceKey);
-
-            console.log('🎉 Demo de posición radial inicializado correctamente');
         }
 
-        // Ejecutar inicialización
         initialize();
 
-        // Guardar referencia para limpieza
         currentRotationDemo = {
             stop: stopMovement,
             cleanup: () => {
@@ -338,9 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Función de limpieza para detener animaciones al cambiar de lección
+    // detener animaciones al cambiar de lección
     function cleanupDemos() {
-        console.log('🧹 Limpiando demos...');
         if (rotationInterval) {
             clearInterval(rotationInterval);
             rotationInterval = null;
@@ -352,9 +305,8 @@ document.addEventListener('DOMContentLoaded', () => {
         isRunning = false;
     }
 
-    // =======================================================
-    // FUNCIONALIDAD PARA MÚLTIPLES COLORES RADIALES (LECCIÓN 4)
-    // =======================================================
+
+    // seccion 4
 
     function initializeMultiColorRadialDemo() {
         console.log('🎨 Inicializando demo de múltiples colores radiales...');
@@ -374,11 +326,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Verificar elementos
         if (!colorStopsContainer || !multiColorDemoBox) {
-            console.log('ℹ️ No se encontraron elementos para demo de múltiples colores radiales');
             return;
         }
 
-        // Estado inicial para radial
         let colorStops = [
             { color: '#ff6b6b', position: 0 },
             { color: '#ffe66d', position: 50 },
@@ -423,7 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         };
 
-        // Función para renderizar los controles de color
+        // renderizar los controles de color
         function renderColorStops() {
             colorStopsContainer.innerHTML = '';
 
@@ -451,9 +401,8 @@ document.addEventListener('DOMContentLoaded', () => {
             updateDemo();
         }
 
-        // Función para agregar event listeners
+        // agregar event listeners
         function attachColorStopEvents() {
-            // Eventos para selectores de color
             document.querySelectorAll('.color-preview').forEach(input => {
                 input.addEventListener('input', (e) => {
                     const index = parseInt(e.target.dataset.index);
@@ -463,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             });
 
-            // Eventos para inputs de posición
+            // inputs de posición
             document.querySelectorAll('.position-input').forEach(input => {
                 input.addEventListener('input', (e) => {
                     const index = parseInt(e.target.dataset.index);
@@ -499,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Función para actualizar la visualización del valor del color
+        // actualizar la visualización del valor del color
         function updateColorValueDisplay(index) {
             const display = document.querySelector(`.color-value-display:nth-child(${index + 1})`);
             if (display) {
@@ -507,9 +456,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Función para actualizar el demo RADIAL
+        // actualizar el demo RADIAL
         function updateDemo() {
-            // Ordenar stops por posición (por si acaso)
             colorStops.sort((a, b) => a.position - b.position);
 
             // Generar cadena de gradiente RADIAL
@@ -519,20 +467,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const gradientString = `radial-gradient(circle, ${gradientStops})`;
 
-            // Aplicar al demo box
             multiColorDemoBox.style.background = gradientString;
 
-            // Actualizar código
             updateCodeDisplay(gradientStops);
 
-            // Actualizar explicación
             updateExplanation();
 
-            // Actualizar marcadores de posición
             updatePositionMarkers();
         }
 
-        // Función para actualizar el código mostrado (RADIAL)
         function updateCodeDisplay(gradientStops) {
             const codeLines = gradientStops.split(', ')
                 .map(stop => `    ${stop}`)
@@ -543,7 +486,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ${codeLines});</code>`;
         }
 
-        // Función para actualizar la explicación
+        // actualizar la explicación
         function updateExplanation() {
             const explanation = colorStops.map((stop, index) => {
                 const colorName = getColorName(stop.color);
@@ -554,7 +497,7 @@ ${codeLines});</code>`;
                 `${colorStops.length} colores: ${explanation}`;
         }
 
-        // Función para obtener nombre aproximado del color
+        // obtener nombre aproximado del color
         function getColorName(hexColor) {
             const colorMap = {
                 '#ff6b6b': 'Rojo',
@@ -574,7 +517,7 @@ ${codeLines});</code>`;
             return colorMap[hexColor.toLowerCase()] || hexColor.toUpperCase();
         }
 
-        // Función para actualizar marcadores de posición
+        // actualizar marcadores de posición
         function updatePositionMarkers() {
             if (!colorStopsOverlay) return;
 
@@ -596,7 +539,7 @@ ${codeLines});</code>`;
             });
         }
 
-        // Función para agregar un nuevo color
+        // agregar un nuevo color
         function addColorStop() {
             if (colorStops.length >= 6) {
                 alert('Máximo 6 colores permitidos');
@@ -619,7 +562,7 @@ ${codeLines});</code>`;
             renderColorStops();
         }
 
-        // Función para quitar un color
+        // quitar un color
         function removeColorStop() {
             if (colorStops.length > 2) {
                 colorStops.splice(colorStops.length - 2, 1);
@@ -627,7 +570,7 @@ ${codeLines});</code>`;
             }
         }
 
-        // Función para reiniciar
+        // reiniciar
         function resetColorStops() {
             colorStops = [
                 { color: '#ff6b6b', position: 0 },
@@ -637,7 +580,7 @@ ${codeLines});</code>`;
             renderColorStops();
         }
 
-        // Función para aplicar preset
+        // aplicar preset
         function applyPreset(presetName) {
             if (presets[presetName]) {
                 colorStops = JSON.parse(JSON.stringify(presets[presetName]));
@@ -645,7 +588,7 @@ ${codeLines});</code>`;
             }
         }
 
-        // Configurar event listeners
+        // event listeners
         if (addColorBtn) addColorBtn.addEventListener('click', addColorStop);
         if (removeColorBtn) removeColorBtn.addEventListener('click', removeColorStop);
         if (resetColorsBtn) resetColorsBtn.addEventListener('click', resetColorStops);
@@ -661,22 +604,12 @@ ${codeLines});</code>`;
 
         // Inicializar
         renderColorStops();
-
-        console.log('🎉 Demo de múltiples colores radiales inicializado');
     }
 
-    // =======================================================
-    // FUNCIONALIDAD PARA SECCIÓN 5 - PRÁCTICA RADIAL
-    // =======================================================
-
-    // =======================================================
-    // FUNCIONALIDAD PARA SECCIÓN 5 - PRÁCTICA RADIAL
-    // =======================================================
+    // seccion 5
 
     function initializePracticeSection() {
-        console.log('🚀 Inicializando sección de práctica radial...');
 
-        // Elementos del DOM
         const cssEditor = document.getElementById('css-practice-editor');
         const applyBtn = document.getElementById('apply-css-btn');
         const resetBtn = document.getElementById('reset-practice-btn');
@@ -685,7 +618,6 @@ ${codeLines});</code>`;
 
         // Verificar si estamos en la sección de práctica
         if (!cssEditor || !previewElement) {
-            console.log('ℹ️ No estamos en la sección de práctica, omitiendo inicialización');
             return;
         }
 
@@ -698,17 +630,14 @@ ${codeLines});</code>`;
     box-shadow: 0 8px 32px rgba(0,0,0,0.3);
 }`;
 
-        // ✅ FUNCIÓN CORREGIDA: Aplicar el CSS
         function applyCSS() {
             const cssCode = cssEditor.value;
             console.log('🎨 Aplicando CSS:', cssCode);
 
             try {
-                // Extraer las propiedades CSS del código
                 const cssContent = extractCSSProperties(cssCode);
 
                 if (cssContent) {
-                    // Aplicar cada propiedad al elemento preview
                     Object.keys(cssContent).forEach(property => {
                         previewElement.style[property] = cssContent[property];
                     });
@@ -719,14 +648,11 @@ ${codeLines});</code>`;
                         previewElement.style.transform = 'scale(1)';
                     }, 200);
 
-                    console.log('✅ CSS aplicado correctamente');
                 } else {
                     throw new Error('No se pudieron extraer propiedades CSS válidas');
                 }
 
             } catch (error) {
-                console.error('❌ Error aplicando CSS:', error);
-                // Efecto visual de error
                 previewElement.style.boxShadow = '0 0 20px rgba(239, 68, 68, 0.5)';
                 setTimeout(() => {
                     previewElement.style.boxShadow = '';
@@ -734,14 +660,10 @@ ${codeLines});</code>`;
             }
         }
 
-        // ✅ FUNCIÓN AUXILIAR: Extraer propiedades CSS del código
         function extractCSSProperties(cssCode) {
-            // Buscar el contenido dentro de .mi-gradiente { ... }
             const match = cssCode.match(/\.mi-gradiente\s*\{([^}]+)\}/i);
 
             if (!match || !match[1]) {
-                console.warn('⚠️ No se encontró el selector .mi-gradiente');
-                // Intentar aplicar directamente como propiedades
                 return parseCSSProperties(cssCode);
             }
 
@@ -749,7 +671,6 @@ ${codeLines});</code>`;
             return parseCSSProperties(cssContent);
         }
 
-        // ✅ FUNCIÓN AUXILIAR: Parsear propiedades CSS
         function parseCSSProperties(cssContent) {
             const properties = {};
             const declarations = cssContent.split(';');
@@ -759,7 +680,6 @@ ${codeLines});</code>`;
                 if (trimmed) {
                     const [property, value] = trimmed.split(':').map(part => part.trim());
                     if (property && value) {
-                        // Convertir propiedad CSS a formato camelCase para style[]
                         const camelCaseProperty = property.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
                         properties[camelCaseProperty] = value;
                     }
@@ -769,17 +689,14 @@ ${codeLines});</code>`;
             return properties;
         }
 
-        // Función para reiniciar
+        // reiniciar
         function resetPractice() {
-            console.log('🔄 Reiniciando práctica radial...');
             cssEditor.value = defaultCode;
             applyCSS();
         }
 
-        // Función para cargar ejemplo
+        // cargar ejemplo
         function loadExample(gradientCode) {
-            console.log('📝 Cargando ejemplo radial:', gradientCode);
-
             const newCode = `.mi-gradiente {
     width: 100%;
     height: 100%;
@@ -791,15 +708,13 @@ ${codeLines});</code>`;
             cssEditor.value = newCode;
             applyCSS();
 
-            // Scroll suave al editor
             cssEditor.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        // Configurar event listeners
+        //  event listeners
         if (applyBtn) applyBtn.addEventListener('click', applyCSS);
         if (resetBtn) resetBtn.addEventListener('click', resetPractice);
 
-        // Atajo de teclado: Ctrl+Enter
         if (cssEditor) {
             cssEditor.addEventListener('keydown', (e) => {
                 if (e.ctrlKey && e.key === 'Enter') {
@@ -809,7 +724,7 @@ ${codeLines});</code>`;
             });
         }
 
-        // Event listeners para botones de ejemplo
+        // event listeners para botones de ejemplo
         exampleButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const gradientCode = button.dataset.code;
@@ -817,67 +732,53 @@ ${codeLines});</code>`;
             });
         });
 
-        // Aplicar código inicial
         resetPractice();
 
-        console.log('✅ Sección de práctica radial inicializada');
     }
 
-    // =======================================================
-    // LÓGICA DE CARGA DINÁMICA DE LECCIONES
-    // =======================================================
+    // carga dinamica de lecciones
 
     function loadLesson(lessonNum) {
-        console.log(`📖 Cargando lección ${lessonNum}`);
-
-        // Detiene cualquier demo activa antes de cambiar
         cleanupDemos();
 
-        // 1. Oculta TODAS las secciones de contenido
+        // oculta las secciones de contenido
         lessonContentSections.forEach(section => {
             section.style.display = 'none';
         });
 
-        // 2. Muestra SOLAMENTE la sección activa
+        // muestra la sección activa
         const activeLesson = document.getElementById(`lesson-content-${lessonNum}`);
         if (activeLesson) {
             activeLesson.style.display = 'block';
 
-            // 3. Inicializa la interactividad de la lección cargada
+            // interactividad de la lección cargada
             setTimeout(() => {
                 if (lessonNum === '2') {
-                    console.log('🚀 Inicializando lección 2...');
                     initializeShapesDemo();
                     initializePositionDemo();
                 } else if (lessonNum === '3') {
-                    console.log('🚀 Inicializando lección 3...');
-                    // Aquí puedes agregar demos específicos para lección 3 si los tienes
+
                 } else if (lessonNum === '4') {
-                    console.log('🚀 Inicializando lección 4...');
                     initializeMultiColorRadialDemo();
+
                 } else if (lessonNum === '5') {
-                    console.log('🚀 Inicializando lección 5...');
                     initializePracticeSection();
                 }
             }, 100);
         }
     }
 
-    // Manejo de clics en el temario
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
-            // Remueve la clase 'active' del menú anterior
+
             menuItems.forEach(i => i.classList.remove('active'));
 
-            // Añade 'active' al elemento clickeado
             item.classList.add('active');
 
-            // Obtiene el número de lección y la carga
             const num = item.dataset.lesson;
             loadLesson(num);
         });
     });
 
-    // Cargar la primera lección por defecto al iniciar
     loadLesson('1');
 });

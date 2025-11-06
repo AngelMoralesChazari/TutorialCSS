@@ -1,6 +1,3 @@
-/* === SECCION 1 - OUTLINE === */
-
-/* Estructura general: panel lateral + contenido */
 .outline-layout {
     display: grid;
     grid-template-columns: 260px 1fr 1fr;
@@ -9,20 +6,20 @@
 }
 
 #main-lesson-container {
-    grid-column: span 2;  /* Ocupa las dos últimas columnas */
+    grid-column: span 2;  
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Dos columnas internas para teoría y ejemplo */
-    gap: 20px; /* Espacio entre el panel de teoría y el panel de ejemplo */
+    grid-template-columns: 2fr 1fr; 
+    gap: 20px; 
     align-items: flex-start;
 }
 
 .lesson-theory {
-    background: rgba(17,24,39,0.92); /* Fondo de tarjeta */
+    background: rgba(17,24,39,0.92); 
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 20px; /* Padding interno */
+    padding: 20px;
     box-shadow: 0 12px 34px var(--shadow);
-    animation: fadeUp 0.8s ease forwards; /* Animación de entrada */
+    animation: fadeUp 0.8s ease forwards; 
 }
 
 .lesson-theory h2 {
@@ -51,19 +48,19 @@
     font-family: Consolas, monospace;
 }
 
-/* === Contenido del Ejemplo (ahora es .lesson-example) === */
+/* === Contenido del Ejemplo === */
 .lesson-example {
-    background: rgba(17,24,39,0.92); /* Fondo de tarjeta */
+    background: rgba(17,24,39,0.92); 
     border: 1px solid var(--border);
     border-radius: 12px;
-    padding: 20px; /* Padding interno */
+    padding: 20px; 
     box-shadow: 0 12px 34px var(--shadow);
     display: flex;
-    flex-direction: column; /* Para centrar el demo-box verticalmente */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    min-height: 250px; /* Altura mínima para el ejemplo visual */
-    animation: fadeUp 0.8s ease forwards; /* Animación de entrada */
+    min-height: 250px; 
+    animation: fadeUp 0.8s ease forwards; 
 }
 
 /* Estilos para los demos dentro de lesson-example */
@@ -136,17 +133,16 @@
     display: none !important;
 }
 
-/* === ESTILOS ESPECÍFICOS PARA OUTLINE === */
 
 /* Demo box para outline */
 #outline-demo-box {
-  border: 4px solid #4ecdc4;      /* antes 2px */
-  outline: 6px solid #ff6b6b;     /* antes 2px */
-  outline-offset: 8px;            /* separa el outline del borde */
+  border: 4px solid #4ecdc4;      
+  outline: 6px solid #ff6b6b;     
+  outline-offset: 8px;         
   background: rgba(255, 255, 255, 0.06);
   width: 100%;
-  height: 180px;                  /* puedes subir un poco la altura para lucir mejor */
-  border-radius: 12px;            /* un poco más redondeado ayuda a percibir el grosor */
+  height: 180px;                 
+  border-radius: 12px;            
   display: flex;
   align-items: center;
   justify-content: center;
@@ -347,10 +343,10 @@
     color: #c586c0; /* Morado para pseudoclases */
 }
 
-/* === ESTILOS PARA ESTRUCTURA UNIFICADA === */
+/* === estilos - estructura === */
 
 .lesson-content {
-    grid-column: 1 / -1; /* Ocupa todo el ancho disponible */
+    grid-column: 1 / -1; 
 }
 
 .theory-block {
@@ -391,7 +387,7 @@
     color: var(--muted);
 }
 
-/* === SYNTAX HIGHLIGHTING PROFESIONAL === */
+/* === sintax higth === */
 
 .css-comment {
     color: #6a9955; /* Verde para comentarios */
@@ -471,7 +467,7 @@
     font-family: inherit;
 }
 
-/* === DISEÑO MEJORADO PARA PASO A PASO === */
+/* === estilos - paso a psso === */
 
 .step-by-step-enhanced {
     display: flex;
@@ -551,7 +547,7 @@
     line-height: 1.6;
 }
 
-/* === RESPONSIVE === */
+/* === responsive === */
 
 @media (max-width: 1200px) {
     .outline-layout {
@@ -626,7 +622,7 @@
 
 /* === SECCION 2  ===*/
 
-/* Variant para demos de la sección 2 (más visuales) */
+/* Variant para demos de la sección 2 */
 .demo-box {
   border-radius: 14px;
 }
@@ -638,25 +634,21 @@
 
 .syntax-demo, .real-code-example { margin-top: 16px; }
 
-/* === FIN SECCION 2  ===*/
 
 /* === SECCION 3 === */
-/* Sección 3 ajustes sutiles */
+
 .example-block .demo-box { border-radius: 12px; }
 .example-block .demo-item p { margin-top: 10px; }
 .syntax-demo, .real-code-example { margin-top: 12px; }
 
-/* === FIN SECCION 3 === */
-
 
 /* === SECCION 4 === */
-/* Sección 4: refinamientos */
+
 #offlab-preview { transition: outline-width .15s ease, outline-offset .15s ease, border-radius .15s ease; }
 .example-block > h4 { margin: 0 0 12px; }
-/* === FIN SECCION 4=== */
+
 
 /* Botones de los labs accesibles */
-/* Estado de foco personalizado (visible siempre que esté enfocado) */
 .focus-ring:focus,
 .focus-ring:focus-visible {
   outline: 3px solid #59e0d6;
@@ -675,7 +667,7 @@
 /* Para “default” quitamos cualquier override explícito */
 .focus-none:focus,
 .focus-none:focus-visible {
-  outline: revert;           /* deja el valor por defecto del user agent */
+  outline: revert;           
   outline-offset: revert;
   box-shadow: none;
 }
@@ -689,7 +681,6 @@
   transform: translateY(-2px);
 }
 
-/* === PRACTICA OUTLINE – UI mejorada === */
 .practice-container {
   margin-top: 10px;
 }
@@ -771,9 +762,8 @@
 
 .preview-container {
   width: 100%;
-  height: 240px;              /* más alto para apreciar el outline */
-  background: radial-gradient(1200px 600px at 0% 0%, rgba(30,64,175,.18), rgba(2,6,23,.0)),
-              rgba(255,255,255,.02);
+  height: 240px;              
+  background: radial-gradient(1200px 600px at 0% 0%, rgba(30,64,175,.18), rgba(2,6,23,.0)), rgba(255,255,255,.02);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 12px;
   display:flex; align-items:center; justify-content:center;
@@ -795,7 +785,7 @@
   height: clamp(60px, 46%, 160px);
   background: rgba(255,255,255,0.06);
   border-radius: 12px;
-  /* Defaults visibles si el usuario borra su CSS */
+  
   border: 2px solid #59e0d6;
   outline: 8px solid #ff7b86;
   outline-offset: 10px;

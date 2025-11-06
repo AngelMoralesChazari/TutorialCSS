@@ -75,7 +75,6 @@
 /* Estilos para los demos en la sección de comparación */
 .demo-comparison .demo-box {
     height: 120px;
-    /* o el valor que prefieras */
     width: 100%;
     border-radius: 10px;
     border: 1px solid var(--border);
@@ -148,12 +147,11 @@
     display: block;
 }
 
-/* Scroll suave para toda la página */
 html {
     scroll-behavior: smooth;
 }
 
-/* === ESTILOS PARA LECCIÓN MEJORADA === */
+/* === estilos - leccion === */
 .concept-box {
     background: rgba(56, 189, 248, 0.1);
     border-left: 4px solid var(--accent);
@@ -224,7 +222,7 @@ html {
     margin: 5px 0 15px 0;
 }
 
-/* === ESTILOS PARA ESTRUCTURA UNIFICADA === */
+/* === estilos - estructura === */
 .lesson-content {
     grid-column: 1 / -1;
 }
@@ -403,7 +401,7 @@ html {
     color: var(--text);
 }
 
-/* === ESTILOS PARA CONTENIDO TÉCNICO MEJORADO === */
+/* === estilos - contenido === */
 
 /* Grid de etiquetas HTML */
 .tags-grid {
@@ -569,7 +567,7 @@ html {
     color: var(--text);
 }
 
-/* === SYNTAX HIGHLIGHTING PROFESIONAL === */
+/* === syntax hight === */
 
 .css-comment {
     color: #6a9955;
@@ -688,7 +686,7 @@ html {
     font-weight: 600;
 }
 
-/* === DISEÑO MEJORADO PARA PASO A PASO === */
+/* === diseño - paso a paso === */
 
 .journey-intro {
     display: flex;
@@ -948,7 +946,7 @@ html {
     margin: 0;
 }
 
-/* === DISEÑO MEJORADO PARA APLICACIONES === */
+/* === diseño - aplicaciones === */
 
 .application-intro {
     display: flex;
@@ -1215,7 +1213,7 @@ html {
     font-weight: 600;
 }
 
-/* === DISEÑO MEJORADO PARA FORMATOS DE COLOR VERTICAL === */
+/* === diseño- formato de color vertical === */
 
 .formats-intro {
     display: flex;
@@ -1378,7 +1376,7 @@ html {
     font-family: 'Consolas', monospace;
 }
 
-/* ANIMACIONES ESPECÍFICAS */
+/* animaciones */
 @keyframes fadeUp {
     0% {
         opacity: 0;
@@ -1391,7 +1389,7 @@ html {
     }
 }
 
-/* RESPONSIVE ESPECÍFICO PARA RADIAL */
+/* responsiveL */
 @media (max-width: 1200px) {
     .linear-layout {
         grid-template-columns: 260px 1fr;
@@ -1473,7 +1471,7 @@ html {
     }
 }
 
-/* === ESTILOS ESPECÍFICOS PARA DEMOS RADIALES === */
+/* === estilos - demos === */
 
 /* Efectos especiales para demos radiales */
 .radial-glow {
@@ -1517,7 +1515,6 @@ html {
     transform: scale(0.95);
 }
 
-/* Agregar esto a tu radial.css */
 .lesson-content {
     display: none;
 }
@@ -1542,7 +1539,7 @@ html {
 }
 
 
-/* === SECCION 2 FORMAS Y TAMAÑOS === */
+/* === seccion 2 === */
 
 /* Estilos para los demos en la sección de comparación */
 .demo-comparison .demo-box {
@@ -1572,7 +1569,6 @@ html {
     margin: 10px 0;
 }
 
-/* Asegurar que las secciones tengan buen espaciado */
 .lesson-content {
     padding: 20px;
 }
@@ -1589,12 +1585,10 @@ html {
     border-left: 4px solid var(--accent);
 }
 
-/* Estilos específicos para práctica radial si son necesarios */
 .practice-container .mi-gradiente {
     transition: all 0.3s ease;
 }
 
-/* Asegurar que los ejemplos se muestren correctamente */
 .examples-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1619,7 +1613,7 @@ html {
     border-color: var(--accent);
 }
 
-/* === ESTILOS ESPECÍFICOS PARA LA SECCIÓN DE PRÁCTICA === */
+/* === estilos- practica === */
 
 /* Panel de código mejorado para práctica */
 .code-panel.practice-panel {
@@ -1655,7 +1649,7 @@ html {
     font-weight: 600;
 }
 
-/* Editor de CSS específico */
+/* Editor de CSS */
 .css-editor {
     width: 100%;
     height: 300px;
@@ -1696,7 +1690,7 @@ html {
     font-size: 1rem;
 }
 
-/* Panel de preview mejorado */
+/* Panel de preview */
 .preview-panel {
     display: flex;
     flex-direction: column;
@@ -1781,7 +1775,7 @@ html {
     font-weight: 600;
 }
 
-/* === ESTILOS PARA LOS EJEMPLOS DE GRADIENTE === */
+/* === estilos - ejemplos=== */
 
 /* Grid de ejemplos */
 .examples-grid {
@@ -1848,7 +1842,7 @@ html {
     transform: translateY(-2px);
 }
 
-/* === BOTONES MEJORADOS === */
+/* === botones === */
 
 .btn-play,
 .btn-reset {
@@ -1880,7 +1874,7 @@ html {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* === RESPONSIVE PARA PRÁCTICA === */
+/* === responsive === */
 
 @media (max-width: 1100px) {
     .practice-grid {
@@ -1931,7 +1925,7 @@ html {
 }
 
 
-/* === LAYOUT PARA PRÁCTICA DIVIDIDA === */
+/* === layout para practica === */
 .practice-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1986,7 +1980,7 @@ html {
     padding: 0;
 }
 
-/* Editor de CSS mejorado */
+/* Editor de CSS */
 .css-editor {
     width: 100%;
     height: 400px;

@@ -1,11 +1,7 @@
-// rgba-hsla.js - Funcionalidad para colores con transparencia
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.lesson-list li');
     const lessonContentSections = document.querySelectorAll('.lesson-content');
 
-    // =======================================================
-    // FUNCIONALIDAD PARA DEMOS INTERACTIVOS
-    // =======================================================
 
     function initializeRgbaDemo() {
         const rSlider = document.getElementById('rgba-r');
@@ -52,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.addEventListener('input', updateRgbaDemo);
         });
 
-        // Inicializar
         updateRgbaDemo();
     }
 
@@ -79,36 +74,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const l = parseInt(lSlider.value);
             const a = parseInt(aSlider.value) / 100;
 
-            // Actualizar valores mostrados
             hValue.textContent = `${h}°`;
             sValue.textContent = `${s}%`;
             lValue.textContent = `${l}%`;
             aValue.textContent = a.toFixed(2);
 
-            // Actualizar demo visual
             demoBox.style.background = `hsla(${h}, ${s}%, ${l}%, ${a})`;
 
-            // Actualizar código
             codeElement.innerHTML = 
                 `<code><span class="css-property">background</span>: <span class="css-function">hsla</span>(<span class="css-number">${h}</span>, <span class="css-number">${s}</span><span class="css-unit">%</span>, <span class="css-number">${l}</span><span class="css-unit">%</span>, <span class="css-number">${a.toFixed(2)}</span>);</code>`;
 
-            // Actualizar valores de texto
             valuesElement.textContent = `hsla(${h}, ${s}%, ${l}%, ${a.toFixed(2)})`;
         }
 
-        // Configurar event listeners
         [hSlider, sSlider, lSlider, aSlider].forEach(slider => {
             slider.addEventListener('input', updateHslaDemo);
         });
 
-        // Inicializar
         updateHslaDemo();
     }
 
-    // =======================================================
-    // PRÁCTICA INTERACTIVA (NUEVA FUNCIONALIDAD)
-    // =======================================================
-
+    // practica interactiva
     function initializePractice() {
         // Elementos del editor
         const rgbaEditor = document.getElementById('rgba-editor');
@@ -118,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
 
-        // Si no existen los elementos de práctica, salir
         if (!rgbaEditor || !applyButton) return;
 
         // Contenido inicial para reset
@@ -191,50 +176,40 @@ document.addEventListener('DOMContentLoaded', () => {
             applyCSS(cssCode);
         });
 
-        // Reiniciar editors
+
         resetButton.addEventListener('click', function() {
             rgbaEditor.value = initialRGBA;
             hslaEditor.value = initialHSLA;
-            applyCSS(initialRGBA); // Aplicar RGBA por defecto
+            applyCSS(initialRGBA);
         });
 
-        // Función para aplicar CSS
+
         function applyCSS(cssCode) {
-            // Remover estilo anterior
             const oldStyle = document.getElementById('dynamic-style');
             if (oldStyle) {
                 oldStyle.remove();
             }
-            
-            // Crear nuevo estilo
+
             const style = document.createElement('style');
             style.id = 'dynamic-style';
             style.textContent = cssCode;
             document.head.appendChild(style);
         }
 
-        // Aplicar estilo inicial
         applyCSS(initialRGBA);
     }
 
-    // =======================================================
-    // LÓGICA DE CARGA DINÁMICA DE LECCIONES
-    // =======================================================
+    // carga dinamica
 
     function loadLesson(lessonNum) {
-        console.log(`📖 Cargando lección ${lessonNum}`);
-
-        // 1. Oculta TODAS las secciones de contenido
         lessonContentSections.forEach(section => {
             section.style.display = 'none';
         });
 
-        // 2. Muestra SOLAMENTE la sección activa
         const activeLesson = document.getElementById(`lesson-content-${lessonNum}`);
         if (activeLesson) {
             activeLesson.style.display = 'block';
 
-            // 3. Inicializa la interactividad de la lección cargada
             setTimeout(() => {
                 switch(lessonNum) {
                     case '2':
@@ -246,27 +221,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         console.log('🚀 Inicializando lección 5 (Práctica)...');
                         initializePractice();
                         break;
-                    // Puedes agregar más casos para otras lecciones aquí
                 }
             }, 100);
         }
     }
 
-    // Manejo de clics en el temario
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
-            // Remueve la clase 'active' del menú anterior
+
             menuItems.forEach(i => i.classList.remove('active'));
 
-            // Añade 'active' al elemento clickeado
             item.classList.add('active');
 
-            // Obtiene el número de lección y la carga
             const num = item.dataset.lesson;
             loadLesson(num);
         });
     });
 
-    // Cargar la primera lección por defecto al iniciar
     loadLesson('1');
 });

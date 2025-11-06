@@ -1,4 +1,4 @@
-/* === ESTILOS ESPECÍFICOS PARA RGBA Y HSLA === */
+/* === ESTILOS PARA RGBA Y HSLA === */
 
 .linear-layout {
     display: grid;
@@ -87,18 +87,7 @@
     box-shadow: 0 4px 12px rgba(56,189,248,0.3);
 }
 
-/* Estados de las lecciones 
-
-.hidden-lesson {
-    display: none !important;
-}
-*/
-
-
-.lesson-content {
-    display: block;
-    overflow: visible !important;
-}
+/* Estados de las lecciones */
 
 /* Header de la lección */
 .lesson-content h2 {
@@ -182,7 +171,7 @@
     line-height: 1.5;
 }
 
-/* Concept boxes */
+/* Conceptos  */
 .concept-box {
     background: rgba(56, 189, 248, 0.1);
     border-left: 4px solid var(--accent);
@@ -210,7 +199,7 @@
     line-height: 1.5;
 }
 
-/* Demo comparison */
+/* Demo comparacion */
 .demo-comparison {
     display: flex;
     justify-content: space-around;
@@ -676,7 +665,7 @@
     margin: 0;
 }
 
-/* Tip boxes mejorados */
+/* Tip boxes */
 .step-tip {
     display: flex;
     align-items: flex-start;
@@ -724,7 +713,7 @@
     font-size: 1.1rem;
 }
 
-/* Demo result mejorado */
+/* Demo result */
 .demo-result-enhanced {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -935,7 +924,7 @@
     font-size: 0.7rem;
 }
 
-/* === ESTILOS MEJORADOS PARA SINTÁXIS RGBA/HSLA === */
+/* === estilos - sintaxys RGBA/HSLA === */
 
 .syntax-breakdown {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(30, 41, 59, 0.95));
@@ -976,7 +965,7 @@
     font-size: 1.2em;
 }
 
-/* Panel de código mejorado para sintaxis */
+/* Panel de código para sintaxis */
 .syntax-breakdown .code-panel {
     margin: 0 0 30px 0;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -988,7 +977,7 @@
     border-bottom: 1px solid #444;
 }
 
-/* Grid de breakdown mejorado */
+/* Grid de breakdown */
 .breakdown-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1206,7 +1195,7 @@
     line-height: 1.5;
 }
 
-/* === CORRECCIONES ESPECÍFICAS PARA EL EJEMPLO DE "Red (Rojo)" === */
+/* === correciones para el ejemplo de Red === */
 .range-demo-enhanced {
     background: rgba(255, 107, 107, 0.05);
     border: 1px solid rgba(255, 107, 107, 0.2);
@@ -1271,7 +1260,7 @@
     text-align: center;
 }
 
-/* === DISEÑO MEJORADO PARA PASO A PASO RGBA/HSLA === */
+/* === diseño - paso a paso RGBA/HSLA === */
 
 .journey-intro {
     display: flex;
@@ -1531,9 +1520,7 @@
     margin: 0;
 }
 
-/* === MEJORAS ESPECÍFICAS PARA COLORES === */
-
-/* Estilos mejorados para ejemplos de código RGB */
+/* Estilos para ejemplos de código RGB */
 .rgb-example {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 8px;
@@ -1596,7 +1583,7 @@
     font-style: italic;
 }
 
-/* Mejoras para el texto de ejemplo RGB */
+/* texto de ejemplo RGB */
 .rgb-text-example {
     font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
     font-size: 1.1rem;
@@ -1680,7 +1667,7 @@
     color: #45b7d1;
 }
 
-/* Mejoras para la sección "Elige un Color Base" */
+/* Elige un Color Base */
 .color-base-section {
     background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
     border-radius: 12px;
@@ -1738,7 +1725,7 @@
     padding: 6px 10px;
 }
 
-/* === ESTILOS MEJORADOS PARA EJEMPLOS DE SINTAXIS RGBA === */
+/* === estilos - sintaxis rgba === */
 
 .syntax-example-container {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(30, 41, 59, 0.95));
@@ -1843,7 +1830,7 @@
     color: #d4d4d4;
 }
 
-/* Estilos específicos para la sintaxis RGBA */
+/* Estilos para la sintaxis RGBA */
 .rgba-syntax {
     margin: 0;
 }
@@ -1933,7 +1920,7 @@
     display: inline-block;
 }
 
-/* Demo boxes mejorados */
+/* Demo boxes */
 .demo-box-enhanced {
     width: 120px;
     height: 120px;
@@ -2002,7 +1989,7 @@
     font-size: 1.1em;
 }
 
-/* === ESTILOS ESPECÍFICOS PARA EL EJEMPLO DE IMAGEN === */
+/* === estilos - ejemplos imagenes === */
 .syntax-demo-compact {
     background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(30, 41, 59, 0.95));
     border: 1px solid var(--border);
@@ -2157,7 +2144,7 @@
     line-height: 1.4;
 }
 
-/* === RESPONSIVE CORREGIDO === */
+/* responsive */
 
 @media (max-width: 768px) {
     .syntax-breakdown {
@@ -2272,7 +2259,7 @@
     }
 }
 
-/* Efectos de hover mejorados */
+/* Efectos de hover */
 .step-card:hover .step-number {
     transform: scale(1.1);
     transition: transform 0.3s ease;
@@ -2315,7 +2302,6 @@
     }
 }
 
-/* === CORRECCIONES GLOBALES PARA EVITAR DESBORDAMIENTO === */
 * {
     box-sizing: border-box;
 }
@@ -2345,7 +2331,7 @@
     height: auto !important;
 }
 
-/* Asegurar que el contenido se expanda correctamente */
+/* contenido se expande correctamente */
 .part-desc,
 .step-explanation,
 .property-content,
@@ -2354,7 +2340,7 @@
     min-height: auto !important;
 }
 
-/* === CORRECCIÓN DE DESBORDAMIENTO EN "Sintaxis y Valores" === */
+/* === correccion de desbordamiento en sintaxis y valores === */
 .syntax-breakdown,
 .breakdown-items,
 .breakdown-item,
@@ -2397,8 +2383,6 @@
 
 
 /* SECCION 3 ===*/
-
-/* === ESTILOS PARA CASOS DE USO PRÁCTICOS === */
 
 /* Demo de overlay sobre imagen */
 .image-overlay-demo {
@@ -2515,7 +2499,6 @@
 }
 
 /* Demo de sombras */
-/* Demo de sombras mejorado */
 .shadow-demo {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2625,7 +2608,6 @@
 
 
 /* === SECCION 4 === */
-/* === ESTILOS PARA COMPARACIÓN Y EJEMPLOS === */
 
 /* Grid de comparación mejorado */
 .comparison-grid-enhanced {
@@ -2898,8 +2880,6 @@
 
 
 /* === SECCION 5 === */
-
-/* === ESTILOS PARA PRÁCTICA INTERACTIVA === */
 
 .practice-container {
     margin: 30px 0;

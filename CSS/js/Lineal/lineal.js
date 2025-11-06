@@ -3,14 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.lesson-list li');
     const lessonContentSections = document.querySelectorAll('.lesson-content');
 
-    // Variable global para el intervalo de rotación
+    // rotación
     let rotationInterval = null;
     let currentRotationDemo = null;
     let isRunning = false;
-
-    // =======================================================
-    // FUNCIONES DE INTERACTIVIDAD MEJORADAS
-    // =======================================================
 
     function initializeDirectionDemo() {
         const demoBox = document.getElementById('direction-demo-box');
@@ -22,12 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
             button.addEventListener('click', function () {
                 const direction = this.dataset.direction;
 
-                // Remover activo de todos los botones
                 directionButtons.forEach(btn => btn.classList.remove('active'));
-                // Activar botón clickeado
                 this.classList.add('active');
 
-                // Actualizar demo y código
                 demoBox.style.background = `linear-gradient(${direction}, #4ecdc4, #764ba2)`;
                 directionDisplay.textContent = direction;
                 if (directionCode) {
@@ -37,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Función para el demo de rotación MEJORADA
+    // Demo de rotación
     function initializeRotationDemo() {
         console.log('🔧 Inicializando demo de rotación...');
 
@@ -92,19 +85,19 @@ document.addEventListener('DOMContentLoaded', () => {
         let color2 = '#38BDF8';
         isRunning = false;
 
-        // ✅ FUNCIÓN MEJORADA: Actualizar todo el display
+        // Actualizar todo el display
         function updateAllDisplays() {
             console.log('🔄 Actualizando displays - Ángulo:', angle, 'Colores:', color1, color2);
 
-            // 1. Actualizar el gradiente visual
+            // Gradiente visual
             rotationBox.style.background = `linear-gradient(${angle}deg, ${color1}, ${color2})`;
 
-            // 2. Actualizar indicadores de ángulo
+            // Indicadores de ángulo
             if (currentAngleDisplay) currentAngleDisplay.textContent = `${angle}deg`;
             const angleIndicator = rotationBox.querySelector('.angle-indicator');
             if (angleIndicator) angleIndicator.textContent = `${angle}°`;
 
-            // 3. ACTUALIZAR CÓDIGO EN EL PANEL
+            // Codigo del Panel
             if (codeAngle) codeAngle.textContent = angle;
             if (codeGradientAngle) codeGradientAngle.textContent = angle;
             if (codeColor1) codeColor1.textContent = color1;
@@ -117,7 +110,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 codeAngle.classList.remove('code-update-highlight');
                 codeGradientAngle.classList.remove('code-update-highlight');
 
-                // Forzar reflow
                 void codeAngle.offsetWidth;
 
                 codeAngle.classList.add('code-update-highlight');
@@ -147,7 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Iniciar rotación
         function startRotation() {
             console.log('▶️ Iniciando rotación con velocidad:', speed);
 
@@ -170,7 +161,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Detener rotación
         function stopRotation() {
             console.log('⏸️ Deteniendo rotación');
 
@@ -187,7 +177,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Reiniciar
         function resetRotation() {
             console.log('🔄 Reiniciando rotación');
             stopRotation();
@@ -195,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
             updateAllDisplays();
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Actualizar velocidad
         function updateSpeed() {
             if (speedRange && speedValue) {
                 speed = parseInt(speedRange.value);
@@ -203,12 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 console.log('🎚️ Velocidad actualizada:', speed);
 
-                // ACTUALIZAR CÓDIGO EN EL PANEL
+                // actualiza codigo del panel 
                 if (codeInterval) {
                     codeInterval.textContent = speed;
                 }
 
-                // Si está corriendo, reiniciar con nueva velocidad
+                // Reiniciar con nueva velocidad
                 if (isRunning) {
                     startRotation();
                 }
@@ -217,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Actualizar color 1
         function updateColor1() {
             if (colorPicker1 && colorValue1) {
                 color1 = colorPicker1.value.toUpperCase();
@@ -225,7 +212,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 console.log('🎨 Color 1 actualizado:', color1);
 
-                // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeColor1) {
                     codeColor1.textContent = color1;
                 }
@@ -235,7 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ FUNCIÓN CORREGIDA: Actualizar color 2
         function updateColor2() {
             if (colorPicker2 && colorValue2) {
                 color2 = colorPicker2.value.toUpperCase();
@@ -243,7 +228,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 console.log('🎨 Color 2 actualizado:', color2);
 
-                // ACTUALIZAR CÓDIGO EN EL PANEL
                 if (codeColor2) {
                     codeColor2.textContent = color2;
                 }
@@ -253,11 +237,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ CONFIGURACIÓN DE EVENT LISTENERS
+        // Configuracion del EventListener
         function setupEventListeners() {
             console.log('🔌 Configurando event listeners...');
 
-            // Configurar eventos
             if (startBtn) {
                 startBtn.addEventListener('click', startRotation);
                 console.log('✅ Listener de start configurado');
@@ -296,9 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // ✅ INICIALIZACIÓN COMPLETA
         function initialize() {
-            console.log('🚀 Inicializando demo...');
 
             setupEventListeners();
 
@@ -346,14 +327,10 @@ document.addEventListener('DOMContentLoaded', () => {
         isRunning = false;
     }
 
-    // =======================================================
-    // FUNCIONALIDAD PARA MÚLTIPLES COLORES (LECCIÓN 3)
-    // =======================================================
+    // Seccion 3 - Multiples Colores
 
     function initializeMultiColorDemo() {
-        console.log('🎨 Inicializando demo de múltiples colores...');
 
-        // Elementos del DOM
         const colorStopsContainer = document.getElementById('color-stops-container');
         const multiColorDemoBox = document.getElementById('multi-color-demo-box');
         const multiColorCode = document.getElementById('multi-color-code');
@@ -411,7 +388,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
         };
 
-        // Función para renderizar los controles de color
+        // Renderizar los controles de color
         function renderColorStops() {
             colorStopsContainer.innerHTML = '';
 
@@ -434,14 +411,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 colorStopsContainer.appendChild(colorStopElement);
             });
 
-            // Agregar event listeners a los nuevos elementos
             attachColorStopEvents();
             updateDemo();
         }
 
-        // Función para agregar event listeners
+        // Agregar event listeners
         function attachColorStopEvents() {
-            // Eventos para selectores de color
             document.querySelectorAll('.color-preview').forEach(input => {
                 input.addEventListener('input', (e) => {
                     const index = parseInt(e.target.dataset.index);
@@ -487,7 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Función para actualizar la visualización del valor del color
+        // Actualizar la visualización del valor del color
         function updateColorValueDisplay(index) {
             const display = document.querySelector(`.color-value-display:nth-child(${index + 1})`);
             if (display) {
@@ -495,9 +470,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Función para actualizar el demo
+        // Actualizar el demo
         function updateDemo() {
-            // Ordenar stops por posición (por si acaso)
             colorStops.sort((a, b) => a.position - b.position);
 
             // Generar cadena de gradiente
@@ -510,17 +484,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Aplicar al demo box
             multiColorDemoBox.style.background = gradientString;
 
-            // Actualizar código
             updateCodeDisplay(gradientStops);
 
-            // Actualizar explicación
             updateExplanation();
 
-            // Actualizar marcadores de posición
             updatePositionMarkers();
         }
 
-        // Función para actualizar el código mostrado
+        // Actualizar el código mostrado
         function updateCodeDisplay(gradientStops) {
             const codeLines = gradientStops.split(', ')
                 .map(stop => `    ${stop}`)
@@ -531,7 +502,7 @@ document.addEventListener('DOMContentLoaded', () => {
 ${codeLines});</code>`;
         }
 
-        // Función para actualizar la explicación
+        // Actualizar la explicación
         function updateExplanation() {
             const explanation = colorStops.map((stop, index) => {
                 const colorName = getColorName(stop.color);
@@ -542,7 +513,7 @@ ${codeLines});</code>`;
                 `${colorStops.length} colores: ${explanation}`;
         }
 
-        // Función para obtener nombre aproximado del color
+        // Obtener nombre aproximado del color
         function getColorName(hexColor) {
             const colorMap = {
                 '#ff6b6b': 'Rojo',
@@ -562,7 +533,7 @@ ${codeLines});</code>`;
             return colorMap[hexColor.toLowerCase()] || hexColor.toUpperCase();
         }
 
-        // Función para actualizar marcadores de posición
+        // Actualizar marcadores de posición
         function updatePositionMarkers() {
             colorStopsOverlay.innerHTML = '';
 
@@ -582,7 +553,7 @@ ${codeLines});</code>`;
             });
         }
 
-        // Función para agregar un nuevo color
+        // Agregar un nuevo color
         function addColorStop() {
             if (colorStops.length >= 6) {
                 alert('Máximo 6 colores permitidos');
@@ -593,8 +564,8 @@ ${codeLines});</code>`;
             const lastPosition = colorStops[colorStops.length - 2].position;
             const newPosition = Math.min(lastPosition + 10, 90);
 
-            // Color intermedio (mezcla de los colores adyacentes)
-            const newColor = '#45b7d1'; // Color por defecto
+            // Color intermedio
+            const newColor = '#45b7d1'; 
 
             // Insertar nuevo stop
             colorStops.splice(colorStops.length - 1, 0, {
@@ -643,23 +614,13 @@ ${codeLines});</code>`;
             });
         });
 
-        // Inicializar
-        renderColorStops();
 
-        console.log('🎉 Demo de múltiples colores inicializado');
+        renderColorStops();
     }
 
-    // =======================================================
-    // LÓGICA DE CARGA DINÁMICA DE LECCIONES (FUNCIÓN ÚNICA)
-    // =======================================================
-
     function loadLesson(lessonNum) {
-        console.log(`📖 Cargando lección ${lessonNum}`);
 
-        // Detiene cualquier demo activa antes de cambiar
-        cleanupDemos();
-
-        // 1. Oculta TODAS las secciones de contenido
+        // Ocultar todas las secciones de contenido
         lessonContentSections.forEach(section => {
             section.classList.add('hidden-lesson');
         });
@@ -672,25 +633,20 @@ ${codeLines});</code>`;
             // 3. Inicializa la interactividad de la lección cargada
             setTimeout(() => {
                 if (lessonNum === '2') {
-                    console.log('🚀 Inicializando lección 2...');
                     initializeDirectionDemo();
                     initializeRotationDemo();
                 } else if (lessonNum === '3') {
-                    console.log('🚀 Inicializando lección 3...');
                     initializeMultiColorDemo();
                 }
             }, 100);
         }
     }
 
-    // =======================================================
-    // FUNCIONALIDAD PARA SECCIÓN 4 - PRÁCTICA
-    // =======================================================
+    // Seccion 4 - PRÁCTICA
 
     function initializePracticeSection() {
         console.log('🚀 Inicializando sección de práctica...');
 
-        // Elementos del DOM
         const cssEditor = document.getElementById('css-practice-editor');
         const applyBtn = document.getElementById('apply-css-btn');
         const resetBtn = document.getElementById('reset-practice-btn');
@@ -709,7 +665,6 @@ ${codeLines});</code>`;
         // Función para aplicar el CSS
         function applyCSS() {
             const cssCode = cssEditor.value;
-            console.log('🎨 Aplicando CSS:', cssCode);
 
             try {
                 // Extraer solo las propiedades del selector .mi-gradiente
@@ -735,14 +690,14 @@ ${codeLines});</code>`;
             }
         }
 
-        // Función para reiniciar
+        // Reiniciar
         function resetPractice() {
             console.log('🔄 Reiniciando práctica...');
             cssEditor.value = defaultCode;
             applyCSS();
         }
 
-        // Función para cargar ejemplo
+        // Cargar ejemplo
         function loadExample(gradientCode) {
             console.log('📝 Cargando ejemplo:', gradientCode);
 
@@ -757,7 +712,6 @@ ${codeLines});</code>`;
             cssEditor.value = newCode;
             applyCSS();
 
-            // Scroll suave al editor
             cssEditor.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
@@ -787,7 +741,6 @@ ${codeLines});</code>`;
         console.log('✅ Sección de práctica inicializada');
     }
 
-    // En la función loadLesson, agregar la inicialización de la sección 4
     // Modificar esta parte del código existente:
 
     function loadLesson(lessonNum) {
@@ -796,12 +749,12 @@ ${codeLines});</code>`;
         // Detiene cualquier demo activa antes de cambiar
         cleanupDemos();
 
-        // 1. Oculta TODAS las secciones de contenido
+        // 1. Oculta las secciones de contenido
         lessonContentSections.forEach(section => {
             section.classList.add('hidden-lesson');
         });
 
-        // 2. Muestra SOLAMENTE la sección activa
+        // 2. Muestra  la sección activa
         const activeLesson = document.getElementById(`lesson-content-${lessonNum}`);
         if (activeLesson) {
             activeLesson.classList.remove('hidden-lesson');
@@ -826,18 +779,14 @@ ${codeLines});</code>`;
     // Manejo de clics en el temario
     menuItems.forEach(item => {
         item.addEventListener('click', () => {
-            // Remueve la clase 'active' del menú anterior
             menuItems.forEach(i => i.classList.remove('active'));
-
-            // Añade 'active' al elemento clickeado
+            
             item.classList.add('active');
 
-            // Obtiene el número de lección y la carga
             const num = item.dataset.lesson;
             loadLesson(num);
         });
     });
 
-    // Cargar la primera lección por defecto al iniciar
     loadLesson('1');
 });

@@ -49,7 +49,7 @@
     font-family: Consolas, monospace;
 }
 
-/* === Contenido del Ejemplo (ahora es .lesson-example) === */
+/* === Contenido del Ejemplo === */
 .lesson-example {
     background: rgba(17,24,39,0.92); /* Fondo de tarjeta */
     border: 1px solid var(--border);
@@ -138,27 +138,22 @@
     display: block;
 }
 
-/* Scroll suave para toda la página */
 html {
     scroll-behavior: smooth;
 }
 
-/* 
-PLAYGROUND MEJORADO (Diseño más estético)
-*/
 
 /* Contenedor principal */
 .Playground-section {
   width: 100%;
-  max-width: 780px; /* 🔹 igual o un poco menor que tu bloque de teoría */
-  margin: 40px 465px; /* 🔹 auto garantiza el centrado horizontal */
+  max-width: 780px; 
+  margin: 40px 465px; 
   padding: 32px 40px;
   background: rgba(17,24,39,0.95);
   border: 1px solid var(--border);
   border-radius: 16px;
   box-shadow: 0 10px 35px rgba(0,0,0,0.45);
 
-  /* 🔹 centramos internamente todo el contenido */
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -355,7 +350,7 @@ APLICACIONES DEL GRADIENTE LINEAL
   box-shadow: 0 6px 20px rgba(255,147,23,0.6);
 }
 
-/* ANIMACIONES ESPECÍFICAS */
+/* Animaciones */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -368,7 +363,7 @@ APLICACIONES DEL GRADIENTE LINEAL
   100% { transform: scale(1); }
 }
 
-/* RESPONSIVE ESPECÍFICO PARA LINEAL */
+/* responsive */
 @media (max-width: 1200px) {
     .linear-layout {
         grid-template-columns: 260px 1fr; 
@@ -408,7 +403,7 @@ APLICACIONES DEL GRADIENTE LINEAL
 
 
 
-/* === ESTILOS PARA LECCIÓN MEJORADA === */
+/* === estilos  === */
 .concept-box {
     background: rgba(56, 189, 248, 0.1);
     border-left: 4px solid var(--accent);
@@ -480,7 +475,7 @@ APLICACIONES DEL GRADIENTE LINEAL
 }
 
 
-/* === ESTILOS PARA ESTRUCTURA UNIFICADA === */
+/* === estilos par la estructura === */
 
 .lesson-content {
     grid-column: 1 / -1; /* Ocupa todo el ancho disponible */
@@ -661,7 +656,7 @@ APLICACIONES DEL GRADIENTE LINEAL
 }
 
 
-/* === ESTILOS PARA CONTENIDO TÉCNICO MEJORADO === */
+/* === estilos de contenido === */
 
 /* Grid de etiquetas HTML */
 .tags-grid {
@@ -853,7 +848,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     margin-top: 25px;
 }
 
-/* === SYNTAX HIGHLIGHTING MEJORADO === */
+/* === Syntax hightlightting === */
 
 .code-panel.small {
     font-size: 0.85rem;
@@ -958,7 +953,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     margin: 3px 0;
 }
 
-/* === SYNTAX HIGHLIGHTING PROFESIONAL === */
+
 
 .css-comment {
     color: #6a9955; /* Verde para comentarios */
@@ -1042,7 +1037,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     font-family: inherit;
 }
 
-/* Breakdown del código mini */
+/* Breakdown del código */
 .code-breakdown-mini {
     background: rgba(255, 255, 255, 0.05);
     padding: 15px;
@@ -1113,7 +1108,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     margin: 10px 0;
 }
 
-/* === DISEÑO MEJORADO PARA PASO A PASO === */
+/* === diseño del paso a paso === */
 
 .journey-intro {
     display: flex;
@@ -1289,7 +1284,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     color: var(--muted);
 }
 
-/* Formatos de color mini */
+/* Formatos de color */
 .color-formats-mini {
     margin-top: 20px;
 }
@@ -1390,7 +1385,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     }
 }
 
-/* === DISEÑO MEJORADO PARA APLICACIONES === */
+/* === diseño aplicaciones === */
 
 .application-intro {
     display: flex;
@@ -1684,7 +1679,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     }
 }
 
-/* === DISEÑO MEJORADO PARA FORMATOS DE COLOR VERTICAL === */
+/* === diseño formato de color vertical === */
 
 .formats-intro {
     display: flex;
@@ -1988,7 +1983,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     }
 }
 
-/* === ESTILOS MEJORADOS PARA SECCIÓN 2 === */
+/* === estilos seccion 2 === */
 
 /* Grid de opciones de dirección */
 .direction-options-grid {
@@ -2105,7 +2100,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     transition: all 0.3s ease;
 }
 
-/* Sistema de ángulos mejorado */
+/* Sistema de ángulos */
 .angle-explanation-enhanced {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2374,7 +2369,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     font-weight: 600;
 }
 
-/* === ESTILOS PARA ACTUALIZACIÓN DE CÓDIGO EN TIEMPO REAL === */
+/* === estilos codigo en tiempo real === */
 
 .code-update-highlight {
     animation: codePulse 0.3s ease-in-out;
@@ -2451,7 +2446,7 @@ APLICACIONES DEL GRADIENTE LINEAL
 }
 
 
-/* === ESTILOS PARA SELECTORES DE COLOR === */
+/* === estilos para selectores de color === */
 .color-picker-controls {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -2583,7 +2578,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* === ESTILOS PARA SECCIÓN 3 - MÚLTIPLES COLORES === */
+/* === Estilos seccion 3  === */
 
 /* Controles de colores múltiples */
 .multi-color-controls {
@@ -2857,7 +2852,7 @@ APLICACIONES DEL GRADIENTE LINEAL
     font-size: 0.9rem;
 }
 
-/* === ESTILOS PARA SECCIÓN 4 - PRÁCTICA === */
+/* === estilos seccion 4 === */
 
 .practice-container {
     margin: 30px 0;
@@ -3229,14 +3224,12 @@ APLICACIONES DEL GRADIENTE LINEAL
     }
 }
 
-/* === BLOQUES DE CÓDIGO CENTRADOS === */
-/* === PANEL DE CÓDIGO MEJORADO (MÁS ANCHO Y CENTRADO) === */
-/* === PANEL DE CÓDIGO MEJORADO (MÁS COMPACTO) === */
-/* === PANEL DE CÓDIGO MEJORADO (MÁS COMPACTO) === */
+/* === Panel de codigo === */
+
 .code-panel.enhanced {
   width: 100%;
   max-width: 600px;
-  margin: 0 auto 20px auto;  /* 🔹 AGREGADO margin-bottom aquí */
+  margin: 0 auto 20px auto;  
   text-align: left;
   background: #1e1e1e;
   border-radius: 12px;
@@ -3251,7 +3244,6 @@ APLICACIONES DEL GRADIENTE LINEAL
   box-shadow: 0 12px 38px rgba(0, 0, 0, 0.7);
 }
 
-/* === CONTENIDO INTERNO MÁS COMPACTO === */
 .code-content.centered {
   display: block;
   font-size: 0.95rem;
@@ -3263,7 +3255,6 @@ APLICACIONES DEL GRADIENTE LINEAL
   overflow-x: auto;
 }
 
-/* 🔹 NUEVO: Asegura que pre y code no agreguen espacio extra */
 .code-content.centered pre {
   margin: 0;
   padding: 0;
@@ -3276,14 +3267,12 @@ APLICACIONES DEL GRADIENTE LINEAL
   white-space: pre;
 }
 
-/* 🔹 ESPECÍFICO: Separación en example-card */
 .example-card .code-panel.enhanced {
-  margin-bottom: 20px !important;  /* 🔹 Forzar separación */
+  margin-bottom: 20px !important;  
 }
 
-/* 🔹 NUEVO: Espacio entre todos los hijos de example-card */
 .example-card > * + * {
-  margin-top: 15px;  /* 🔹 Espacio entre elementos consecutivos */
+  margin-top: 15px;
 }
 
 

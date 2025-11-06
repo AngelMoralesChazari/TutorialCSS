@@ -1,49 +1,28 @@
-// ../js/Outline/outline.js
 document.addEventListener('DOMContentLoaded', () => {
     const menuItems = document.querySelectorAll('.lesson-list li');
-    const sections = document.querySelectorAll('.lesson-content'); // todas las secciones
+    const sections = document.querySelectorAll('.lesson-content'); 
     const HIDDEN_CLASS = 'hidden-lesson';
     const ACTIVE_CLASS = 'active';
 
     function showLessonByNumber(num) {
-        // 1) Oculta todas las secciones
         sections.forEach(sec => sec.classList.add(HIDDEN_CLASS));
-        // 2) Quita activo del menú
         menuItems.forEach(it => it.classList.remove(ACTIVE_CLASS));
 
-        // 3) Muestra la sección objetivo
+
         const targetId = `lesson-content-${num}`;
         const targetSection = document.getElementById(targetId);
         if (targetSection) {
             targetSection.classList.remove(HIDDEN_CLASS);
-            // 4) Marca activo el item correspondiente
             const currentItem = document.querySelector(`.lesson-list li[data-lesson="${num}"]`);
             if (currentItem) currentItem.classList.add(ACTIVE_CLASS);
 
-            // 5) Actualiza el hash para enlaces compartibles
             history.replaceState(null, '', `#${targetId}`);
         } else {
             console.warn('No se encontró la sección:', targetId);
         }
     }
 
-    // Click en el menú
-    menuItems.forEach(item => {
-        item.setAttribute('tabindex', '0'); // accesible con teclado
-        item.addEventListener('click', () => {
-            const num = item.getAttribute('data-lesson');
-            if (num) showLessonByNumber(num);
-        });
-        item.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                const num = item.getAttribute('data-lesson');
-                if (num) showLessonByNumber(num);
-            }
-        });
-    });
-
-    // === Sección 2: Mini-Lab Outline vs Border ===
+    // === Sección 2 ===
     (function setupOutlineVsBorderLab() {
         const borderWidth = document.getElementById('lab-border-width');
         const outlineWidth = document.getElementById('lab-outline-width');
@@ -56,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!borderWidth || !outlineWidth || !outlineOffset) return; // aún no estás en la sección visible
 
         const update = () => {
-            // Solo Border
+            // Border
             soloBorder.style.borderWidth = `${borderWidth.value}px`;
 
             // Border + Outline
@@ -64,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
             borderOutline.style.outlineWidth = `${outlineWidth.value}px`;
             borderOutline.style.outlineOffset = `${outlineOffset.value}px`;
 
-            // Solo Outline
+            //Outline
             soloOutline.style.outlineWidth = `${outlineWidth.value}px`;
             soloOutline.style.outlineOffset = `${outlineOffset.value}px`;
         };
@@ -73,11 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
         outlineWidth.addEventListener('input', update);
         outlineOffset.addEventListener('input', update);
 
-        // Inicial
         update();
     })();
 
-    // === Sección 3: Mini‑Lab Estilos y Colores ===
+    // === Sección 3 ===
     (function setupStylesColorsLab() {
         const styleSel = document.getElementById('style-select');
         const widthR = document.getElementById('width-range');
@@ -110,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         update();
     })();
 
-    // === Sección 4: Mini‑Lab Outline Offset ===
+    // === Sección 4 ===
     (function setupOutlineOffsetLab() {
         const w = document.getElementById('offlab-width');
         const o = document.getElementById('offlab-offset');
@@ -138,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
         update();
     })();
 
-    // === Sección 5: Mini‑Lab - Modos de foco en tiempo real ===
+    // === Sección 5 ===
     (function setupA11yLiveModes() {
         const btnDefault = document.getElementById('a11y-default');
         const btnCustom = document.getElementById('a11y-custom');
@@ -160,7 +138,6 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.remove('focus-ring', 'kbd-ring', 'focus-none');
         }
 
-        // Aplica un modo a un conjunto de elementos interactivos del lab
         function applyMode(mode) {
             // El lab afecta a los tres botones + el input del lab:
             const targets = [btnDefault, btnCustom, btnKbd, input];
@@ -170,43 +147,37 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Forzar a que se “vea” el estado inmediatamente
         function previewFocus(el) {
-            // Quita el foco actual y vuelve a enfocarlo para refrescar estilos
             el.blur();
             requestAnimationFrame(() => el.focus());
         }
 
-        // Modo: Default (estilo del navegador)
+        // Modo: Default 
         btnDefault.addEventListener('click', () => {
             applyMode('focus-none');
             setActiveButton(btnDefault);
             previewFocus(input);
         });
 
-        // Modo: Personalizado (focus-ring visible en focus/focus-visible)
+        // Modo: Personalizado 
         btnCustom.addEventListener('click', () => {
             applyMode('focus-ring');
             setActiveButton(btnCustom);
             previewFocus(input);
         });
 
-        // Modo: Solo teclado (usa :focus-visible)
+        // Modo: Solo teclado 
         btnKbd.addEventListener('click', () => {
             applyMode('kbd-ring');
             setActiveButton(btnKbd);
 
-            // Para demostrar focus-visible: si haces click no se verá, con Tab sí.
-            // Previsualizamos con teclado simulando un enfoque sin mouse:
             previewFocus(input);
         });
 
-        // Estado inicial: personalizado
         btnCustom.click();
     })();
 
-    // === Sección 6 (Outline): Práctica con panel de código + preview ===
-    // === PRACTICA OUTLINE ===
+    // === Sección 6 ===
     (function () {
         const ta = document.getElementById('outline-css-practice-editor');
         const preview = document.querySelector('#outline-practice-preview .mi-outline');
@@ -230,7 +201,6 @@ document.addEventListener('DOMContentLoaded', () => {
         function applyUserCSS() {
             if (!preview || !ta) return;
 
-            // Garantiza un contenedor único para scoping y más especificidad
             const scope = document.getElementById('outline-practice-preview');
 
             // Crea o reutiliza el <style> y colócalo al final del <head>
@@ -240,17 +210,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 styleEl.id = 'outline-practice-style';
                 document.head.appendChild(styleEl);
             } else {
-                // Re-append para dejarlo al final del head y ganar precedencia
+
                 document.head.appendChild(styleEl);
             }
 
-            // Aumenta especificidad y scopea las reglas del usuario al preview
-            // 1) parse simple: si el usuario pega ".mi-outline { ... }",
-            // la convertimos a "#outline-practice-preview .mi-outline { ... }"
             const raw = ta.value;
             const scoped = raw.replace(/(^|\s)\.mi-outline\s*(?=\{)/g, ' #outline-practice-preview .mi-outline');
 
-            // 2) Añade !important a propiedades conflictivas de outline/border para asegurar override
             const boosted = scoped.replace(/(outline(?:-offset|-width|-color)?\s*:\s*[^;]+;)/g, (m) => {
                 return m.includes('!important') ? m : m.replace(/;$/, ' !important;');
             }).replace(/(border(?:-width|-color|-style)?\s*:\s*[^;]+;)/g, (m) => {
@@ -259,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             styleEl.textContent = boosted;
 
-            // Accesibilidad
             preview.setAttribute('tabindex', '0');
         }
 
@@ -281,13 +246,12 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Primera carga
         applyUserCSS();
     })();
 
 
 
-    // Soporte de hash directo (ej: ...#lesson-content-4)
+    // Soporte de hash directo
     function initFromHash() {
         const hash = window.location.hash.replace('#', '');
         if (hash && /^lesson-content-\d+$/.test(hash)) {
@@ -295,10 +259,26 @@ document.addEventListener('DOMContentLoaded', () => {
             showLessonByNumber(num);
             return;
         }
-        // Fallback: muestra la primera (1)
+
         showLessonByNumber('1');
     }
 
     window.addEventListener('hashchange', initFromHash);
     initFromHash();
+
+    // Click en el menú
+    menuItems.forEach(item => {
+        item.setAttribute('tabindex', '0'); 
+        item.addEventListener('click', () => {
+            const num = item.getAttribute('data-lesson');
+            if (num) showLessonByNumber(num);
+        });
+        item.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const num = item.getAttribute('data-lesson');
+                if (num) showLessonByNumber(num);
+            }
+        });
+    });
 });
