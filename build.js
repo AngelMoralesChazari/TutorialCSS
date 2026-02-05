@@ -71,4 +71,14 @@ htmlFilesInDist.forEach(file => {
   fs.writeFileSync(filePath, content, 'utf8');
 });
 
+// Copiar robots.txt y sitemap.xml si existen en la raíz
+const robotsPath = path.join(__dirname, 'robots.txt');
+const sitemapPath = path.join(__dirname, 'sitemap.xml');
+if (fs.existsSync(robotsPath)) {
+  fs.copyFileSync(robotsPath, path.join(distDir, 'robots.txt'));
+}
+if (fs.existsSync(sitemapPath)) {
+  fs.copyFileSync(sitemapPath, path.join(distDir, 'sitemap.xml'));
+}
+
 console.log('✅ Build completado! Los archivos están listos en la carpeta dist/');
