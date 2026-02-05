@@ -1,0 +1,10 @@
+{
+  "name": "tutorial-css",
+  "version": "1.0.0",
+  "description": "Tutorial interactivo de CSS sobre gradientes, RGBA/HSLA y Outline",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "keywords": ["css", "tutorial", "gradientes"],
+  "author": "Angel Morales Chazari"
+}
