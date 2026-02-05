@@ -5,6 +5,9 @@
   "scripts": {
     "build": "node build.js"
   },
-  "keywords": ["css", "tutorial", "gradientes"],
+  "engines": {
+    "node": ">=18.x"
+  },
+  "keywords": ["css", "tutorial", "gradientes", "static-site"],
   "author": "Angel Morales Chazari"
 }
